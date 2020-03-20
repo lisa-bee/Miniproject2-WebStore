@@ -12,7 +12,6 @@ export default class ProductInfoBox extends React.Component<{}, {}> {
                 pad="medium" 
                 gap="medium" 
                 width="medium"
-                height="medium"
                 >
                     <Text>GRAYSCALE NR1 </Text>
                     <Text
