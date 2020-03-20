@@ -8,10 +8,9 @@ export default class ImageBox extends React.Component<{}, {}> {
     return (
       <Grommet theme={grommet}>
         <Box
-          pad="large"
+          pad="medium"
           align="center"
           background={{ color: "light-5", opacity: "strong" }}
-          gap="small"
           width="medium"
           height="medium"
         >
