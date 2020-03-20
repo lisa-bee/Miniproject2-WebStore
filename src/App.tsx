@@ -2,12 +2,14 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import { Grommet } from 'grommet';
+import CheckoutComponent from "./Checkout"
 
 function App() {
   return (
-    <div className="App">
-      <h1>HEJ</h1>
-    </div>
+    <CheckoutComponent />
+    // <div className="App">
+    //   <h1>HEJ</h1>
+    // </div>
   );
 }
 
