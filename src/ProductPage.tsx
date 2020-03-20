@@ -2,6 +2,7 @@ import React from "react";
 import { Grommet, Box, Button, Menu, Main } from "grommet";
 import { grommet } from "grommet/themes";
 import ImageBox from "./ImageBox";
+import ProductInfoBox from "./ProductInfoBox";
 
 export default class ProductPage extends React.Component<{}, {}> {
   render() {
@@ -14,7 +15,8 @@ export default class ProductPage extends React.Component<{}, {}> {
           pad="xlarge"
           background="light-1"
         >
-        <ImageBox/>
+        <ImageBox />
+        <ProductInfoBox />
         </Box>
       </Grommet>
     );
