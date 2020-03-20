@@ -2,9 +2,9 @@ import React from "react"
 import { Grommet, Box, Image } from "grommet";
 import { grommet } from "grommet/themes";
 
-
 export default class ImageBox extends React.Component<{}, {}> {
     render() {
+        let image = require("./assets/image1.jpg")
         return(
             <Grommet theme={grommet}>
                 <Box
@@ -17,10 +17,8 @@ export default class ImageBox extends React.Component<{}, {}> {
                 >
                     <Image
                         fit="cover"
-                        src="./image1.jpg"
+                        src={image}   
                     />
-
-            
                 </Box>
             </Grommet>
         )
