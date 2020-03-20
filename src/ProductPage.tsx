@@ -13,7 +13,7 @@ export default class ProductPage extends React.Component<{}, {}> {
           direction="row-responsive"
           justify="center"
           align="center"
-          pad="xlarge"
+          pad="large"
           background="light-1"
         >
         <ImageBox />
