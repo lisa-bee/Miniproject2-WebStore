@@ -1,12 +1,15 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-import { Grommet } from 'grommet';
-import Header1 from './Header'
+import React from "react";
+import "./App.css";
+import { Grommet } from "grommet";
+import ProductPage from "./ProductPage";
+import Header1 from "./Header";
 
 function App() {
   return (
-    <Header1 />
+    <div className="App">
+      <Header1 />
+      <ProductPage />
+    </div>
   );
 }
 
