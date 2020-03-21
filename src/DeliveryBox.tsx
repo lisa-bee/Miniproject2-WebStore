@@ -1,5 +1,6 @@
 import React from "react"
 import { Grommet, Box, Text, Form, FormField, Button } from "grommet"
+import { Home } from "grommet-icons";
 import { grommet } from "grommet/themes"
 
 export default class DeliveryBox extends React.Component<{}, {}> {
@@ -12,13 +13,23 @@ export default class DeliveryBox extends React.Component<{}, {}> {
                 gap="large"
                 width="large"
                 background="light-1"
-                >
+                >                   
+                    <Box
+                    direction="row"
+                    width="large"
+                    justify="between"
+                    >
                     <Text
                     size="large"
-                    alignSelf="start"
                     weight="bold"
                     >Delivery
                     </Text>
+                    <Home
+                    color="brand"
+                    >
+                    </Home>
+                    </Box>
+
                     <Form>
                         <FormField name="firstName" label="First Name" />
                         <FormField name="lastName" label="Last Name" />
@@ -27,7 +38,7 @@ export default class DeliveryBox extends React.Component<{}, {}> {
                         <FormField name="address" label="Address" />
                         <FormField name="city" label="City" />
                         <FormField name="postalCode" label="Postal Code" />
-                        <Button type="submit" primary label="CONFIRM & CONTINUE" />
+                        <Button fill="horizontal" type="submit" primary label="CONFIRM & CONTINUE" />
                     </Form>   
                 </Box>
 
