@@ -31,14 +31,14 @@ export default class DeliveryBox extends React.Component<{}, {}> {
                     </Box>
 
                     <Form>
-                        <FormField name="firstName" label="First Name" />
-                        <FormField name="lastName" label="Last Name" />
-                        <FormField name="email" label="Email" />
-                        <FormField name="phoneNumber" label="Phone Number" />
-                        <FormField name="address" label="Address" />
-                        <FormField name="city" label="City" />
-                        <FormField name="postalCode" label="Postal Code" />
-                        <Button fill="horizontal" type="submit" primary label="CONFIRM & CONTINUE" />
+                        <FormField name="firstName" label="First Name" placeholder="Type your first name here" />
+                        <FormField name="lastName" label="Last Name" placeholder="Type your last name here" />
+                        <FormField name="email" label="Email" placeholder="Type your email here" />
+                        <FormField name="phoneNumber" label="Phone Number" placeholder="Type your phone number here" />
+                        <FormField name="address" label="Address" placeholder="Type your address here" />
+                        <FormField name="city" label="City" placeholder="Type your city here" />
+                        <FormField name="postalCode" label="Postal Code" placeholder="Type your postal code here" />
+                        <Button type="submit" primary label="CONFIRM & CONTINUE" />
                     </Form>   
                 </Box>
 

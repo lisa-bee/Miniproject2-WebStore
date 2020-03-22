@@ -53,7 +53,7 @@ export default class PaymentBox extends React.Component<{}, {}> {
 
                           ]}
                         />
-                    <Button type="submit" primary label="COMPLETE PURCHASE" />
+                    <Button type="submit" alignSelf="center" primary label="COMPLETE PURCHASE" />
                 </Box>
             </Grommet>
         )
