@@ -1,8 +1,5 @@
-// @ts-nocheck
-// FRÅGA OM TYPNING PÅ "CONTROLS" I VIDEON
-
 import React, { CSSProperties } from "react";
-import { Box, Grommet, Video, Heading } from "grommet";
+import { Box, Grommet, Video } from "grommet";
 import { grommet } from "grommet/themes";
 
 export default class Header1 extends React.Component {
@@ -15,7 +12,7 @@ export default class Header1 extends React.Component {
             PERSONALIZE <br />
             YOUR HOME
           </h1>
-          <Video controls="false" autoPlay muted loop>
+          <Video controls="false" autoPlay mute loop>
             <source src={video} type="video/mp4" />
           </Video>
         </Box>
