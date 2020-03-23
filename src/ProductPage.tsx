@@ -4,7 +4,28 @@ import { grommet } from "grommet/themes";
 import ImageBox from "./ImageBox";
 import ProductInfoBox from "./ProductInfoBox";
 
-export default class ProductPage extends React.Component<{}, {}> {
+
+interface State {
+  isOpen: Boolean
+  }
+
+interface Props {
+
+}
+export default class ProductPage extends React.Component<Props, State> {
+  constructor(props: Props) {
+    super(props)
+
+    this.state = {
+      isOpen: false
+    }
+  }
+
+
+  handleCartClick = () => {
+    this.setState({ isOpen: !this.state.isOpen })
+   }
+
   render() {
     return (
       <div style={container}>
@@ -16,8 +37,12 @@ export default class ProductPage extends React.Component<{}, {}> {
           pad="large"
           background="light-1"
         >
+          {this.state.isOpen &&
+        <Box background="dark-5" height="small" width="medium" className="cartMessage" style={cartMessage}>
+         Continue shopping or go to cart? 
+        </Box>}
         <ImageBox />
-        <ProductInfoBox />
+        <ProductInfoBox handleCartClick={this.handleCartClick()} />
         </Box>
       </Grommet>
       </div>
@@ -28,4 +53,12 @@ export default class ProductPage extends React.Component<{}, {}> {
 
 const container: CSSProperties = {
  
+}
+
+const cartMessage: CSSProperties = {
+  display: "flex",
+  zIndex: 1,
+  position: "absolute", 
+  justifyContent: "center", 
+  alignItems: "center",
 }
