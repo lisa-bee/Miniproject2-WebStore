@@ -1,7 +1,8 @@
 import React from "react";
 import Hero from "./Hero";
-import { Box, Grommet } from "grommet";
+import { Box, Grommet, Button } from "grommet";
 import { grommet } from "grommet/themes";
+import { Link } from "react-router-dom";
 
 export default class StartPage extends React.Component {
   render() {
@@ -10,6 +11,9 @@ export default class StartPage extends React.Component {
         <Box direction="row-responsive" justify="center" align="center">
           <Hero />
         </Box>
+        <Link to="/productpage/">
+          <Button></Button>
+        </Link>
       </Grommet>
     );
   }
