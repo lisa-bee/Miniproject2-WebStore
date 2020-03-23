@@ -1,8 +1,9 @@
 import React from "react";
 import Hero from "./Hero";
-import { Box, Grommet } from "grommet";
+import { Box, Grommet, Button } from "grommet";
 import { grommet } from "grommet/themes";
 import AllProducts from "./AllProducts";
+import { Link } from "react-router-dom";
 
 export default class StartPage extends React.Component {
   render() {
@@ -12,6 +13,9 @@ export default class StartPage extends React.Component {
           <Hero />
         </Box>
         <AllProducts />
+        <Link to="/productpage/">
+          <Button></Button>
+        </Link>
       </Grommet>
     );
   }
