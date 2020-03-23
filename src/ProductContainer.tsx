@@ -7,14 +7,8 @@ export default class ProductContainer extends React.Component<{}, {}> {
     let image = require("./assets/image1.jpg");
     return (
       <Grommet theme={grommet}>
-        <Box
-          pad="medium"
-          align="center"
-          background={{ color: "light-5", opacity: "strong" }}
-          width="medium"
-          height="medium"
-        >
-          <Image fit="contain" src={image} />
+        <Box margin="small" width="small" height="small">
+          <Image fit="cover" src={image} />
         </Box>
       </Grommet>
     );

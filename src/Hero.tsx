@@ -7,7 +7,7 @@ export default class Header1 extends React.Component {
     let video = require("./assets/livingroom.mp4");
     return (
       <Grommet theme={grommet}>
-        <Box width="xxlarge" height="medium" justify="center" align="center">
+        <Box width="100%" height="medium" justify="center" align="center">
           <h1 style={heading()}>
             PERSONALIZE <br />
             YOUR HOME
