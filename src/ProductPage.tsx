@@ -22,6 +22,10 @@ export default class ProductPage extends React.Component<Props, State> {
     this.setState({ isOpen: !this.state.isOpen });
   }
 
+  closeDiv = () => {
+    this.setState({ isOpen: false})
+  }
+
   render() {
     return (
       <div style={container}>
@@ -43,8 +47,10 @@ export default class ProductPage extends React.Component<Props, State> {
               >
                 Continue shopping or go to cart?
                 <Box style={{ display: "flex", flexDirection: "row" }}>
-                  <Button margin="small" label="Continue" primary color="dark-1"></Button>
-                  <Button margin="small" label="Go to cart" primary color="dark-1"></Button>
+                  <Button onClick={this.closeDiv} margin="small" label="Continue" primary color="dark-1">
+                    {/* <Link></Link> */}
+                  </Button>
+                  <Button onClick={this.closeDiv} margin="small" label="Go to cart" primary color="dark-1"></Button>
                 </Box>
               </Box>
             )}
