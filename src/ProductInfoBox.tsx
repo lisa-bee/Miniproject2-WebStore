@@ -1,10 +1,36 @@
-import React from "react";
+import React, { CSSProperties } from "react";
 import { Grommet, Box, Button, Text, Menu } from "grommet";
 import { grommet } from "grommet/themes";
 
-export default class ProductInfoBox extends React.Component<{}, {}> {
+
+interface State {
+isOpen: Boolean
+}
+
+interface Props {
+
+}
+
+export default class ProductInfoBox extends React.Component<Props, State> {
+  constructor(props: Props) {
+    super(props)
+    
+    this.state = {
+      isOpen: false
+    }
+  }
+  
+  handleCartClick = () => {
+    this.setState({ isOpen: !this.state.isOpen })
+   }
+
   render() {
     return (
+      <div>
+        {this.state.isOpen &&
+        <div className="cartMessage" style={cartMessage}>
+          
+        </div>}
       <Grommet theme={grommet}>
         <Box pad="medium" gap="medium" width="medium">
           <Text>GRAYSCALE NR1 </Text>
@@ -24,7 +50,7 @@ export default class ProductInfoBox extends React.Component<{}, {}> {
             color="dark-1"
             label="Add to cart"
             onClick={() => {
-              alert("Continue shopping or go to cart?");
+              this.handleCartClick();
             }}
           ></Button>
           <Text size={"12pt"}>PRODUCT INFO</Text>
@@ -36,6 +62,16 @@ export default class ProductInfoBox extends React.Component<{}, {}> {
           </Text>
         </Box>
       </Grommet>
+      </div>
     );
   }
+}
+
+
+const cartMessage: CSSProperties = {
+  display: "flex",
+  zIndex: 1,
+  position: "absolute", 
+  justifyContent: "center", 
+  alignItems: "center",
 }
