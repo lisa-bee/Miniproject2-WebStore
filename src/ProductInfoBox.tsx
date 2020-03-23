@@ -8,30 +8,30 @@ isOpen: Boolean
 }
 
 interface Props {
-
 }
 
 export default class ProductInfoBox extends React.Component<Props, State> {
-  constructor(props: Props) {
+  static state: any;
+  /* constructor(props: Props) {
     super(props)
     
     this.state = {
       isOpen: false
     }
-  }
+  } */
   
-  handleCartClick = () => {
+  /* handleCartClick = () => {
     this.setState({ isOpen: !this.state.isOpen })
-   }
+   } */
 
   render() {
     return (
       <div>
-        {this.state.isOpen &&
-        <div className="cartMessage" style={cartMessage}>
-          
-        </div>}
       <Grommet theme={grommet}>
+        {/* {this.state.isOpen &&
+        <Box background="dark-5" height="small" width="medium" className="cartMessage" style={cartMessage}>
+         Continue shopping or go to cart? 
+        </Box>} */}
         <Box pad="medium" gap="medium" width="medium">
           <Text>GRAYSCALE NR1 </Text>
           <Text size={"20pt"}>249 SEK</Text>
@@ -50,7 +50,7 @@ export default class ProductInfoBox extends React.Component<Props, State> {
             color="dark-1"
             label="Add to cart"
             onClick={() => {
-              this.handleCartClick();
+              this.props.handleCartClick();
             }}
           ></Button>
           <Text size={"12pt"}>PRODUCT INFO</Text>
@@ -68,10 +68,10 @@ export default class ProductInfoBox extends React.Component<Props, State> {
 }
 
 
-const cartMessage: CSSProperties = {
+/* const cartMessage: CSSProperties = {
   display: "flex",
   zIndex: 1,
   position: "absolute", 
   justifyContent: "center", 
   alignItems: "center",
-}
+} */
