@@ -41,6 +41,7 @@ export default class ShippingBox extends React.Component<{}, {}> {
             type="submit"
             alignSelf="center"
             primary
+            color="dark-1"
             label="CONFIRM & CONTINUE"
           />
         </Box>

@@ -40,6 +40,7 @@ export default class PaymentBox extends React.Component<{}, {}> {
           <Button
             type="submit"
             alignSelf="center"
+            color="dark-1"
             primary
             label="COMPLETE PURCHASE"
           />

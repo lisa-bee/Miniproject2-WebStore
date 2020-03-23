@@ -14,7 +14,6 @@ export default class DeliveryBox extends React.Component<{}, {}> {
             </Text>
             <Home color="brand"></Home>
           </Box>
-
           <Form>
             <FormField
               name="firstName"
@@ -51,8 +50,14 @@ export default class DeliveryBox extends React.Component<{}, {}> {
               label="Postal Code"
               placeholder="Type your postal code here"
             />
-            <Button type="submit" primary label="CONFIRM & CONTINUE" />
           </Form>
+          <Button
+            type="submit"
+            color="dark-1"
+            alignSelf="center"
+            primary
+            label="CONFIRM & CONTINUE"
+          />
         </Box>
       </Grommet>
     );

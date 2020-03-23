@@ -91,6 +91,7 @@ export default class CartBox extends React.Component<{}, {}> {
             alignSelf="center"
             primary
             label="CONFIRM & CONTINUE"
+            color="dark-1"
           />
         </Box>
       </Grommet>
