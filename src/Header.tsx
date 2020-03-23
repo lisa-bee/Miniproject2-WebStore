@@ -2,6 +2,7 @@ import React, { CSSProperties } from "react";
 import { Box, Grommet, Header, Image, Button } from "grommet";
 import { grommet } from "grommet/themes";
 import { Cart } from "grommet-icons";
+import { Link } from "react-router-dom";
 
 export default class Header1 extends React.Component {
   render() {
@@ -10,29 +11,27 @@ export default class Header1 extends React.Component {
       <Grommet theme={grommet}>
         <Header justify="between" background="light-1" pad="medium">
           <Box>
+            <Link to="/startpage/">
             <Image fit="contain" src={image} />
+            </Link>
           </Box>
+          <Link to="/checkoutpage">
           <Box direction="row" align="center">
             <div style={shoppingCountContainer()}>
               <p style={shoppingCount()}>0</p>
             </div>
             <Cart
-              onClick={() => {
-                alert("Shopping cart");
-              }}
               color="plain"
               size="medium"
             />
             <Button
-              margin="small"
               primary
+              margin="small"
               color="dark-1"
               label="Go to check out"
-              onClick={() => {
-                alert("Shopping cart");
-              }}
             ></Button>
           </Box>
+          </Link>
         </Header>
       </Grommet>
     );

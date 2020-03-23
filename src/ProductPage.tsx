@@ -3,6 +3,7 @@ import { Grommet, Box, Button } from "grommet";
 import { grommet } from "grommet/themes";
 import ImageBox from "./ImageBox";
 import ProductInfoBox from "./ProductInfoBox";
+import { Link } from "react-router-dom";
 
 interface State {
   isOpen: Boolean;
@@ -20,11 +21,11 @@ export default class ProductPage extends React.Component<Props, State> {
 
   handleCartClick = () => {
     this.setState({ isOpen: !this.state.isOpen });
-  }
+  };
 
   closeDiv = () => {
-    this.setState({ isOpen: false})
-  }
+    this.setState({ isOpen: false });
+  };
 
   render() {
     return (
@@ -45,12 +46,25 @@ export default class ProductPage extends React.Component<Props, State> {
                 className="cartMessage"
                 style={cartMessage}
               >
-                Continue shopping or go to cart?
+                <h1>Item added to cart!</h1>
+                <p>Continue shopping or go to cart?</p>
                 <Box style={{ display: "flex", flexDirection: "row" }}>
-                  <Button onClick={this.closeDiv} margin="small" label="Continue" primary color="dark-1">
-                    {/* <Link></Link> */}
-                  </Button>
-                  <Button onClick={this.closeDiv} margin="small" label="Go to cart" primary color="dark-1"></Button>
+                    <Button
+                      onClick={this.closeDiv}
+                      margin="small"
+                      label="Continue"
+                      primary
+                      color="dark-1"
+                    ></Button>
+                  <Link to="/checkoutpage/">
+                    <Button
+                      onClick={this.closeDiv}
+                      margin="small"
+                      label="Go to cart"
+                      primary
+                      color="dark-1"
+                    ></Button>
+                  </Link>
                 </Box>
               </Box>
             )}
@@ -63,9 +77,7 @@ export default class ProductPage extends React.Component<Props, State> {
   }
 }
 
-const container: CSSProperties = {
-
-};
+const container: CSSProperties = {};
 
 const cartMessage: CSSProperties = {
   display: "flex",
