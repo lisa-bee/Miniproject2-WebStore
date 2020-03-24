@@ -11,8 +11,8 @@ export default class Header1 extends React.Component {
       <Grommet theme={grommet}>
         <Header justify="between" background="light-1" pad="medium">
           <Box>
-            <Link to="/startpage/">
-              <Image fit="contain" src={image} />
+            <Link to="/">
+            <Image fit="contain" src={image} />
             </Link>
           </Box>
           <Link to="/checkoutpage">
