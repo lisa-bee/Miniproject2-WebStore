@@ -13,14 +13,14 @@ function App() {
       <div className="App">
         <Header1 />
         <Switch>
-          <Route path="/startpage/">
-            <StartPage />
-          </Route>
           <Route path="/productpage/">
             <ProductPage />
           </Route>
           <Route path="/checkoutpage/">
             <CheckoutPage />
+          </Route>
+          <Route path="/">
+            <StartPage />
           </Route>
         </Switch>
       </div>
