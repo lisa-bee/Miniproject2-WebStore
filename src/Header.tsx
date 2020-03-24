@@ -1,6 +1,5 @@
 import React, { CSSProperties } from "react";
-import { Box, Grommet, Header, Image, Button } from "grommet";
-import { grommet } from "grommet/themes";
+import { Box, Header, Image, Button } from "grommet";
 import { Cart } from "grommet-icons";
 import { Link } from "react-router-dom";
 
@@ -8,7 +7,6 @@ export default class Header1 extends React.Component {
   render() {
     let image = require("./assets/logo.png");
     return (
-      <Grommet theme={grommet}>
         <Header justify="between" background="light-1" pad="medium">
           <Box>
             <Link to="/">
@@ -30,7 +28,6 @@ export default class Header1 extends React.Component {
             </Box>
           </Link>
         </Header>
-      </Grommet>
     );
   }
 }
