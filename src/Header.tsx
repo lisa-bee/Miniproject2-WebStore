@@ -9,7 +9,7 @@ export default class Header1 extends React.Component {
     return (
         <Header justify="between" background="light-1" pad="medium">
           <Box>
-            <Link to="/startpage/">
+            <Link to="/">
             <Image fit="contain" src={image} />
             </Link>
           </Box>

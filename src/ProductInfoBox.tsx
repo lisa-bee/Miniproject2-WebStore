@@ -26,7 +26,7 @@ export default class ProductInfoBox extends React.Component<Props, State> {
           <Box pad="medium" gap="medium" width="medium" background="light-1">
             <Box direction="row" justify="between">
               <Text>GRAYSCALE NR1 </Text>
-              <Link to="/startpage/">
+              <Link to="/">
               <Close />
               </Link>
             </Box>
