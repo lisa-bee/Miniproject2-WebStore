@@ -4,7 +4,6 @@ import CartBox from "./CartBox";
 import DeliveryBox from "./DeliveryBox";
 import ShippingBox from "./ShippingBox";
 import PaymentBox from "./PaymentBox";
-import ImageBox from "./ImageBox";
 
 interface Props {
 }

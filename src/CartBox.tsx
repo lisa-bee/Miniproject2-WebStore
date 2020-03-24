@@ -11,7 +11,6 @@ import {
   List
 } from "grommet";
 import { Cart, FormAdd, FormSubtract, FormTrash } from "grommet-icons";
-import { Item } from "./ProductPage";
 
 interface Props {
 
