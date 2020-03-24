@@ -1,6 +1,5 @@
 import React from "react";
-import { Grommet, Box, Button, Text, Menu } from "grommet";
-import { grommet } from "grommet/themes";
+import { Box, Button, Text, Menu } from "grommet";
 import { Close } from "grommet-icons";
 import { Link } from "react-router-dom";
 
@@ -24,7 +23,6 @@ export default class ProductInfoBox extends React.Component<Props, State> {
   render() {
     return (
       <div>
-        <Grommet theme={grommet}>
           <Box pad="medium" gap="medium" width="medium" background="light-1">
             <Box direction="row" justify="between">
               <Text>GRAYSCALE NR1 </Text>
@@ -57,7 +55,6 @@ export default class ProductInfoBox extends React.Component<Props, State> {
               illum odit, incidunt labore quam.
             </Text>
           </Box>
-        </Grommet>
       </div>
     );
   }

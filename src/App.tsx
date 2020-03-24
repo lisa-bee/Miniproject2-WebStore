@@ -1,5 +1,6 @@
 import React from "react";
 import { Grommet } from "grommet";
+import { grommet } from "grommet/themes";
 import "./App.css";
 import ProductPage from "./ProductPage";
 import CheckoutPage from "./CheckoutPage";
@@ -11,18 +12,20 @@ function App() {
   return (
     <BrowserRouter>
       <div className="App">
-        <Header1 />
-        <Switch>
-          <Route path="/startpage/">
-            <StartPage />
-          </Route>
-          <Route path="/productpage/">
-            <ProductPage />
-          </Route>
-          <Route path="/checkoutpage/">
-            <CheckoutPage />
-          </Route>
-        </Switch>
+        <Grommet theme={grommet}>
+          <Header1 />
+          <Switch>
+            <Route path="/startpage/">
+              <StartPage />
+            </Route>
+            <Route path="/productpage/">
+              <ProductPage />
+            </Route>
+            <Route path="/checkoutpage/">
+              <CheckoutPage />
+            </Route>
+          </Switch>
+        </Grommet>
       </div>
     </BrowserRouter>
   );

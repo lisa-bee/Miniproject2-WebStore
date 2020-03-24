@@ -1,6 +1,5 @@
 import React from "react";
 import {
-  Grommet,
   Box,
   Text,
   Button,
@@ -11,12 +10,10 @@ import {
   TableBody
 } from "grommet";
 import { Cart, FormAdd, FormSubtract, FormTrash } from "grommet-icons";
-import { grommet } from "grommet/themes";
 
 export default class CartBox extends React.Component<{}, {}> {
   render() {
     return (
-      <Grommet theme={grommet}>
         <Box pad="xlarge" gap="large" width="large" background="light-1">
           <Box direction="row" width="large" justify="between">
             <Text size="large" weight="bold">
@@ -94,7 +91,6 @@ export default class CartBox extends React.Component<{}, {}> {
             color="dark-1"
           />
         </Box>
-      </Grommet>
     );
   }
 }
