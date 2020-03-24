@@ -3,20 +3,22 @@ import { Box, Button, Text, Menu } from "grommet";
 import { Close } from "grommet-icons";
 import { Link } from "react-router-dom";
 
-interface State {
-  isOpen: Boolean;
-}
-
 interface Props {
   handleCartClick: () => void;
 }
+interface State {
+  isOpen: Boolean;
+  items: any[];
+}
+
 
 export default class ProductInfoBox extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props);
 
     this.state = {
-      isOpen: false
+      isOpen: false,
+      items: []
     };
   }
 

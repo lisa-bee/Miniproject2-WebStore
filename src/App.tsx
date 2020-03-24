@@ -8,6 +8,8 @@ import Header1 from "./Header";
 import StartPage from "./StartPage";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 
+
+
 function App() {
   return (
     <BrowserRouter>
