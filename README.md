@@ -2,6 +2,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 # Mini project-Web store
 
+Since there's a bug in Grommets typing, you need to ctr-click (Windows) or cmd-click (Mac) on the Video component in Hero.tsx so that the file "index.d.ts" opens. On line number 16 you need to change to: "declare const Video: React.ComponentClass<VideoProps>;
 
 ## Available Scripts
 

@@ -1,12 +1,10 @@
 import React from "react";
-import { Grommet, Box, Text, RadioButtonGroup, Button } from "grommet";
+import { Box, Text, RadioButtonGroup, Button } from "grommet";
 import { Money } from "grommet-icons";
-import { grommet } from "grommet/themes";
 
 export default class PaymentBox extends React.Component<{}, {}> {
   render() {
     return (
-      <Grommet theme={grommet}>
         <Box pad="xlarge" gap="large" width="large" background="light-1">
           <Box direction="row" justify="between" width="large">
             <Text size="large" alignSelf="start" weight="bold">
@@ -45,7 +43,6 @@ export default class PaymentBox extends React.Component<{}, {}> {
             label="COMPLETE PURCHASE"
           />
         </Box>
-      </Grommet>
     );
   }
 }

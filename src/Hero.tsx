@@ -1,12 +1,10 @@
 import React, { CSSProperties } from "react";
-import { Box, Grommet, Video } from "grommet";
-import { grommet } from "grommet/themes";
+import { Box, Video } from "grommet";
 
 export default class Header1 extends React.Component {
   render() {
     let video = require("./assets/livingroom.mp4");
     return (
-      <Grommet theme={grommet}>
         <Box width="xxlarge" height="medium" justify="center" align="center">
           <h1 style={heading()}>
             PERSONALIZE <br />
@@ -16,7 +14,6 @@ export default class Header1 extends React.Component {
             <source src={video} type="video/mp4" />
           </Video>
         </Box>
-      </Grommet>
     );
   }
 }

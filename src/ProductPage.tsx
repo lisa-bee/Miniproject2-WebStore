@@ -1,6 +1,5 @@
 import React, { CSSProperties } from "react";
-import { Grommet, Box, Button } from "grommet";
-import { grommet } from "grommet/themes";
+import { Box, Button } from "grommet";
 import ImageBox from "./ImageBox";
 import ProductInfoBox from "./ProductInfoBox";
 import { Link } from "react-router-dom";
@@ -30,7 +29,6 @@ export default class ProductPage extends React.Component<Props, State> {
   render() {
     return (
       <div style={container}>
-        <Grommet theme={grommet}>
           <Box
             direction="row-responsive"
             justify="center"
@@ -71,7 +69,6 @@ export default class ProductPage extends React.Component<Props, State> {
             <ImageBox />
             <ProductInfoBox handleCartClick={this.handleCartClick} />
           </Box>
-        </Grommet>
       </div>
     );
   }
