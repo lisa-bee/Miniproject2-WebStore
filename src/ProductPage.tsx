@@ -8,7 +8,9 @@ interface State {
   isOpen: Boolean;
 }
 
-interface Props {}
+interface Props {
+  addToCart: [];
+}
 export default class ProductPage extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props);
@@ -25,6 +27,10 @@ export default class ProductPage extends React.Component<Props, State> {
   closeDiv = () => {
     this.setState({ isOpen: false });
   };
+
+  addItemsToCart = () => {
+    
+  }
 
   render() {
     return (
