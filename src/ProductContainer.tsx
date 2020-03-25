@@ -2,18 +2,26 @@ import React, { CSSProperties } from "react";
 import { Grommet, Box, Image } from "grommet";
 import { grommet } from "grommet/themes";
 
-export default class ProductContainer extends React.Component<{}, {}> {
+interface Props {
+  title: string;
+  price: number;
+  image: string;
+  description: string;
+}
+
+interface State {}
+
+export default class ProductContainer extends React.Component<Props, State> {
   render() {
-    let image = require("./assets/image1.jpg");
     return (
       <Grommet theme={grommet}>
         <Box align="center">
-          <Box margin="small" width="small" height="small">
-            <Image fit="cover" src={image} />
+          <Box margin="small" width="medium" height="medium">
+            <Image fit="contain" src={this.props.image} />
           </Box>
           <Box align="center">
-            <p style={noMargin()}>Title</p>
-            <p style={noMargin()}>249 SEK</p>
+            <p style={noMargin()}>{this.props.title}</p>
+            <p style={noMargin()}>{this.props.price} SEK</p>
           </Box>
         </Box>
       </Grommet>
