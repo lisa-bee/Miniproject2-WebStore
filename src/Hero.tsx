@@ -20,7 +20,7 @@ export default class Header1 extends React.Component {
 
 const heading = (): CSSProperties => ({
   position: "absolute",
-  top: "12rem",
+  top: "10rem",
   zIndex: 2,
   width: "100%",
   color: "#3d138d",
