@@ -5,7 +5,13 @@ import DeliveryBox from "./DeliveryBox";
 import ShippingBox from "./ShippingBox";
 import PaymentBox from "./PaymentBox";
 
-export default class CheckoutPage extends React.Component<{}, {}> {
+interface Props {
+}
+
+interface State {
+}
+
+export default class CheckoutPage extends React.Component<Props, State> {
   render() {
     return (
         <Main

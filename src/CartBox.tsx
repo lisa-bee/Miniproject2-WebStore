@@ -10,10 +10,34 @@ import {
   TableBody
 } from "grommet";
 import { Cart, FormAdd, FormSubtract, FormTrash } from "grommet-icons";
+import { CartConsumer } from "./contexts/CartContext";
 
-export default class CartBox extends React.Component<{}, {}> {
+interface Props {}
+
+interface State {
+  items: any[];
+}
+
+export default class CartBox extends React.Component<Props, State> {
+  constructor(props: Props) {
+    super(props);
+
+    this.state = {
+      items: []
+    };
+  }
+
+  /* addItemsToCart = () => {
+   this.state.items.push("Product");
+   this.forceUpdate();
+   console.log(this.state.items)
+    
+  } */
+
   render() {
     return (
+      <CartConsumer>
+        {({ items, addProductToCart }) => (
         <Box pad="xlarge" gap="large" width="large" background="light-1">
           <Box direction="row" width="large" justify="between">
             <Text size="large" weight="bold">
@@ -38,8 +62,8 @@ export default class CartBox extends React.Component<{}, {}> {
               </TableHeader>
               <TableBody>
                 <TableRow>
-                  <TableCell scope="row">Abstract</TableCell>
-                  <TableCell>1</TableCell>
+                  <TableCell scope="row">{items}</TableCell>
+                  {/* <TableCell>1</TableCell>
                   <TableCell>299 SEK</TableCell>
                   <TableCell>
                     <FormAdd></FormAdd>
@@ -67,7 +91,7 @@ export default class CartBox extends React.Component<{}, {}> {
                     <FormAdd></FormAdd>
                     <FormSubtract></FormSubtract>
                     <FormTrash></FormTrash>
-                  </TableCell>
+                  </TableCell> */}
                 </TableRow>
                 <TableRow>
                   <TableCell scope="row">
@@ -84,6 +108,7 @@ export default class CartBox extends React.Component<{}, {}> {
             </Table>
           </Box>
           <Button
+            onClick={() => addProductToCart}
             type="submit"
             alignSelf="center"
             primary
@@ -91,6 +116,8 @@ export default class CartBox extends React.Component<{}, {}> {
             color="dark-1"
           />
         </Box>
+        )}
+        </CartConsumer>
     );
   }
 }

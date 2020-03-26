@@ -2,32 +2,38 @@ import React, { CSSProperties } from "react";
 import { Box, Header, Image, Button } from "grommet";
 import { Cart } from "grommet-icons";
 import { Link } from "react-router-dom";
+import { CartConsumer } from "./contexts/CartContext";
 
 export default class Header1 extends React.Component {
   render() {
     let image = require("./assets/logo.png");
     return (
-      <Header justify="between" background="light-1" pad="small">
-        <Box>
-          <Link to="/">
-            <Image fit="contain" src={image} />
-          </Link>
-        </Box>
-        <Link to="/checkoutpage">
-          <Box direction="row" align="center">
-            <div style={shoppingCountContainer()}>
-              <p style={shoppingCount()}>0</p>
-            </div>
-            <Cart color="plain" size="medium" />
-            <Button
-              primary
-              margin="small"
-              color="dark-1"
-              label="Go to check out"
-            ></Button>
-          </Box>
-        </Link>
-      </Header>
+      <CartConsumer>
+        {({ items, addProductToCart }) => (
+          <Header justify="between" background="light-1" pad="small">
+            <Box>
+              <Link to="/">
+                <Image fit="contain" src={image} />
+              </Link>
+            </Box>
+            <Link to="/checkoutpage">
+              <Box direction="row" align="center">
+                <div style={shoppingCountContainer()}>
+                  <p style={shoppingCount()}>{items.length}</p>
+                </div>
+                <Cart color="plain" size="medium" />
+                <Button
+                  primary
+                  margin="small"
+                  color="dark-1"
+                  label="Go to check out"
+                  //onClick={() => addProductToCart(product)}
+                ></Button>
+              </Box>
+            </Link>
+          </Header>
+        )}
+      </CartConsumer>
     );
   }
 }

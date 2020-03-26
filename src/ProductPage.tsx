@@ -4,28 +4,49 @@ import ImageBox from "./ImageBox";
 import ProductInfoBox from "./ProductInfoBox";
 import { Link } from "react-router-dom";
 
-interface State {
-  isOpen: Boolean;
+/* export type Item = {
+  name: string,
+  price: number,
+  image: string,
+} */
+interface Props {
+ 
 }
 
-interface Props {}
+interface State {
+  isOpen: Boolean;
+  items: any[];
+}
+
+
+
 export default class ProductPage extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props);
 
     this.state = {
-      isOpen: false
+      isOpen: false,
+      items: []
+
     };
   }
 
   handleCartClick = () => {
     this.setState({ isOpen: !this.state.isOpen });
+    this.addItemsToCart();
+
   };
 
   closeDiv = () => {
     this.setState({ isOpen: false });
   };
 
+  addItemsToCart = () => {
+    this.state.items.push("Product");
+    this.forceUpdate();
+  }
+
+ 
   render() {
     return (
       <div style={container}>
