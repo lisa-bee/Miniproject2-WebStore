@@ -17,6 +17,7 @@ export default class DeliveryBox extends React.Component<{}, {}> {
               name="firstName"
               label="First Name"
               placeholder="Type your first name here"
+              required validate={{ regexp: /^[a-z]/i }}
             />
             <FormField
               name="lastName"
