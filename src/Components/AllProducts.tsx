@@ -1,9 +1,9 @@
-import React from "react";
-import { Grommet, Box } from "grommet";
+import React, { CSSProperties } from "react";
+import { Box } from "grommet";
 import { grommet } from "grommet/themes";
 import ProductContainer from "./ProductContainer";
-import { timingSafeEqual } from "crypto";
-import { data } from "./products";
+import { data } from "../products";
+import ConfirmationPopup from "./ConfirmationPopup";
 
 export type Product = {
   index: number;
@@ -17,6 +17,7 @@ interface Props {}
 
 interface State {
   allProducts: Product[];
+  isOpen: boolean;
 }
 
 export default class AllProducts extends React.Component<Props, State> {
@@ -24,28 +25,23 @@ export default class AllProducts extends React.Component<Props, State> {
     super(props);
 
     this.state = {
-      allProducts: data
+      allProducts: data,
+      isOpen: false
     };
   }
 
-  // async fetchData() {
-  //   fetch("products.json")
-  //     .then(response => {
-  //       return response.json() as Promise<{ data: Array<Product> }>;
-  //     })
-  //     .then(data => {
-  //       this.setState({
-  //         allProducts: data.data
-  //       });
-  //     });
+  handleCartClick = () => {
+    this.setState({ isOpen: !this.state.isOpen });
+    // this.addItemsToCart();
+  };
 
-  //     // this.setState({allProducts: data})
-  // }
-
+  closeDiv = () => {
+    this.setState({ isOpen: false });
+  };
 
   render() {
     return (
-      <Grommet theme={grommet}>
+      <>
         <Box
           width="100%"
           justify="center"
@@ -54,6 +50,12 @@ export default class AllProducts extends React.Component<Props, State> {
           direction="row-responsive"
           pad="medium"
         >
+          {this.state.isOpen && (
+            <div style={popup()}>
+              <ConfirmationPopup closeDiv={this.closeDiv} />
+            </div>
+          )}
+
           {this.state.allProducts.map(product => {
             return (
               <ProductContainer
@@ -62,11 +64,22 @@ export default class AllProducts extends React.Component<Props, State> {
                 image={product.image}
                 price={product.price}
                 description={product.description}
+                handleCartClick={this.handleCartClick}
               />
             );
           })}
         </Box>
-      </Grommet>
+      </>
     );
   }
 }
+
+const popup = (): CSSProperties => ({
+  height: "100%",
+  width: "100%",
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  position: "fixed",
+  top: 0
+});

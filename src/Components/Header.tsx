@@ -2,11 +2,11 @@ import React, { CSSProperties } from "react";
 import { Box, Header, Image, Button } from "grommet";
 import { Cart } from "grommet-icons";
 import { Link } from "react-router-dom";
-import { CartConsumer } from "./contexts/CartContext";
+import { CartConsumer } from "../contexts/CartContext";
 
 export default class Header1 extends React.Component {
   render() {
-    let image = require("./assets/logo.png");
+    let image = require("../assets/logo.png");
     return (
       <CartConsumer>
         {({ items, addProductToCart }) => (
