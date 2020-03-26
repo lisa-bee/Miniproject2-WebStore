@@ -4,11 +4,11 @@ import ImageBox from "./ImageBox";
 import ProductInfoBox from "./ProductInfoBox";
 import { Link } from "react-router-dom";
 
-export type Item = {
+/* export type Item = {
   name: string,
   price: number,
   image: string,
-}
+} */
 interface Props {
  
 }

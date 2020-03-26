@@ -33,6 +33,7 @@ export class CartProvider extends React.Component<Props, State> {
     }
 
     addProductToCart = (product: Product) => {
+        this.state.items.push()
         /* save to state */
         // Add a new cartItem or just update the quantity (finns product.id i this.state.items[].id)
     }

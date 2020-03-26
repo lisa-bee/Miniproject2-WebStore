@@ -7,14 +7,12 @@ import {
   TableHeader,
   TableRow,
   TableCell,
-  TableBody,
-  List
+  TableBody
 } from "grommet";
 import { Cart, FormAdd, FormSubtract, FormTrash } from "grommet-icons";
+import { CartConsumer } from "./contexts/CartContext";
 
-interface Props {
-
-}
+interface Props {}
 
 interface State {
   items: any[];
@@ -22,24 +20,25 @@ interface State {
 
 export default class CartBox extends React.Component<Props, State> {
   constructor(props: Props) {
-    super(props) 
+    super(props);
 
     this.state = {
       items: []
-
-    }
+    };
   }
 
-  addItemsToCart = () => {
+  /* addItemsToCart = () => {
    this.state.items.push("Product");
    this.forceUpdate();
    console.log(this.state.items)
     
-  }
-  
+  } */
+
   render() {
     return (
-    <Box pad="xlarge" gap="large" width="large" background="light-1">
+      <CartConsumer>
+        {({ items, addProductToCart }) => (
+        <Box pad="xlarge" gap="large" width="large" background="light-1">
           <Box direction="row" width="large" justify="between">
             <Text size="large" weight="bold">
               Cart
@@ -63,7 +62,7 @@ export default class CartBox extends React.Component<Props, State> {
               </TableHeader>
               <TableBody>
                 <TableRow>
-                  <TableCell scope="row">{this.state.items}</TableCell>
+                  <TableCell scope="row">{items}</TableCell>
                   {/* <TableCell>1</TableCell>
                   <TableCell>299 SEK</TableCell>
                   <TableCell>
@@ -108,7 +107,8 @@ export default class CartBox extends React.Component<Props, State> {
               </TableBody>
             </Table>
           </Box>
-          <Button onClick={this.addItemsToCart}
+          <Button
+            onClick={() => addProductToCart}
             type="submit"
             alignSelf="center"
             primary
@@ -116,6 +116,8 @@ export default class CartBox extends React.Component<Props, State> {
             color="dark-1"
           />
         </Box>
+        )}
+        </CartConsumer>
     );
   }
 }
