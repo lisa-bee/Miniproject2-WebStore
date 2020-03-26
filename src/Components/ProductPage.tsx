@@ -2,7 +2,7 @@ import React, { CSSProperties } from "react";
 import { Box, Button } from "grommet";
 import ImageBox from "./ImageBox";
 import ProductInfoBox from "./ProductInfoBox";
-import { Link } from "react-router-dom";
+import { Link, withRouter, RouteComponentProps } from "react-router-dom";
 import ConfirmationPopup from "./ConfirmationPopup";
 
 /* export type Item = {
@@ -10,7 +10,9 @@ import ConfirmationPopup from "./ConfirmationPopup";
   price: number,
   image: string,
 } */
-interface Props {}
+interface Props extends RouteComponentProps {
+  // location: any;
+}
 
 interface State {
   isOpen: Boolean;
@@ -42,6 +44,7 @@ export default class ProductPage extends React.Component<Props, State> {
   };
 
   render() {
+    console.log(this.props.location.state);
     return (
       <div style={container}>
         <Box
@@ -53,7 +56,10 @@ export default class ProductPage extends React.Component<Props, State> {
         >
           {this.state.isOpen && <ConfirmationPopup closeDiv={this.closeDiv} />}
           <ImageBox />
-          <ProductInfoBox handleCartClick={this.handleCartClick} />
+          <ProductInfoBox
+            // title={this.props.location.state.title}
+            handleCartClick={this.handleCartClick}
+          />
         </Box>
       </div>
     );
