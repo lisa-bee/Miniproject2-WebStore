@@ -3,7 +3,7 @@ import { Box, Video } from "grommet";
 
 export default class Header1 extends React.Component {
   render() {
-    let video = require("./assets/livingroom.mp4");
+    let video = require("../assets/livingroom.mp4");
     return (
       <Box width="100%" height="medium" justify="center" align="center">
         <h1 style={heading()}>

@@ -2,8 +2,7 @@ import React from "react";
 import { Grommet, Box } from "grommet";
 import { grommet } from "grommet/themes";
 import ProductContainer from "./ProductContainer";
-import { timingSafeEqual } from "crypto";
-import { data } from "./products";
+import { data } from "../products";
 
 export type Product = {
   index: number;
@@ -27,21 +26,6 @@ export default class AllProducts extends React.Component<Props, State> {
       allProducts: data
     };
   }
-
-  // async fetchData() {
-  //   fetch("products.json")
-  //     .then(response => {
-  //       return response.json() as Promise<{ data: Array<Product> }>;
-  //     })
-  //     .then(data => {
-  //       this.setState({
-  //         allProducts: data.data
-  //       });
-  //     });
-
-  //     // this.setState({allProducts: data})
-  // }
-
 
   render() {
     return (
