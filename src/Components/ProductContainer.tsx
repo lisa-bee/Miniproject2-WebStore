@@ -1,8 +1,7 @@
 import React, { CSSProperties } from "react";
-import { Link } from "react-router-dom";
-import { Button, Box, Image } from "grommet";
-import { grommet } from "grommet/themes";
+import { Box, Image } from "grommet";
 import { Cart } from "grommet-icons";
+import { Link } from "react-router-dom";
 
 interface Props {
   title: string;
@@ -20,11 +19,16 @@ export default class ProductContainer extends React.Component<Props, State> {
   render() {
     return (
       <Box align="center">
-          <Link to="/productpage/:id">
-        <Box margin="small" width="medium" height="medium">
-          <Image fit="contain" src={this.props.image}/>
-        </Box>
-          </Link>
+        <Link
+          to={{
+            pathname: "/productpage/",
+            state: { title: this.props.title }
+          }}
+        >
+          <Box margin="small" width="medium" height="medium">
+            <Image fit="contain" src={this.props.image} />
+          </Box>
+        </Link>
         <Box direction="row" width="17rem" justify="between">
           <p style={noMargin()}>{this.props.title}</p>
           <Cart
