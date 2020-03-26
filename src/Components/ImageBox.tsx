@@ -1,5 +1,6 @@
 import React from "react";
 import { Box, Image } from "grommet";
+import ProductContainer from "./ProductContainer";
 
 let image = require("../assets/image1.jpg");
 export default class ImageBox extends React.Component<{}, {}> {

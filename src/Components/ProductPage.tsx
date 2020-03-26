@@ -5,12 +5,8 @@ import ProductInfoBox from "./ProductInfoBox";
 import { Link } from "react-router-dom";
 import ConfirmationPopup from "./ConfirmationPopup";
 
-/* export type Item = {
-  name: string,
-  price: number,
-  image: string,
-} */
-interface Props {}
+interface Props {
+}
 
 interface State {
   isOpen: Boolean;
