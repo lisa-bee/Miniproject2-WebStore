@@ -1,7 +1,7 @@
 import React from "react";
 import { Box, Button, Text, Menu } from "grommet";
 import { Close } from "grommet-icons";
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { CartConsumer } from "../contexts/CartContext";
 import { Product } from "./AllProducts";
 
@@ -27,15 +27,8 @@ export default class ProductInfoBox extends React.Component<Props, State> {
   render() {
     return (
       <CartConsumer>
-        {({ items, addProductToCart }) => (
+        {({ addProductToCart }) => (
           <div>
-            <h1
-              onClick={() => {
-                addProductToCart(this.props.product);
-              }}
-            >
-              test
-            </h1>
             <Box pad="medium" gap="medium" width="medium" background="light-1">
               <Box direction="row" justify="between">
                 <Text>{this.props.product.title} </Text>
@@ -58,7 +51,9 @@ export default class ProductInfoBox extends React.Component<Props, State> {
                 primary
                 color="dark-1"
                 label="Add to cart"
-                onClick={() => addProductToCart}
+                onClick={() => {
+                  addProductToCart(this.props.product);
+                }}
               ></Button>
               <Text size={"12pt"}>PRODUCT INFO</Text>
               <Text size={"10pt"}>{this.props.product.description}</Text>
