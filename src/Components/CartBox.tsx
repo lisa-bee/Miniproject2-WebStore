@@ -108,7 +108,7 @@ export default class CartBox extends React.Component<Props, State> {
               </Table>
             </Box>
             <Button
-              onClick={() => addProductToCart}
+              // onClick={() => addProductToCart}
               type="submit"
               alignSelf="center"
               primary

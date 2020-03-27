@@ -1,5 +1,6 @@
 import React from "react";
 import { Box, Image } from "grommet";
+import ProductContainer from "./ProductContainer";
 
 interface Props {
   image: string;

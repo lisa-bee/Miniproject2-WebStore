@@ -33,7 +33,14 @@ export class CartProvider extends React.Component<Props, State> {
   }
 
   addProductToCart = (product: Product) => {
-    this.state.items.push();
+    console.log(product);
+
+    // Finns produkten i items, inkrementera quantity med +1, annars lägg till produkten.
+
+    this.setState({
+      items: [...this.state.items, { quantity: 1, product: product }]
+    });
+
     /* save to state */
     // Add a new cartItem or just update the quantity (finns product.id i this.state.items[].id)
   };

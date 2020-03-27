@@ -17,7 +17,7 @@ function App() {
           <Grommet theme={grommet}>
             <Header1 />
             <Switch>
-              <Route path="/productpage/" component={ProductPage}>
+              <Route path="/productpage/:productIndex" component={ProductPage}>
                 {/* <ProductPage component={/> */}
               </Route>
               <Route path="/checkoutpage/">
