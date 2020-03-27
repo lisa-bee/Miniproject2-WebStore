@@ -75,7 +75,7 @@ export default class ProductPage extends React.Component<Props, State> {
           background="light"
         >
           {this.state.isOpen && <ConfirmationPopup closeDiv={this.closeDiv} />}
-          {/* <ImageBox image={this.props.location.state.image} /> */}
+          <ImageBox image={this.state.selectedProduct!.image} />
           {this.productInfo}
         </Box>
       </div>

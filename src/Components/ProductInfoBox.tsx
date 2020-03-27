@@ -43,7 +43,7 @@ export default class ProductInfoBox extends React.Component<Props, State> {
                   <Close />
                 </Link>
               </Box>
-              <Text size={"20pt"}>{""} SEK</Text>
+              <Text size={"20pt"}>{this.props.product.price} SEK</Text>
               <Text>Size: 70x100 </Text>
               <Menu
                 label="Quantity"
@@ -61,7 +61,7 @@ export default class ProductInfoBox extends React.Component<Props, State> {
                 onClick={() => addProductToCart}
               ></Button>
               <Text size={"12pt"}>PRODUCT INFO</Text>
-              <Text size={"10pt"}>{""}</Text>
+              <Text size={"10pt"}>{this.props.product.description}</Text>
             </Box>
           </div>
         )}
