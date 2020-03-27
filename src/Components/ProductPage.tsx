@@ -5,9 +5,6 @@ import ProductInfoBox from "./ProductInfoBox";
 import { Link, withRouter, RouteComponentProps } from "react-router-dom";
 import ConfirmationPopup from "./ConfirmationPopup";
 
-<<<<<<< HEAD
-interface Props {
-=======
 /* export type Item = {
   name: string,
   price: number,
@@ -15,7 +12,6 @@ interface Props {
 } */
 interface Props extends RouteComponentProps {
   // location: any;
->>>>>>> master
 }
 
 interface State {
