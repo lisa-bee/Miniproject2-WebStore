@@ -59,6 +59,7 @@ export default class AllProducts extends React.Component<Props, State> {
           {this.state.allProducts.map(product => {
             return (
               <ProductContainer
+                product={product}
                 key={product.index}
                 title={product.title}
                 image={product.image}

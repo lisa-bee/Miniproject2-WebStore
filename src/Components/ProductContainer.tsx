@@ -2,8 +2,11 @@ import React, { CSSProperties } from "react";
 import { Box, Image } from "grommet";
 import { Cart } from "grommet-icons";
 import { Link } from "react-router-dom";
+import { Product } from "./AllProducts";
 
 interface Props {
+  product: Product;
+
   title: string;
   price: number;
   image: string;
@@ -21,13 +24,7 @@ export default class ProductContainer extends React.Component<Props, State> {
       <Box align="center">
         <Link
           to={{
-            pathname: "/productpage/",
-            state: {
-              title: this.props.title,
-              price: this.props.price,
-              image: this.props.image,
-              description: this.props.description
-            }
+            pathname: "/productpage/" + this.props.product.index
           }}
         >
           <Box margin="small" width="medium" height="medium">
