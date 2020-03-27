@@ -7,12 +7,6 @@ import ConfirmationPopup from "./ConfirmationPopup";
 import { Product } from "./AllProducts";
 import { StaticContext } from "react-router";
 
-/* export type Item = {
-  name: string,
-  price: number,
-  image: string,
-} */
-
 interface Props extends RouteComponentProps<{}, StaticContext, Product> {
   // location: any;
 }

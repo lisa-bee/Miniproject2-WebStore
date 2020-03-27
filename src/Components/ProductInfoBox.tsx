@@ -53,7 +53,7 @@ export default class ProductInfoBox extends React.Component<Props, State> {
                 primary
                 color="dark-1"
                 label="Add to cart"
-                onClick={this.props.handleCartClick}
+                onClick={() => addProductToCart}
               ></Button>
               <Text size={"12pt"}>PRODUCT INFO</Text>
               <Text size={"10pt"}>{this.props.description}</Text>
