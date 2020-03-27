@@ -1,12 +1,17 @@
 import React from "react";
 import { Box, Image } from "grommet";
 
-let image = require("../assets/image1.jpg");
-export default class ImageBox extends React.Component<{}, {}> {
+interface Props {
+  image: string;
+}
+
+interface State {}
+
+export default class ImageBox extends React.Component<Props, State> {
   render() {
     return (
       <Box background="dark-1" pad="medium" width="medium" height="medium">
-        <Image fit="contain" src={image} />
+        <Image fit="contain" src={this.props.image} />
       </Box>
     );
   }
