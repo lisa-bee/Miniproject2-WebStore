@@ -4,13 +4,16 @@ import ImageBox from "./ImageBox";
 import ProductInfoBox from "./ProductInfoBox";
 import { Link, withRouter, RouteComponentProps } from "react-router-dom";
 import ConfirmationPopup from "./ConfirmationPopup";
+import { Product } from "./AllProducts";
+import { StaticContext } from "react-router";
 
 /* export type Item = {
   name: string,
   price: number,
   image: string,
 } */
-interface Props extends RouteComponentProps {
+
+interface Props extends RouteComponentProps<{}, StaticContext, Product> {
   // location: any;
 }
 
@@ -44,7 +47,6 @@ export default class ProductPage extends React.Component<Props, State> {
   };
 
   render() {
-    console.log(this.props.location.state);
     return (
       <div style={container}>
         <Box
@@ -55,9 +57,11 @@ export default class ProductPage extends React.Component<Props, State> {
           background="light"
         >
           {this.state.isOpen && <ConfirmationPopup closeDiv={this.closeDiv} />}
-          <ImageBox />
+          <ImageBox image={this.props.location.state.image} />
           <ProductInfoBox
-            // title={this.props.location.state.title}
+            title={this.props.location.state.title}
+            price={this.props.location.state.price}
+            description={this.props.location.state.description}
             handleCartClick={this.handleCartClick}
           />
         </Box>

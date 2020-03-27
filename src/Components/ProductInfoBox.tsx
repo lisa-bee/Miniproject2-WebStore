@@ -5,8 +5,11 @@ import { Link } from "react-router-dom";
 
 interface Props {
   handleCartClick: () => void;
-  // title: string;
+  title: string;
+  price: number;
+  description: string;
 }
+
 interface State {
   isOpen: Boolean;
   items: any[];
@@ -27,12 +30,12 @@ export default class ProductInfoBox extends React.Component<Props, State> {
       <div>
         <Box pad="medium" gap="medium" width="medium" background="light-1">
           <Box direction="row" justify="between">
-            <Text>GRAYSCALE NR1 </Text>
+            <Text>{this.props.title} </Text>
             <Link to="/">
               <Close />
             </Link>
           </Box>
-          <Text size={"20pt"}>249 SEK</Text>
+          <Text size={"20pt"}>{this.props.price} SEK</Text>
           <Text>Size: 70x100 </Text>
           <Menu
             label="Quantity"
@@ -50,12 +53,7 @@ export default class ProductInfoBox extends React.Component<Props, State> {
             onClick={this.props.handleCartClick}
           ></Button>
           <Text size={"12pt"}>PRODUCT INFO</Text>
-          <Text size={"10pt"}>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-            Dignissimos, iusto, consectetur incidunt neque facere nobis
-            repellat, non tenetur sed quas quos molestias a! Iure consequuntur
-            illum odit, incidunt labore quam.
-          </Text>
+          <Text size={"10pt"}>{this.props.description}</Text>
         </Box>
       </div>
     );

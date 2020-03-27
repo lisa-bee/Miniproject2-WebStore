@@ -22,7 +22,12 @@ export default class ProductContainer extends React.Component<Props, State> {
         <Link
           to={{
             pathname: "/productpage/",
-            state: { title: this.props.title }
+            state: {
+              title: this.props.title,
+              price: this.props.price,
+              image: this.props.image,
+              description: this.props.description
+            }
           }}
         >
           <Box margin="small" width="medium" height="medium">
