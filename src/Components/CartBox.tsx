@@ -18,18 +18,13 @@ interface Props {
 }
 
 interface State {
-  items: any[];
 }
 
 export default class CartBox extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props);
-
-    this.state = {
-      items: []
-    };
+  
   }
-
   render() {
     return (
       <CartConsumer>
@@ -58,7 +53,7 @@ export default class CartBox extends React.Component<Props, State> {
                 </TableHeader>
                 <TableBody>
                   <TableRow>
-                    <TableCell scope="row">{this.props.product}item</TableCell>
+                    <TableCell scope="row">{this.props.product}</TableCell>
                      <TableCell>{items.length}</TableCell>
                   <TableCell></TableCell>
                   <TableCell>

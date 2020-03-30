@@ -9,7 +9,7 @@ export default class Header1 extends React.Component {
     let image = require("../assets/logo.png");
     return (
       <CartConsumer>
-        {({ items, addProductToCart }) => (
+        {({ items }) => (
           <Header justify="between" background="light-1" pad="small">
             <Box>
               <Link to="/">
@@ -27,7 +27,6 @@ export default class Header1 extends React.Component {
                   margin="small"
                   color="dark-1"
                   label="Go to check out"
-                  //onClick={() => addProductToCart(product)}
                 ></Button>
               </Box>
             </Link>

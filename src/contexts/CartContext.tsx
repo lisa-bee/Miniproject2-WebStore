@@ -38,7 +38,7 @@ export class CartProvider extends React.Component<Props, State> {
     // Finns produkten i items, inkrementera quantity med +1, annars lägg till produkten.
 
     this.setState({
-      items: [...this.state.items, { quantity: 1, product: product }]
+      items: [...this.state.items, { quantity: 1, product: product}]
     });
 
     /* save to state */

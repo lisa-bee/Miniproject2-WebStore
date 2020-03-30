@@ -11,7 +11,6 @@ interface Props {
 
 interface State {
   isOpen: Boolean;
-  items: any[];
 }
 
 export default class ProductInfoBox extends React.Component<Props, State> {
@@ -19,8 +18,7 @@ export default class ProductInfoBox extends React.Component<Props, State> {
     super(props);
 
     this.state = {
-      isOpen: false,
-      items: []
+      isOpen: false
     };
   }
 
@@ -41,10 +39,7 @@ export default class ProductInfoBox extends React.Component<Props, State> {
               <Menu
                 label="Quantity"
                 items={[
-                  { label: "1", onClick: () => {} },
-                  { label: "2" },
-                  { label: "3" },
-                  { label: "4" }
+                  { label: "1", onClick: () => {} }
                 ]}
               />
               <Button

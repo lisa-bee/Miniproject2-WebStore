@@ -10,9 +10,19 @@ interface Props {
   product: Product;
 }
 
-interface State {}
+interface State {
+  items: any
+}
 
 export default class CheckoutPage extends React.Component<Props, State> {
+  constructor(props: Props) {
+    super(props);
+
+    this.state = {
+      items: []
+    };
+  }
+
   render() {
     return (
       <Main
