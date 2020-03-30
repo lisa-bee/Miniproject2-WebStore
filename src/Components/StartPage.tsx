@@ -12,9 +12,6 @@ export default class StartPage extends React.Component {
           <Hero />
         </Box>
         <AllProducts />
-        <Link to="/productpage/">
-          <Button></Button>
-        </Link>
       </>
     );
   }

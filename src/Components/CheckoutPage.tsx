@@ -5,27 +5,19 @@ import DeliveryBox from "./DeliveryBox";
 import ShippingBox from "./ShippingBox";
 import PaymentBox from "./PaymentBox";
 import { Product } from "./AllProducts";
+import { CartConsumer } from "../contexts/CartContext";
 
 interface Props {
   product: Product;
 }
 
 interface State {
-  items: any
 }
 
 export default class CheckoutPage extends React.Component<Props, State> {
-  constructor(props: Props) {
-    super(props);
-
-    this.state = {
-      items: []
-    };
-  }
-
   render() {
     return (
-      <Main
+          <Main
         direction="column"
         align="center"
         pad="small"
@@ -38,6 +30,7 @@ export default class CheckoutPage extends React.Component<Props, State> {
         <ShippingBox />
         <PaymentBox />
       </Main>
+        
     );
   }
 }

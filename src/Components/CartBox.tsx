@@ -53,8 +53,8 @@ export default class CartBox extends React.Component<Props, State> {
                 </TableHeader>
                 <TableBody>
                   <TableRow>
-                    <TableCell scope="row">{this.props.product}</TableCell>
-                     <TableCell>{items.length}</TableCell>
+                    <TableCell scope="row"></TableCell>
+                     <TableCell></TableCell>
                   <TableCell></TableCell>
                   <TableCell>
                     <FormAdd></FormAdd>
@@ -89,7 +89,7 @@ export default class CartBox extends React.Component<Props, State> {
                       <strong>Total</strong>
                     </TableCell>
                     <TableCell>
-                      <strong></strong>
+                      <strong>{items.length}</strong>
                     </TableCell>
                     <TableCell>
                       <strong></strong>
@@ -99,7 +99,7 @@ export default class CartBox extends React.Component<Props, State> {
               </Table>
             </Box>
             <Button
-              //onClick={() => addProductToCart(this.props.product)}
+              onClick={() => addProductToCart(this.props.product)}
               type="submit"
               alignSelf="center"
               primary
