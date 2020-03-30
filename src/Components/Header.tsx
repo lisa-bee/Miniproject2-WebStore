@@ -22,6 +22,7 @@ export default class Header1 extends React.Component {
                   <Box
                     direction="row"
                     align="center"
+                    justify="center"
                     margin={{ right: "large" }}
                   >
                     <div style={shoppingCountContainer()}>

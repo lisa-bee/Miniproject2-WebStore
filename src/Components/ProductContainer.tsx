@@ -64,5 +64,5 @@ const imagecontainer = (size: string): CSSProperties => ({
   marginTop: "1rem",
   marginBottom: "1rem",
   height: "25rem",
-  width: size == "small" ? "20rem" : size == "medium" ? "25rem" : "20rem"
+  width: size == "small" ? "20rem" : size == "medium" ? "25rem" : "30rem"
 });
