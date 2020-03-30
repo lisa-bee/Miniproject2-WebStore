@@ -20,36 +20,42 @@ interface State {
 }
 
 export default class ProductContainer extends React.Component<Props, State> {
+  private handleClick = (addProductToCart: (product: Product) => void) => {
+    this.props.handleCartClick();
+    addProductToCart(this.props.product);
+  };
   render() {
     return (
       <CartConsumer>
         {({ addProductToCart }) => (
-      <ResponsiveContext.Consumer>
-        {size => (
-          <Box align="center">
-            <Link
-              to={{
-                pathname: "/productpage/" + this.props.product.index
-              }}
-            >
-              <Box style={imagecontainer(size)}>
-                <Image fit="contain" src={this.props.image} />
+          <ResponsiveContext.Consumer>
+            {size => (
+              <Box align="center">
+                <Link
+                  to={{
+                    pathname: "/productpage/" + this.props.product.index
+                  }}
+                >
+                  <Box style={imagecontainer(size)}>
+                    <Image fit="contain" src={this.props.image} />
+                  </Box>
+                </Link>
+                <Box direction="row" width="17rem" justify="between">
+                  <p style={noMargin()}>{this.props.title}</p>
+                  <Cart
+                    color="plain"
+                    size="1.2rem"
+                    onClick={() => {
+                      this.handleClick(addProductToCart);
+                    }}
+                  />
+                </Box>
+                <Box direction="row" width="17rem" justify="start">
+                  <p style={smallText()}>{this.props.price} SEK </p>
+                </Box>
               </Box>
-            </Link>
-            <Box direction="row" width="17rem" justify="between">
-              <p style={noMargin()}>{this.props.title}</p>
-              <Cart
-                color="plain"
-                size="1.2rem"
-                onClick={/* this.props.handleCartClick  */() => addProductToCart(this.props.product)}
-              />
-            </Box>
-            <Box direction="row" width="17rem" justify="start">
-              <p style={smallText()}>{this.props.price} SEK </p>
-            </Box>
-          </Box>
-          )}
-        </ResponsiveContext.Consumer>
+            )}
+          </ResponsiveContext.Consumer>
         )}
       </CartConsumer>
     );
