@@ -27,7 +27,11 @@ export default class ProductContainer extends React.Component<Props, State> {
             pathname: "/productpage/" + this.props.product.index
           }}
         >
-          <Box margin="small" width="medium" height="medium">
+          <Box
+            margin={{ bottom: "small", top: "small" }}
+            width="100vw"
+            height="medium"
+          >
             <Image fit="contain" src={this.props.image} />
           </Box>
         </Link>
