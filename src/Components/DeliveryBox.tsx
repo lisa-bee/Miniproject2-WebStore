@@ -8,11 +8,11 @@ interface Props{
 }
 
 interface State{
-  value: string
+    // value: any
+  // event: any
   // validateInput: (event: React.FormEvent<HTMLInputElement>) => void;
-  fieldData: any
-  formData: any
-  e: any
+  // fieldData: any
+  // formData: any
 
 }
 export default class DeliveryBox extends React.Component<Props, State> {
@@ -34,9 +34,13 @@ export default class DeliveryBox extends React.Component<Props, State> {
           </Box>
 
    
-          <Form 
-          validate="submit"
+          <Form
+            // onSubmit={event => event.preventDefault()}
+          // validate="submit"
           autoComplete="on"
+          // onSubmit=""
+          // onSubmit={() => console.log(formData)}
+          // onSubmit={({ value: nextValue }) => console.log(nextValue)}
             // console.log("validating form field");
             // console.log("fieldData", fieldData);
             // console.log("formData", formData); // 'formData' is undefined
@@ -49,14 +53,21 @@ export default class DeliveryBox extends React.Component<Props, State> {
               placeholder="Type your first name here"
               type="text"
               required
-              validate={{ regexp: /^[a-z]/i }}
+              validate={{ regexp: /^[a-z]/i, message:"only letters" }}
+              value=""
             />
             <FormField
               name="family-name"
+              validate={(fieldData, formData) => {
+                console.log("validating form field");
+                console.log("fieldData", fieldData);
+                console.log("formData", formData); // 'formData' is undefined
+              }}
               label="Last Name"
               placeholder="Type your last name here"
               type="text"
               required
+              value=""
             />
             <FormField
               name="email"
@@ -64,6 +75,7 @@ export default class DeliveryBox extends React.Component<Props, State> {
               placeholder="Type your email here"
               type="email"
               required
+              value=""
               // pattern="/^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/"
               // validate={{ regexp: [a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}}
             />
@@ -74,6 +86,7 @@ export default class DeliveryBox extends React.Component<Props, State> {
               type="tel"
               required
               validate={{ regexp: /^[0-9]{10}$/, message: '10 digits' }}
+              value=""
             />
             <FormField
               name="street-address"
@@ -81,23 +94,25 @@ export default class DeliveryBox extends React.Component<Props, State> {
               placeholder="Type your address here"
               type="text"
               required
+              value=""
             />
             <FormField
-              name="city"
+              name="address-level2"
               label="City"
               placeholder="Type your city here"
               type="text"
               required
+              value=""
             />
             <FormField
               name="postal-code"
               label="Postal Code"
               placeholder="Type your postal code here"
-              type="text"
+              type=""
               required
-              validate={{ regexp: /^[0-9]{5}$/, message: '5 Digits' }}
+              validate={{ regexp: /^[0-9]{5}$/, message: '5 digits' }}
+              value=""
             />
-          </Form>
           <Button
             type="submit"
             color="dark-1"
@@ -106,6 +121,7 @@ export default class DeliveryBox extends React.Component<Props, State> {
             label="CONFIRM & CONTINUE"
             // onClick={() => validateInput}
           />
+          </Form>
         </Box>
     );
   }

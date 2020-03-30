@@ -14,24 +14,25 @@ export default class ShippingBox extends React.Component<{}, {}> {
           </Box>
           <RadioButtonGroup
             name="deliveryOptions"
+            // onChange= "target": { value } }) => {...}
             options={[
               {
                 disabled: false,
                 id: "one",
                 value: "1",
-                label: "PostNord (6-7 years) + 0 SEK"
+                label: "PostNord (1 day) + 0 SEK"
               },
               {
                 disabled: false,
                 id: "two",
                 value: "2",
-                label: "DHL (2-3 days) + 49 SEK"
+                label: "DHL (2 days) + 49 SEK"
               },
               {
                 disabled: false,
                 id: "three",
                 value: "3",
-                label: "Schenker (3-5 days) + 29 SEK"
+                label: "Schenker (3 days) + 29 SEK"
               }
             ]}
           />
