@@ -38,11 +38,13 @@ export default class ProductContainer extends React.Component<Props, State> {
             </Link>
             <Box direction="row" width="17rem" justify="between">
               <p style={noMargin()}>{this.props.title}</p>
+              <Link to="">
               <Cart
                 color="plain"
                 size="1.2rem"
                 onClick={/* this.props.handleCartClick  */() => addProductToCart(this.props.product)}
               />
+              </Link>
             </Box>
             <Box direction="row" width="17rem" justify="start">
               <p style={smallText()}>{this.props.price} SEK </p>
