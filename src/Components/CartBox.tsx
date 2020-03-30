@@ -11,8 +11,11 @@ import {
 } from "grommet";
 import { Cart, FormAdd, FormSubtract, FormTrash } from "grommet-icons";
 import { CartConsumer } from "../contexts/CartContext";
+import { Product } from "./AllProducts";
 
-interface Props {}
+interface Props {
+  product: Product;
+}
 
 interface State {
   items: any[];
@@ -26,13 +29,6 @@ export default class CartBox extends React.Component<Props, State> {
       items: []
     };
   }
-
-  /* addItemsToCart = () => {
-   this.state.items.push("Product");
-   this.forceUpdate();
-   console.log(this.state.items)
-    
-  } */
 
   render() {
     return (
@@ -62,9 +58,9 @@ export default class CartBox extends React.Component<Props, State> {
                 </TableHeader>
                 <TableBody>
                   <TableRow>
-                    <TableCell scope="row">{items}</TableCell>
-                    {/* <TableCell>1</TableCell>
-                  <TableCell>299 SEK</TableCell>
+                    <TableCell scope="row">{this.props.product}item</TableCell>
+                     <TableCell>{items.length}</TableCell>
+                  <TableCell></TableCell>
                   <TableCell>
                     <FormAdd></FormAdd>
                     <FormSubtract></FormSubtract>
@@ -73,8 +69,8 @@ export default class CartBox extends React.Component<Props, State> {
                 </TableRow>
                 <TableRow>
                   <TableCell scope="row">Lion</TableCell>
-                  <TableCell>1</TableCell>
-                  <TableCell>379 SEK</TableCell>
+                  <TableCell></TableCell>
+                  <TableCell></TableCell>
                   <TableCell>
                     <FormAdd></FormAdd>
                     <FormSubtract></FormSubtract>
@@ -85,30 +81,30 @@ export default class CartBox extends React.Component<Props, State> {
                   <TableCell scope="row" border="bottom">
                     Nature
                   </TableCell>
-                  <TableCell border="bottom">1</TableCell>
-                  <TableCell border="bottom">199 SEK</TableCell>
+                  <TableCell border="bottom"></TableCell>
+                  <TableCell border="bottom"></TableCell>
                   <TableCell>
                     <FormAdd></FormAdd>
                     <FormSubtract></FormSubtract>
                     <FormTrash></FormTrash>
-                  </TableCell> */}
+                  </TableCell>
                   </TableRow>
                   <TableRow>
                     <TableCell scope="row">
                       <strong>Total</strong>
                     </TableCell>
                     <TableCell>
-                      <strong>3</strong>
+                      <strong></strong>
                     </TableCell>
                     <TableCell>
-                      <strong>877 SEK</strong>
+                      <strong></strong>
                     </TableCell>
                   </TableRow>
                 </TableBody>
               </Table>
             </Box>
             <Button
-              // onClick={() => addProductToCart}
+              //onClick={() => addProductToCart(this.props.product)}
               type="submit"
               alignSelf="center"
               primary

@@ -3,6 +3,7 @@ import { Box, Image } from "grommet";
 import { Cart } from "grommet-icons";
 import { Link } from "react-router-dom";
 import { Product } from "./AllProducts";
+import { CartConsumer } from "../contexts/CartContext";
 
 interface Props {
   product: Product;
@@ -21,28 +22,32 @@ interface State {
 export default class ProductContainer extends React.Component<Props, State> {
   render() {
     return (
-      <Box align="center">
-        <Link
-          to={{
-            pathname: "/productpage/" + this.props.product.index
-          }}
-        >
-          <Box margin="small" width="medium" height="medium">
-            <Image fit="contain" src={this.props.image} />
+      <CartConsumer>
+        {({ addProductToCart }) => (
+          <Box align="center">
+            <Link
+              to={{
+                pathname: "/productpage/" + this.props.product.index
+              }}
+            >
+              <Box margin="small" width="medium" height="medium">
+                <Image fit="contain" src={this.props.image} />
+              </Box>
+            </Link>
+            <Box direction="row" width="17rem" justify="between">
+              <p style={noMargin()}>{this.props.title}</p>
+              <Cart
+                color="plain"
+                size="1.2rem"
+                onClick={/* this.props.handleCartClick  */() => addProductToCart(this.props.product)}
+              />
+            </Box>
+            <Box direction="row" width="17rem" justify="start">
+              <p style={smallText()}>{this.props.price} SEK </p>
+            </Box>
           </Box>
-        </Link>
-        <Box direction="row" width="17rem" justify="between">
-          <p style={noMargin()}>{this.props.title}</p>
-          <Cart
-            color="plain"
-            size="1.2rem"
-            onClick={this.props.handleCartClick}
-          />
-        </Box>
-        <Box direction="row" width="17rem" justify="start">
-          <p style={smallText()}>{this.props.price} SEK </p>
-        </Box>
-      </Box>
+        )}
+      </CartConsumer>
     );
   }
 }
