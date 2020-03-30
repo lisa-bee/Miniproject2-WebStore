@@ -34,7 +34,7 @@ export default class Header1 extends React.Component {
                         primary
                         margin="small"
                         color="dark-1"
-                        label="Go to check out"
+                        label="Go to checkout"
                       ></Button>
                     )}
                   </Box>
