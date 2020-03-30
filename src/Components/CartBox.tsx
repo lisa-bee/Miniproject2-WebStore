@@ -11,33 +11,22 @@ import {
 } from "grommet";
 import { Cart, FormAdd, FormSubtract, FormTrash } from "grommet-icons";
 import { CartConsumer } from "../contexts/CartContext";
+import { Product } from "./AllProducts";
 
-interface Props {}
-
-interface State {
-  items: any[];
+interface Props {
+  product: Product;
 }
+
+interface State {}
 
 export default class CartBox extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props);
-
-    this.state = {
-      items: []
-    };
   }
-
-  /* addItemsToCart = () => {
-   this.state.items.push("Product");
-   this.forceUpdate();
-   console.log(this.state.items)
-    
-  } */
-
   render() {
     return (
       <CartConsumer>
-        {({ items, addProductToCart }) => (
+        {({ items }) => (
           <Box pad="xlarge" gap="large" width="large" background="light-1">
             <Box direction="row" width="large" justify="between">
               <Text size="large" weight="bold">
@@ -61,54 +50,38 @@ export default class CartBox extends React.Component<Props, State> {
                   </TableRow>
                 </TableHeader>
                 <TableBody>
-                  <TableRow>
-                    <TableCell scope="row">{items}</TableCell>
-                    {/* <TableCell>1</TableCell>
-                  <TableCell>299 SEK</TableCell>
-                  <TableCell>
-                    <FormAdd></FormAdd>
-                    <FormSubtract></FormSubtract>
-                    <FormTrash></FormTrash>
-                  </TableCell>
-                </TableRow>
-                <TableRow>
-                  <TableCell scope="row">Lion</TableCell>
-                  <TableCell>1</TableCell>
-                  <TableCell>379 SEK</TableCell>
-                  <TableCell>
-                    <FormAdd></FormAdd>
-                    <FormSubtract></FormSubtract>
-                    <FormTrash></FormTrash>
-                  </TableCell>
-                </TableRow>
-                <TableRow>
-                  <TableCell scope="row" border="bottom">
-                    Nature
-                  </TableCell>
-                  <TableCell border="bottom">1</TableCell>
-                  <TableCell border="bottom">199 SEK</TableCell>
-                  <TableCell>
-                    <FormAdd></FormAdd>
-                    <FormSubtract></FormSubtract>
-                    <FormTrash></FormTrash>
-                  </TableCell> */}
-                  </TableRow>
+                  {items.map(product => {
+                    return (
+                      <TableRow>
+                        <TableCell scope="row">{product.product.title}</TableCell>
+                        <TableCell>{product.quantity}</TableCell>
+                        <TableCell>{product.product.price}</TableCell>
+                        <TableCell>
+                          <FormAdd></FormAdd>
+                          <FormSubtract></FormSubtract>
+                          <FormTrash></FormTrash>
+                        </TableCell>
+                      </TableRow>
+                    );
+                  })}
+                  <TableCell border="bottom"></TableCell>
+                  <TableCell border="bottom"></TableCell>
+                  <TableCell border="bottom"></TableCell>
                   <TableRow>
                     <TableCell scope="row">
                       <strong>Total</strong>
                     </TableCell>
                     <TableCell>
-                      <strong>3</strong>
+                      <strong>{items.length}</strong>
                     </TableCell>
                     <TableCell>
-                      <strong>877 SEK</strong>
+                    <strong></strong>
                     </TableCell>
                   </TableRow>
                 </TableBody>
               </Table>
             </Box>
             <Button
-              // onClick={() => addProductToCart}
               type="submit"
               alignSelf="center"
               primary

@@ -20,8 +20,7 @@ function App() {
               <Route path="/productpage/:productIndex" component={ProductPage}>
                 {/* <ProductPage component={/> */}
               </Route>
-              <Route path="/checkoutpage/">
-                <CheckoutPage />
+              <Route path="/checkoutpage/" component={CheckoutPage}>
               </Route>
               <Route path="/">
                 <StartPage />

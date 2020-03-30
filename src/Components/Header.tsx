@@ -9,7 +9,7 @@ export default class Header1 extends React.Component {
     let image = require("../assets/logo.png");
     return (
       <CartConsumer>
-        {({ items, addProductToCart }) => (
+        {({ items }) => (
           <ResponsiveContext.Consumer>
             {size => (
               <Header justify="between" background="light-1" pad="small">
@@ -34,8 +34,7 @@ export default class Header1 extends React.Component {
                         primary
                         margin="small"
                         color="dark-1"
-                        label="Go to check out"
-                        //onClick={() => addProductToCart(product)}
+                        label="Go to checkout"
                       ></Button>
                     )}
                   </Box>

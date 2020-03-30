@@ -1,7 +1,7 @@
 import React from "react";
 import { Box, Button, Text, Menu } from "grommet";
 import { Close } from "grommet-icons";
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { CartConsumer } from "../contexts/CartContext";
 import { Product } from "./AllProducts";
 
@@ -11,7 +11,6 @@ interface Props {
 
 interface State {
   isOpen: Boolean;
-  items: any[];
 }
 
 export default class ProductInfoBox extends React.Component<Props, State> {
@@ -19,23 +18,15 @@ export default class ProductInfoBox extends React.Component<Props, State> {
     super(props);
 
     this.state = {
-      isOpen: false,
-      items: []
+      isOpen: false
     };
   }
 
   render() {
     return (
       <CartConsumer>
-        {({ items, addProductToCart }) => (
+        {({ addProductToCart }) => (
           <div>
-            <h1
-              onClick={() => {
-                addProductToCart(this.props.product);
-              }}
-            >
-              test
-            </h1>
             <Box pad="medium" gap="medium" width="medium" background="light-1">
               <Box direction="row" justify="between">
                 <Text>{this.props.product.title} </Text>
@@ -48,17 +39,16 @@ export default class ProductInfoBox extends React.Component<Props, State> {
               <Menu
                 label="Quantity"
                 items={[
-                  { label: "1", onClick: () => {} },
-                  { label: "2" },
-                  { label: "3" },
-                  { label: "4" }
+                  { label: "1", onClick: () => {} }
                 ]}
               />
               <Button
                 primary
                 color="dark-1"
                 label="Add to cart"
-                onClick={() => addProductToCart}
+                onClick={() => {
+                  addProductToCart(this.props.product);
+                }}
               ></Button>
               <Text size={"12pt"}>PRODUCT INFO</Text>
               <Text size={"10pt"}>{this.props.product.description}</Text>

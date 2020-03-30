@@ -3,6 +3,7 @@ import { Box, Image, ResponsiveContext } from "grommet";
 import { Cart } from "grommet-icons";
 import { Link } from "react-router-dom";
 import { Product } from "./AllProducts";
+import { CartConsumer } from "../contexts/CartContext";
 
 interface Props {
   product: Product;
@@ -21,6 +22,8 @@ interface State {
 export default class ProductContainer extends React.Component<Props, State> {
   render() {
     return (
+      <CartConsumer>
+        {({ addProductToCart }) => (
       <ResponsiveContext.Consumer>
         {size => (
           <Box align="center">
@@ -38,15 +41,17 @@ export default class ProductContainer extends React.Component<Props, State> {
               <Cart
                 color="plain"
                 size="1.2rem"
-                onClick={this.props.handleCartClick}
+                onClick={/* this.props.handleCartClick  */() => addProductToCart(this.props.product)}
               />
             </Box>
             <Box direction="row" width="17rem" justify="start">
               <p style={smallText()}>{this.props.price} SEK </p>
             </Box>
           </Box>
+          )}
+        </ResponsiveContext.Consumer>
         )}
-      </ResponsiveContext.Consumer>
+      </CartConsumer>
     );
   }
 }

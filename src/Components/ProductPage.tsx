@@ -44,16 +44,10 @@ export default class ProductPage extends React.Component<Props, State> {
 
   handleCartClick = () => {
     this.setState({ isOpen: !this.state.isOpen });
-    this.addItemsToCart();
   };
 
   closeDiv = () => {
     this.setState({ isOpen: false });
-  };
-
-  addItemsToCart = () => {
-    this.state.items.push("Product");
-    this.forceUpdate();
   };
 
   private get productInfo() {
