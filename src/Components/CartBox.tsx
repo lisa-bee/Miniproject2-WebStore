@@ -17,13 +17,11 @@ interface Props {
   product: Product;
 }
 
-interface State {
-}
+interface State {}
 
 export default class CartBox extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props);
-  
   }
   render() {
     return (
@@ -42,6 +40,9 @@ export default class CartBox extends React.Component<Props, State> {
                   <TableRow>
                     <TableCell scope="col" border="bottom">
                       <strong>Product</strong>
+                      {items.map(product => {
+                        console.log(product.product.title);
+                      })}
                     </TableCell>
                     <TableCell scope="col" border="bottom">
                       <strong>Quantity</strong>
@@ -54,35 +55,35 @@ export default class CartBox extends React.Component<Props, State> {
                 <TableBody>
                   <TableRow>
                     <TableCell scope="row"></TableCell>
-                     <TableCell></TableCell>
-                  <TableCell></TableCell>
-                  <TableCell>
-                    <FormAdd></FormAdd>
-                    <FormSubtract></FormSubtract>
-                    <FormTrash></FormTrash>
-                  </TableCell>
-                </TableRow>
-                <TableRow>
-                  <TableCell scope="row">Lion</TableCell>
-                  <TableCell></TableCell>
-                  <TableCell></TableCell>
-                  <TableCell>
-                    <FormAdd></FormAdd>
-                    <FormSubtract></FormSubtract>
-                    <FormTrash></FormTrash>
-                  </TableCell>
-                </TableRow>
-                <TableRow>
-                  <TableCell scope="row" border="bottom">
-                    Nature
-                  </TableCell>
-                  <TableCell border="bottom"></TableCell>
-                  <TableCell border="bottom"></TableCell>
-                  <TableCell>
-                    <FormAdd></FormAdd>
-                    <FormSubtract></FormSubtract>
-                    <FormTrash></FormTrash>
-                  </TableCell>
+                    <TableCell></TableCell>
+                    <TableCell></TableCell>
+                    <TableCell>
+                      <FormAdd></FormAdd>
+                      <FormSubtract></FormSubtract>
+                      <FormTrash></FormTrash>
+                    </TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell scope="row">Lion</TableCell>
+                    <TableCell></TableCell>
+                    <TableCell></TableCell>
+                    <TableCell>
+                      <FormAdd></FormAdd>
+                      <FormSubtract></FormSubtract>
+                      <FormTrash></FormTrash>
+                    </TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell scope="row" border="bottom">
+                      Nature
+                    </TableCell>
+                    <TableCell border="bottom"></TableCell>
+                    <TableCell border="bottom"></TableCell>
+                    <TableCell>
+                      <FormAdd></FormAdd>
+                      <FormSubtract></FormSubtract>
+                      <FormTrash></FormTrash>
+                    </TableCell>
                   </TableRow>
                   <TableRow>
                     <TableCell scope="row">

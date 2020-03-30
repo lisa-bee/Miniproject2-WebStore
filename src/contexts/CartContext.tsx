@@ -33,12 +33,12 @@ export class CartProvider extends React.Component<Props, State> {
   }
 
   addProductToCart = (product: Product) => {
-    console.log(product);
+    // console.log(product);
 
     // Finns produkten i items, inkrementera quantity med +1, annars lägg till produkten.
 
     this.setState({
-      items: [...this.state.items, { quantity: 1, product: product}]
+      items: [...this.state.items, { quantity: 1, product: product }]
     });
 
     /* save to state */
@@ -51,6 +51,7 @@ export class CartProvider extends React.Component<Props, State> {
   };
 
   render() {
+    // console.log(this.state.items[4].product);
     return (
       <CartContext.Provider value={this.state}>
         {this.props.children}
