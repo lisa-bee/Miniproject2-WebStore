@@ -5,7 +5,6 @@ import DeliveryBox from "./DeliveryBox";
 import ShippingBox from "./ShippingBox";
 import PaymentBox from "./PaymentBox";
 import { Product } from "./AllProducts";
-import { CartConsumer } from "../contexts/CartContext";
 
 interface Props {
   product: Product;

@@ -32,7 +32,6 @@ export default class AllProducts extends React.Component<Props, State> {
 
   handleCartClick = () => {
     this.setState({ isOpen: !this.state.isOpen });
-    // this.addItemsToCart();
   };
 
   closeDiv = () => {

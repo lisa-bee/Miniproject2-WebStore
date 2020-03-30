@@ -26,7 +26,7 @@ export default class CartBox extends React.Component<Props, State> {
   render() {
     return (
       <CartConsumer>
-        {({ items, addProductToCart }) => (
+        {({ items }) => (
           <Box pad="xlarge" gap="large" width="large" background="light-1">
             <Box direction="row" width="large" justify="between">
               <Text size="large" weight="bold">
@@ -40,9 +40,6 @@ export default class CartBox extends React.Component<Props, State> {
                   <TableRow>
                     <TableCell scope="col" border="bottom">
                       <strong>Product</strong>
-                      {items.map(product => {
-                        console.log(product.product.title);
-                      })}
                     </TableCell>
                     <TableCell scope="col" border="bottom">
                       <strong>Quantity</strong>
@@ -53,38 +50,23 @@ export default class CartBox extends React.Component<Props, State> {
                   </TableRow>
                 </TableHeader>
                 <TableBody>
-                  <TableRow>
-                    <TableCell scope="row"></TableCell>
-                    <TableCell></TableCell>
-                    <TableCell></TableCell>
-                    <TableCell>
-                      <FormAdd></FormAdd>
-                      <FormSubtract></FormSubtract>
-                      <FormTrash></FormTrash>
-                    </TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell scope="row">Lion</TableCell>
-                    <TableCell></TableCell>
-                    <TableCell></TableCell>
-                    <TableCell>
-                      <FormAdd></FormAdd>
-                      <FormSubtract></FormSubtract>
-                      <FormTrash></FormTrash>
-                    </TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell scope="row" border="bottom">
-                      Nature
-                    </TableCell>
-                    <TableCell border="bottom"></TableCell>
-                    <TableCell border="bottom"></TableCell>
-                    <TableCell>
-                      <FormAdd></FormAdd>
-                      <FormSubtract></FormSubtract>
-                      <FormTrash></FormTrash>
-                    </TableCell>
-                  </TableRow>
+                  {items.map(product => {
+                    return (
+                      <TableRow>
+                        <TableCell scope="row">{product.product.title}</TableCell>
+                        <TableCell>{product.quantity}</TableCell>
+                        <TableCell>{product.product.price}</TableCell>
+                        <TableCell>
+                          <FormAdd></FormAdd>
+                          <FormSubtract></FormSubtract>
+                          <FormTrash></FormTrash>
+                        </TableCell>
+                      </TableRow>
+                    );
+                  })}
+                  <TableCell border="bottom"></TableCell>
+                  <TableCell border="bottom"></TableCell>
+                  <TableCell border="bottom"></TableCell>
                   <TableRow>
                     <TableCell scope="row">
                       <strong>Total</strong>
@@ -93,14 +75,13 @@ export default class CartBox extends React.Component<Props, State> {
                       <strong>{items.length}</strong>
                     </TableCell>
                     <TableCell>
-                      <strong></strong>
+                    <strong></strong>
                     </TableCell>
                   </TableRow>
                 </TableBody>
               </Table>
             </Box>
             <Button
-              onClick={() => addProductToCart(this.props.product)}
               type="submit"
               alignSelf="center"
               primary
