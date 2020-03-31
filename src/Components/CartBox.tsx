@@ -58,7 +58,7 @@ export default class CartBox extends React.Component<Props, State> {
                         <TableCell scope="row"><img src={product.product.image} style={{width: "1.9rem", height: "2.65rem"}}/></TableCell>
                         <TableCell>{product.product.title}</TableCell>
                         <TableCell>{product.quantity}</TableCell>
-                        <TableCell>{product.product.price * product.quantity}</TableCell>
+                        <TableCell>{product.product.price * product.quantity} SEK</TableCell>
                         <TableCell>
                           <FormAdd></FormAdd>
                           <FormSubtract></FormSubtract>
@@ -82,7 +82,7 @@ export default class CartBox extends React.Component<Props, State> {
                       <strong>{getTotalQuantity()}</strong>
                     </TableCell>
                     <TableCell>
-                      <strong>{getTotalPrice()}</strong>
+                      <strong>{getTotalPrice()} SEK</strong>
                     </TableCell>
                   </TableRow>
                 </TableBody>
