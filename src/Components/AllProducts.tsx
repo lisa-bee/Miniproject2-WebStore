@@ -1,6 +1,5 @@
 import React, { CSSProperties } from "react";
 import { Box } from "grommet";
-import { grommet } from "grommet/themes";
 import ProductContainer from "./ProductContainer";
 import { data } from "../products";
 import ConfirmationPopup from "./ConfirmationPopup";
