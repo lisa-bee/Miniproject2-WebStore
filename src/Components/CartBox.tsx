@@ -30,7 +30,8 @@ export default class CartBox extends React.Component<Props, State> {
           getTotalPrice,
           getTotalQuantity,
           removeOneProduct,
-          addProductToCart
+          addProductToCart,
+          deleteProductFromCart
         }) => (
           <Box pad="xlarge" gap="large" width="large" background="light-1">
             <Box direction="row" width="large" justify="between">
@@ -79,7 +80,11 @@ export default class CartBox extends React.Component<Props, State> {
                           <FormSubtract
                             onClick={() => removeOneProduct(product.product)}
                           ></FormSubtract>
-                          <FormTrash></FormTrash>
+                          <FormTrash
+                            onClick={() =>
+                              deleteProductFromCart(product.product)
+                            }
+                          ></FormTrash>
                         </TableCell>
                       </TableRow>
                     );

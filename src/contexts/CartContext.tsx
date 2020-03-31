@@ -21,7 +21,7 @@ interface Props {}
 interface State {
   items: CartItem[];
   addProductToCart: (product: Product) => void;
-  deleteProductFromCart: (product: Product) => void;
+  deleteProductFromCart: (event: any) => void;
   getTotalPrice: () => number;
   getTotalQuantity: () => number;
   removeOneProduct: (product: Product) => void;
@@ -74,8 +74,15 @@ export class CartProvider extends React.Component<Props, State> {
   };
 
   deleteProductFromCart = (product: Product) => {
-    /* save to state */
-    // delete the cartItem or just update the quantity
+    const clonedItems: CartItem[] = Object.assign([], this.state.items);
+
+    for (var i = 0; i < clonedItems.length; i++) {
+      if (clonedItems[i].product.index == product.index) {
+        clonedItems.splice(i, 1);
+      }
+    }
+
+    this.setState({ items: clonedItems });
   };
 
   getTotalPrice = (): number => {
