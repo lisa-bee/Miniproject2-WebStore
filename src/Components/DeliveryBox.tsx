@@ -2,13 +2,39 @@ import React from "react";
 import { Box, Text, Form, FormField } from "grommet";
 import { Home } from "grommet-icons";
 
-interface Props {}
+type DeliveryData = {
+  // tel: "sdsd"
+  // given-name: "asdsd"
+  // family-name: "asd"
+  // email: "sd"
+  // street-address: "sds"
+  // postal-code: "sds"
+  // address-level2: "sdsd"
+}
 
-interface State {}
+interface Props {
+
+}
+
+interface State {
+  phone: any
+  // deliveryData: Deliverydata[]
+}
 export default class DeliveryBox extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props);
+    // this.state = { given-name: "", family-name: "", email: '' };
+    // this.state = { deliveryData: []}
+    this.state = {
+      phone: 112
+    }
+
   }
+
+
+//   handleChange = (deliveryData: any) => {
+//     this.setState({ deliveryData });
+//  };
 
   render() {
     return (
@@ -20,12 +46,21 @@ export default class DeliveryBox extends React.Component<Props, State> {
           <Home color="brand"></Home>
         </Box>
 
-        <Form validate="blur" autoComplete="on">
+        <Form 
+          // name="deliveryData"
+          validate="blur"
+          autoComplete="on"
+          // onChange={handleChange}
+          // onChange={(event: any) => this.setState({phone: event.tel})}
+          onChange={(event: any) => {console.log(event)}}
+          >
+        
           <FormField
             name="given-name"
-            label="First Name"
+            label="First Name"  
             // placeholder="First Name"
             type="text"
+            // component={(event: any) => this.setState({deliveryData: event.target.value})}
             required
             validate={{ message: "only letters" }}
             // value=""
@@ -55,7 +90,8 @@ export default class DeliveryBox extends React.Component<Props, State> {
             type="tel"
             required
             validate={{ regexp: /^[0-9]{10}$/, message: "10 digits" }}
-            // value=""
+            value=""
+
           />
           <FormField
             name="street-address"

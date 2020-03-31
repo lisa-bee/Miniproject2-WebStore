@@ -72,7 +72,7 @@ class PaymentBox extends React.Component<Props, State> {
               type="tel"
               required
               validate={{ regexp: /^[0-9]{10}$/, message: "10 digits" }}
-              // value=""
+              // value={this.state.phone}
             />
             <Button
               icon={<Edit />}
@@ -168,6 +168,7 @@ class PaymentBox extends React.Component<Props, State> {
           </Form>
           <Text
           alignSelf="center"
+          textAlign="center"
           size="large"
           >
             Total <strong>{getTotalPrice()} SEK</strong> VAT & shipping included

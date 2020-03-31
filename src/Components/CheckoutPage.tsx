@@ -11,7 +11,7 @@ interface Props {
 }
 
 interface State {
-  deliveryData: DeliveryData;
+  deliveryData: any
 }
 
 export default class CheckoutPage extends React.Component<Props, State> {
@@ -26,9 +26,11 @@ export default class CheckoutPage extends React.Component<Props, State> {
       >
         <Heading size="small">CHECKOUT</Heading>
         <CartBox product={this.props.product}/>
-        <DeliveryBox onChange={(deliveryData) => this.setState({ deliveryData })}/>
+        <DeliveryBox />
+        {/* <DeliveryBox onChange={(deliveryData) => this.setState({ deliveryData })}/> */}
         <ShippingBox />
-        <PaymentBox deliveryData={deliveryData} />
+        <PaymentBox />
+        {/* <PaymentBox deliveryData={this.state.deliveryData} /> */}
       </Main>
         
     );
