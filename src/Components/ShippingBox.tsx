@@ -2,6 +2,7 @@ import React from "react";
 import { Box, Text, RadioButtonGroup } from "grommet";
 import { Deliver } from "grommet-icons";
 
+
 interface Props {}
 
 interface State {}
@@ -19,13 +20,13 @@ export default class ShippingBox extends React.Component<Props, State> {
 
   render() {
     return (
-      <Box pad="xlarge" gap="large" width="large" background="light-1">
-        <Box width="large" direction="row" justify="between">
-          <Text size="large" alignSelf="start" weight="bold">
-            Shipping
-          </Text>
-          <Deliver color="brand"></Deliver>
-        </Box>
+        <Box pad="xlarge" gap="large" width="large" background="light-1">
+          <Box width="large" direction="row" justify="between">
+            <Text size="large" alignSelf="start" weight="bold">
+              Shipping
+            </Text>
+            <Deliver color="brand"></Deliver>
+          </Box>
         <RadioButtonGroup
           name="deliveryOptions"
           // onChange= "target": { value } }) => {...}
