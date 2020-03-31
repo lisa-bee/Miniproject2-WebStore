@@ -7,6 +7,16 @@ interface Props {}
 interface State {}
 
 export default class ShippingBox extends React.Component<Props, State> {
+  
+  
+  calculateDeliveryDate() {
+    const date = new Date();
+    const newDate = new Date(date);
+    newDate.setDate(newDate.getDate()+ 3);
+    return newDate.toDateString();
+  }
+
+
   render() {
     return (
       <Box pad="xlarge" gap="large" width="large" background="light-1">
@@ -40,6 +50,8 @@ export default class ShippingBox extends React.Component<Props, State> {
             }
           ]}
         />
+       <Text>You will receive your order on {this.calculateDeliveryDate()}</Text>
+       
         {/* <Button
             type="submit"
             alignSelf="center"
