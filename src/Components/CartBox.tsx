@@ -6,7 +6,7 @@ import {
   TableHeader,
   TableRow,
   TableCell,
-  TableBody,
+  TableBody
 } from "grommet";
 import { Cart, FormAdd, FormSubtract, FormTrash } from "grommet-icons";
 import { CartConsumer } from "../contexts/CartContext";
@@ -25,7 +25,13 @@ export default class CartBox extends React.Component<Props, State> {
   render() {
     return (
       <CartConsumer>
-        {({ items, getTotalPrice, getTotalQuantity }) => (
+        {({
+          items,
+          getTotalPrice,
+          getTotalQuantity,
+          removeOneProduct,
+          addProductToCart
+        }) => (
           <Box pad="xlarge" gap="large" width="large" background="light-1">
             <Box direction="row" width="large" justify="between">
               <Text size="large" weight="bold">
@@ -40,7 +46,7 @@ export default class CartBox extends React.Component<Props, State> {
                     <TableCell scope="col" border="bottom">
                       <strong>Items</strong>
                     </TableCell>
-                  <TableCell scope="col" border="bottom">
+                    <TableCell scope="col" border="bottom">
                       <strong></strong>
                     </TableCell>
                     <TableCell scope="col" border="bottom">
@@ -55,13 +61,24 @@ export default class CartBox extends React.Component<Props, State> {
                   {items.map(product => {
                     return (
                       <TableRow>
-                        <TableCell scope="row"><img src={product.product.image} style={{width: "1.9rem", height: "2.65rem"}}/></TableCell>
+                        <TableCell scope="row">
+                          <img
+                            src={product.product.image}
+                            style={{ width: "1.9rem", height: "2.65rem" }}
+                          />
+                        </TableCell>
                         <TableCell>{product.product.title}</TableCell>
                         <TableCell>{product.quantity}</TableCell>
-                        <TableCell>{product.product.price * product.quantity}</TableCell>
                         <TableCell>
-                          <FormAdd></FormAdd>
-                          <FormSubtract></FormSubtract>
+                          {product.product.price * product.quantity}
+                        </TableCell>
+                        <TableCell>
+                          <FormAdd
+                            onClick={() => addProductToCart(product.product)}
+                          ></FormAdd>
+                          <FormSubtract
+                            onClick={() => removeOneProduct(product.product)}
+                          ></FormSubtract>
                           <FormTrash></FormTrash>
                         </TableCell>
                       </TableRow>
@@ -75,7 +92,7 @@ export default class CartBox extends React.Component<Props, State> {
                     <TableCell scope="row">
                       <strong>Total</strong>
                     </TableCell>
-                  <TableCell scope="row">
+                    <TableCell scope="row">
                       <strong></strong>
                     </TableCell>
                     <TableCell>
