@@ -11,15 +11,21 @@ import {
 import { Money, Edit } from "grommet-icons";
 import { CartConsumer } from "../contexts/CartContext";
 
+type PaymentOption = 'swish' | 'credit-card' | 'invoice';
+
 interface Props {
   // handlePaymentChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   // defaultValue: string
 }
 
-interface State {}
+interface State {
+  paymentSelection: PaymentOption;
+}
+
 class PaymentBox extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props);
+    this.state = { paymentSelection: 'swish' }
   }
 
   render() {
@@ -35,24 +41,25 @@ class PaymentBox extends React.Component<Props, State> {
           </Box>
           <RadioButtonGroup
             name="paymentOptions"
-            value="1"
+            value={this.state.paymentSelection}
+            onChange={(event) => this.setState({ paymentSelection: event.target.value as PaymentOption })}
             options={[
               {
                 disabled: false,
-                id: "pay1",
-                value: "1",
+                id: "swish",
+                value: "swish",
                 label: "Swish"
               },
               {
                 disabled: false,
-                id: "pay2",
-                value: "2",
+                id: "credit-card",
+                value: "credit-card",
                 label: "Mastercard/VISA"
               },
               {
                 disabled: false,
-                id: "pay3",
-                value: "3",
+                id: "invoice",
+                value: "invoice",
                 label: "Klarna Invoice"
               }
             ]}
