@@ -2,12 +2,11 @@ import React from "react";
 import {
   Box,
   Text,
-  Button,
   Table,
   TableHeader,
   TableRow,
   TableCell,
-  TableBody
+  TableBody,
 } from "grommet";
 import { Cart, FormAdd, FormSubtract, FormTrash, Image } from "grommet-icons";
 import { CartConsumer } from "../contexts/CartContext";
@@ -86,13 +85,13 @@ export default class CartBox extends React.Component<Props, State> {
                 </TableBody>
               </Table>
             </Box>
-            <Button
+            {/* <Button
               type="submit"
               alignSelf="center"
               primary
               label="CONFIRM & CONTINUE"
               color="dark-1"
-            />
+            /> */}
           </Box>
         )}
       </CartConsumer>
