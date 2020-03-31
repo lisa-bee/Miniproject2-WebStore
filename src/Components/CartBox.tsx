@@ -55,7 +55,7 @@ export default class CartBox extends React.Component<Props, State> {
                   {items.map(product => {
                     return (
                       <TableRow>
-                        <TableCell><img src={product.product.image}></img></TableCell>
+                        <TableCell scope="row"><img src={product.product.image} style={{width: "1.9rem", height: "2.65rem"}}/></TableCell>
                         <TableCell>{product.product.title}</TableCell>
                         <TableCell>{product.quantity}</TableCell>
                         <TableCell>{product.product.price}</TableCell>
