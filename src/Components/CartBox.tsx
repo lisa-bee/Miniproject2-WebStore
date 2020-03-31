@@ -8,7 +8,7 @@ import {
   TableCell,
   TableBody,
 } from "grommet";
-import { Cart, FormAdd, FormSubtract, FormTrash } from "grommet-icons";
+import { Cart, FormAdd, FormSubtract, FormTrash, Image } from "grommet-icons";
 import { CartConsumer } from "../contexts/CartContext";
 import { Product } from "./AllProducts";
 
@@ -37,6 +37,9 @@ export default class CartBox extends React.Component<Props, State> {
               <Table>
                 <TableHeader>
                   <TableRow>
+                  <TableCell scope="col" border="bottom">
+                      <strong></strong>
+                    </TableCell>
                     <TableCell scope="col" border="bottom">
                       <strong>Product</strong>
                     </TableCell>
@@ -52,7 +55,8 @@ export default class CartBox extends React.Component<Props, State> {
                   {items.map(product => {
                     return (
                       <TableRow>
-                        <TableCell scope="row">{product.product.title}</TableCell>
+                        <TableCell scope="row"><img src={product.product.image} style={{width: "1.9rem", height: "2.65rem"}}/></TableCell>
+                        <TableCell>{product.product.title}</TableCell>
                         <TableCell>{product.quantity}</TableCell>
                         <TableCell>{product.product.price}</TableCell>
                         <TableCell>
@@ -63,6 +67,7 @@ export default class CartBox extends React.Component<Props, State> {
                       </TableRow>
                     );
                   })}
+                  <TableCell border="bottom"></TableCell>
                   <TableCell border="bottom"></TableCell>
                   <TableCell border="bottom"></TableCell>
                   <TableCell border="bottom"></TableCell>
