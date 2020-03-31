@@ -70,7 +70,7 @@ export default class CartBox extends React.Component<Props, State> {
                         <TableCell>{product.product.title}</TableCell>
                         <TableCell>{product.quantity}</TableCell>
                         <TableCell>
-                          {product.product.price * product.quantity}
+                          {product.product.price * product.quantity} SEK
                         </TableCell>
                         <TableCell>
                           <FormAdd
@@ -99,7 +99,7 @@ export default class CartBox extends React.Component<Props, State> {
                       <strong>{getTotalQuantity()}</strong>
                     </TableCell>
                     <TableCell>
-                      <strong>{getTotalPrice()}</strong>
+                      <strong>{getTotalPrice()} SEK</strong>
                     </TableCell>
                   </TableRow>
                 </TableBody>
