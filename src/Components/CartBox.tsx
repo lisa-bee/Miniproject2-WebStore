@@ -8,7 +8,7 @@ import {
   TableCell,
   TableBody,
 } from "grommet";
-import { Cart, FormAdd, FormSubtract, FormTrash, Image } from "grommet-icons";
+import { Cart, FormAdd, FormSubtract, FormTrash } from "grommet-icons";
 import { CartConsumer } from "../contexts/CartContext";
 import { Product } from "./AllProducts";
 

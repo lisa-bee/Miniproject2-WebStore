@@ -52,7 +52,7 @@ export default class ProductPage extends React.Component<Props, State> {
 
   private get productInfo() {
     if (!this.state.selectedProduct) {
-      return <h1>PRODUKTEN FINNS INTE !!!</h1>;
+      return <h1>Sorry, this product does not exist...</h1>;
     } else {
       return (
         <ProductInfoBox
