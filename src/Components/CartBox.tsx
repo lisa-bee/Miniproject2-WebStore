@@ -11,7 +11,6 @@ import {
 import { Cart, FormAdd, FormSubtract, FormTrash, Image } from "grommet-icons";
 import { CartConsumer } from "../contexts/CartContext";
 import { Product } from "./AllProducts";
-import ProductContainer from "./ProductContainer";
 
 interface Props {
   product: Product;

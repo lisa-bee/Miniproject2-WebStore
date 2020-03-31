@@ -74,7 +74,6 @@ export class CartProvider extends React.Component<Props, State> {
     for (const item of this.state.items) {
       totalQuantity += item.quantity
     }
-    console.log(totalQuantity)
     return totalQuantity
   }
   
