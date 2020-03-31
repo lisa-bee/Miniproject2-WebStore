@@ -11,6 +11,7 @@ import {
 import { Cart, FormAdd, FormSubtract, FormTrash, Image } from "grommet-icons";
 import { CartConsumer } from "../contexts/CartContext";
 import { Product } from "./AllProducts";
+import { DH_CHECK_P_NOT_SAFE_PRIME } from "constants";
 
 interface Props {
   product: Product;
@@ -37,11 +38,11 @@ export default class CartBox extends React.Component<Props, State> {
               <Table>
                 <TableHeader>
                   <TableRow>
-                  <TableCell scope="col" border="bottom">
-                      <strong></strong>
-                    </TableCell>
                     <TableCell scope="col" border="bottom">
                       <strong>Product</strong>
+                    </TableCell>
+                  <TableCell scope="col" border="bottom">
+                      <strong>Title</strong>
                     </TableCell>
                     <TableCell scope="col" border="bottom">
                       <strong>Quantity</strong>
@@ -58,7 +59,7 @@ export default class CartBox extends React.Component<Props, State> {
                         <TableCell scope="row"><img src={product.product.image} style={{width: "1.9rem", height: "2.65rem"}}/></TableCell>
                         <TableCell>{product.product.title}</TableCell>
                         <TableCell>{product.quantity}</TableCell>
-                        <TableCell>{product.product.price}</TableCell>
+                        <TableCell>{product.product.price * product.quantity}</TableCell>
                         <TableCell>
                           <FormAdd></FormAdd>
                           <FormSubtract></FormSubtract>
@@ -74,6 +75,9 @@ export default class CartBox extends React.Component<Props, State> {
                   <TableRow>
                     <TableCell scope="row">
                       <strong>Total</strong>
+                    </TableCell>
+                  <TableCell scope="row">
+                      <strong></strong>
                     </TableCell>
                     <TableCell>
                       <strong>{items.length}</strong>
