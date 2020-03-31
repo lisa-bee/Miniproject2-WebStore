@@ -9,7 +9,7 @@ export default class Header1 extends React.Component {
     let image = require("../assets/logo.png");
     return (
       <CartConsumer>
-        {({ items }) => (
+        {({ items, getTotalQuantity }) => (
           <ResponsiveContext.Consumer>
             {size => (
               <Header justify="between" background="light-1" pad="small">
@@ -26,7 +26,7 @@ export default class Header1 extends React.Component {
                     margin={{ right: "large" }}
                   >
                     <div style={shoppingCountContainer()}>
-                      <p style={shoppingCount()}>{items.length}</p>
+                      <p style={shoppingCount()}>{getTotalQuantity()}</p>
                     </div>
                     <Cart color="plain" size="medium" />
                     {size != "small" && (

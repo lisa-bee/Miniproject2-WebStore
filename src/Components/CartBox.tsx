@@ -11,7 +11,7 @@ import {
 import { Cart, FormAdd, FormSubtract, FormTrash, Image } from "grommet-icons";
 import { CartConsumer } from "../contexts/CartContext";
 import { Product } from "./AllProducts";
-import { DH_CHECK_P_NOT_SAFE_PRIME } from "constants";
+import ProductContainer from "./ProductContainer";
 
 interface Props {
   product: Product;
@@ -26,7 +26,7 @@ export default class CartBox extends React.Component<Props, State> {
   render() {
     return (
       <CartConsumer>
-        {({ items }) => (
+        {({ items, getTotalPrice, getTotalQuantity }) => (
           <Box pad="xlarge" gap="large" width="large" background="light-1">
             <Box direction="row" width="large" justify="between">
               <Text size="large" weight="bold">
@@ -39,10 +39,10 @@ export default class CartBox extends React.Component<Props, State> {
                 <TableHeader>
                   <TableRow>
                     <TableCell scope="col" border="bottom">
-                      <strong>Product</strong>
+                      <strong>Items</strong>
                     </TableCell>
                   <TableCell scope="col" border="bottom">
-                      <strong>Title</strong>
+                      <strong></strong>
                     </TableCell>
                     <TableCell scope="col" border="bottom">
                       <strong>Quantity</strong>
@@ -80,10 +80,10 @@ export default class CartBox extends React.Component<Props, State> {
                       <strong></strong>
                     </TableCell>
                     <TableCell>
-                      <strong>{items.length}</strong>
+                      <strong>{getTotalQuantity()}</strong>
                     </TableCell>
                     <TableCell>
-                    <strong></strong>
+                      <strong>{getTotalPrice()}</strong>
                     </TableCell>
                   </TableRow>
                 </TableBody>

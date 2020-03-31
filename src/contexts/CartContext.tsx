@@ -1,12 +1,12 @@
 import React, { createContext } from "react";
 import { Product } from "../Components/AllProducts";
-import { SSL_OP_DONT_INSERT_EMPTY_FRAGMENTS } from "constants";
 
 const defaultState: State = {
   items: [],
   addProductToCart: () => {},
   deleteProductFromCart: () => {},
-  getTotalPrice: () => 0
+  getTotalPrice: () => 0,
+  getTotalQuantity: () => 0
 };
 
 const CartContext = createContext<State>(defaultState);
@@ -22,6 +22,7 @@ interface State {
   addProductToCart: (product: Product) => void;
   deleteProductFromCart: (product: Product) => void;
   getTotalPrice: () => number;
+  getTotalQuantity: () => number;
 }
 
 export class CartProvider extends React.Component<Props, State> {
@@ -32,7 +33,8 @@ export class CartProvider extends React.Component<Props, State> {
       items: [],
       addProductToCart: this.addProductToCart,
       deleteProductFromCart: this.deleteProductFromCart,
-      getTotalPrice: this.getTotalPrice
+      getTotalPrice: this.getTotalPrice,
+      getTotalQuantity: this.getTotalQuantity
     };
   }
 
@@ -65,6 +67,15 @@ export class CartProvider extends React.Component<Props, State> {
       sum += item.product.price * item.quantity
     }
     return sum
+  }
+
+  getTotalQuantity = ():number => {
+    let totalQuantity = 0
+    for (const item of this.state.items) {
+      totalQuantity += item.quantity
+    }
+    console.log(totalQuantity)
+    return totalQuantity
   }
   
   
