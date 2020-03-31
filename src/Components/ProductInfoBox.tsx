@@ -7,6 +7,7 @@ import { Product } from "./AllProducts";
 
 interface Props {
   product: Product;
+  handleCartClick: () => void;
 }
 
 interface State {
@@ -21,6 +22,10 @@ export default class ProductInfoBox extends React.Component<Props, State> {
       isOpen: false
     };
   }
+  private handleClick = (addProductToCart: (product: Product) => void) => {
+    this.props.handleCartClick();
+    addProductToCart(this.props.product);
+  };
 
   render() {
     return (
@@ -38,16 +43,14 @@ export default class ProductInfoBox extends React.Component<Props, State> {
               <Text>Size: 70x100 </Text>
               <Menu
                 label="Quantity"
-                items={[
-                  { label: "1", onClick: () => {} }
-                ]}
+                items={[{ label: "1", onClick: () => {} }]}
               />
               <Button
                 primary
                 color="dark-1"
                 label="Add to cart"
                 onClick={() => {
-                  addProductToCart(this.props.product);
+                  this.handleClick(addProductToCart);
                 }}
               ></Button>
               <Text size={"12pt"}>PRODUCT INFO</Text>

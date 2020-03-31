@@ -54,7 +54,12 @@ export default class ProductPage extends React.Component<Props, State> {
     if (!this.state.selectedProduct) {
       return <h1>PRODUKTEN FINNS INTE !!!</h1>;
     } else {
-      return <ProductInfoBox product={this.state.selectedProduct!} />;
+      return (
+        <ProductInfoBox
+          product={this.state.selectedProduct!}
+          handleCartClick={this.handleCartClick}
+        />
+      );
     }
   }
 
