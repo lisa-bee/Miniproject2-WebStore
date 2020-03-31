@@ -3,34 +3,17 @@ import { Box, Text, RadioButtonGroup, Button } from "grommet";
 import { Deliver } from "grommet-icons";
 
 interface Props {
-  // getDate: any
-  // componentDidMount: any
+  
 }
 
 interface State {
-  date: ""
-  // getDate: any
-  // state = {date: new Date()}
 
 }
 
 export default class ShippingBox extends React.Component<Props, State> {
-  constructor(props: Props) {
-    super(props);
-    
-
-  componentDidMount() {
-    this.getDate();
-  }
-
-  getDate = () => {
-    var date = new Date().toDateString();
-    this.setState({ date });
-  };
 
   render() {
     return (
-      const { date } = this.state;
         <Box pad="xlarge" gap="large" width="large" background="light-1">
           <Box width="large" direction="row" justify="between">
             <Text size="large" alignSelf="start" weight="bold">
@@ -62,11 +45,6 @@ export default class ShippingBox extends React.Component<Props, State> {
               }
             ]}
           />
-
-          <Text>
-            
-          </Text>
-
           <Button
             type="submit"
             alignSelf="center"
@@ -77,4 +55,4 @@ export default class ShippingBox extends React.Component<Props, State> {
         </Box>
     );
   }
-}
+  }
