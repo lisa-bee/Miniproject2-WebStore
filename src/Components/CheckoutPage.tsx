@@ -6,28 +6,19 @@ import ShippingBox from "./ShippingBox";
 import PaymentBox from "./PaymentBox";
 import { Product } from "./AllProducts";
 
-// type DeliveryData = {
-//   givenName: string
-//   familyName: string
-//   email: string
-//   tel: number
-//   streetAddress: string
-//   postalCode: number
-//   city: string
-// }
 interface Props {
   product: Product;
- // history: any
+  // history: any
 }
 
 interface State {
-  givenName: string
-  familyName: string
-  email: string
-  tel: string
-  streetAddress: string
-  postalCode: string
-  city: string
+  givenName: string;
+  familyName: string;
+  email: string;
+  tel: string;
+  streetAddress: string;
+  postalCode: string;
+  city: string;
 }
 
 export default class CheckoutPage extends React.Component<Props, State> {
@@ -38,18 +29,19 @@ export default class CheckoutPage extends React.Component<Props, State> {
     tel: "",
     streetAddress: "",
     postalCode: "",
-    city: "",
-  }
+    city: ""
+  };
 
   handleChange = (name: string, value: string) => {
-    this.setState({...this.state, [name]: value})
-  }
+    this.setState({ ...this.state, [name]: value });
+  };
 
-  
+  // handlePaymentChange =>
+
   render() {
     console.log("checkout state", this.state);
     return (
-          <Main
+      <Main
         direction="column"
         align="center"
         pad="small"
@@ -57,14 +49,13 @@ export default class CheckoutPage extends React.Component<Props, State> {
         flex="grow"
       >
         <Heading size="small">CHECKOUT</Heading>
-        <CartBox product={this.props.product}/>
+        <CartBox product={this.props.product} />
         <DeliveryBox handleChange={this.handleChange} />
         {/* <DeliveryBox onChange={(deliveryData) => this.setState({ deliveryData })}/> */}
         <ShippingBox />
-        <PaymentBox phoneNumber={this.state.tel} /* history={this.props.history} */ />
+        <PaymentBox phoneNumber={this.state.tel} />
         {/* <PaymentBox deliveryData={this.state.deliveryData} /> */}
       </Main>
-        
     );
   }
 }
