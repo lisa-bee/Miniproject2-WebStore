@@ -1,36 +1,40 @@
 import React from "react";
 import { Box, Text, Form, FormField } from "grommet";
-import { Home } from "grommet-icons";
+import { Home } from "grommet-icons"; 
 
-type DeliveryData = {
-  // tel: "sdsd"
-  // given-name: "asdsd"
-  // family-name: "asd"
-  // email: "sd"
-  // street-address: "sds"
-  // postal-code: "sds"
-  // address-level2: "sdsd"
-}
+// type DeliveryData = {
+//   givenName: string
+//   familyName: string
+//   email: string
+//   tel: number
+//   streetAddress: string
+//   postalCode: number
+//   city: string
+// }
 
 interface Props {
-
+  // deliveryData: {}
+  // onChange:() => this.state.deliveryData
+  handleChange: (name: string, value: string) => void
 }
 
 interface State {
-  phone: any
-  // deliveryData: Deliverydata[]
+  deliveryData: {}
 }
 export default class DeliveryBox extends React.Component<Props, State> {
-  constructor(props: Props) {
-    super(props);
-    // this.state = { given-name: "", family-name: "", email: '' };
-    // this.state = { deliveryData: []}
-    this.state = {
-      phone: 112
-    }
+  // constructor(props: Props) {
+  //   super(props);
+  //     this.state = {
+  //       deliveryData: {}
+  //     }
+  //   }
+      // this.state = { given-name: "", family-name: "", email: '' };
+      // deliveryData: this.saveDeliveryData
+    // }
 
-  }
-
+  // saveDeliveryData = (deliveryData: DeliveryData) => {
+  //   this.setState({ deliveryData });
+  // }
 
 //   handleChange = (deliveryData: any) => {
 //     this.setState({ deliveryData });
@@ -51,11 +55,13 @@ export default class DeliveryBox extends React.Component<Props, State> {
           validate="blur"
           autoComplete="on"
           // onChange={handleChange}
-          // onChange={(event: any) => this.setState({phone: event.tel})}
-          onChange={(event: any) => {console.log(event)}}
+          // onChange={(event: any) => this.setState({deliveryData: event.target.value})}
+          // onChange={(event: any) => {console.log(event)}}
+          // onChange={(event) => this.setState({ deliveryData: event.target.value as DeliveryData })}
           >
-        
+            {/* {console.log(this.state.deliveryData)} */}
           <FormField
+            // id="firstName"
             name="given-name"
             label="First Name"  
             // placeholder="First Name"
@@ -63,7 +69,8 @@ export default class DeliveryBox extends React.Component<Props, State> {
             // component={(event: any) => this.setState({deliveryData: event.target.value})}
             required
             validate={{ message: "only letters" }}
-            // value=""
+            onChange={event => this.props.handleChange("givenName", event.target.value)}
+            // value="firstName"
           />
           <FormField
             name="family-name"
@@ -72,6 +79,7 @@ export default class DeliveryBox extends React.Component<Props, State> {
             type="text"
             required
             validate={{ message: "only letters" }}
+            onChange={event => this.props.handleChange("familyName", event.target.value)}
             // value=""
           />
           <FormField
@@ -90,7 +98,8 @@ export default class DeliveryBox extends React.Component<Props, State> {
             type="tel"
             required
             validate={{ regexp: /^[0-9]{10}$/, message: "10 digits" }}
-            value=""
+            onChange={event => this.props.handleChange("tel", event.target.value)}
+            // value={this.state.deliveryData.tel}
 
           />
           <FormField

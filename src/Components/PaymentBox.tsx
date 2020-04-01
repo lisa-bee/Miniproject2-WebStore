@@ -16,6 +16,7 @@ type PaymentOption = 'swish' | 'credit-card' | 'invoice';
 interface Props {
   // handlePaymentChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   // defaultValue: string
+  phoneNumber: string
 }
 
 interface State {
@@ -29,6 +30,8 @@ class PaymentBox extends React.Component<Props, State> {
   }
 
   render() {
+    console.log("props number", this.props.phoneNumber);
+    
     return (
       <CartConsumer>
         {({ getTotalPrice }) => (
@@ -66,14 +69,15 @@ class PaymentBox extends React.Component<Props, State> {
           />
 
           <Form autoComplete="on" validate="blur">
-            <FormField
+            {/* <FormField
+              value={this.props.phoneNumber}
               name="tel"
               label="Phone Number"
-              type="tel"
+              type="number"
               required
-              validate={{ regexp: /^[0-9]{10}$/, message: "10 digits" }}
-              // value={this.state.phone}
-            />
+              // validate={{ regexp: /^[0-9]{10}$/, message: "10 digits" }}
+            /> */}
+            <input type="number" placeholder="PhoneNumber" value={this.props.phoneNumber} />
             <Button
               icon={<Edit />}
               label="Edit"
