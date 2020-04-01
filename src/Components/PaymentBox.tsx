@@ -52,6 +52,7 @@ class PaymentBox extends React.Component<Props, State> {
   /*   const promise = this.delayPromiseSvar() 
   promise.then(this.köpetGickIgenom) */
 
+
   render() {
     return (
       <CartConsumer>
@@ -92,50 +93,53 @@ class PaymentBox extends React.Component<Props, State> {
                 }
               ]}
             />
-            <Text>Swish number: {this.props.phoneNumber}</Text>
             {/* <input type="tel" placeholder="PhoneNumber" value={this.props.phoneNumber} /> */}
+            {this.state.paymentSelection === "swish" ? (
+              <Text>Swish number: {this.props.phoneNumber}</Text>
+            ) : (
+              <Form autoComplete="on" validate="blur">
+                <FormField
+                  name="cardnumber"
+                  autoComplete="cc-number"
+                  label="Card Number"
+                  type="tel"
+                  required
+                  validate={{ regexp: /^[0-9]{16}$/, message: "16 digits" }}
+                />
+                <FormField
+                  name="ccmonth"
+                  autoComplete="cc-exp-month"
+                  label="Expiry Month"
+                  type="tel"
+                  required
+                  validate={{ regexp: /^[0-9]{2}$/, message: "2 digits" }}
+                />
+                <FormField
+                  name="ccyear"
+                  autoComplete="cc-exp-year"
+                  label="Expiry Year"
+                  type="tel"
+                  required
+                  validate={{ regexp: /^[0-9]{2}$/, message: "2 digits" }}
+                />
+                <FormField
+                  name="cvc"
+                  autoComplete="cc-csc"
+                  label="CVC2"
+                  type="tel"
+                  required
+                  validate={{ regexp: /^[0-9]{3}$/, message: "3 digits" }}
+                />
+                <FormField
+                  name="ccname"
+                  autoComplete="cc-name"
+                  label="Cardholder Name"
+                  type="text"
+                  required
+                />
+              </Form>
+            )}
 
-            <Form autoComplete="on" validate="blur">
-              <FormField
-                name="cardnumber"
-                autoComplete="cc-number"
-                label="Card Number"
-                type="tel"
-                required
-                validate={{ regexp: /^[0-9]{16}$/, message: "16 digits" }}
-              />
-              <FormField
-                name="ccmonth"
-                autoComplete="cc-exp-month"
-                label="Expiry Month"
-                type="tel"
-                required
-                validate={{ regexp: /^[0-9]{2}$/, message: "2 digits" }}
-              />
-              <FormField
-                name="ccyear"
-                autoComplete="cc-exp-year"
-                label="Expiry Year"
-                type="tel"
-                required
-                validate={{ regexp: /^[0-9]{2}$/, message: "2 digits" }}
-              />
-              <FormField
-                name="cvc"
-                autoComplete="cc-csc"
-                label="CVC2"
-                type="tel"
-                required
-                validate={{ regexp: /^[0-9]{3}$/, message: "3 digits" }}
-              />
-              <FormField
-                name="ccname"
-                autoComplete="cc-name"
-                label="Cardholder Name"
-                type="text"
-                required
-              />
-            </Form>
             <Form autoComplete="on" validate="blur">
               <FormField
                 name="email"
@@ -149,6 +153,7 @@ class PaymentBox extends React.Component<Props, State> {
               Total <strong>{getTotalPrice()} SEK</strong> VAT & shipping
               included
             </Text>
+
             <Box alignSelf="center">
               <Link to="/orderplacedpage/" /* onClick={this.delay} */>
                 <Button
@@ -169,3 +174,19 @@ class PaymentBox extends React.Component<Props, State> {
 }
 
 export default PaymentBox;
+
+
+
+
+// render() {
+//       { switch(nånting) {
+//         case "invoice":
+//           return (<EnComponent />)
+//         case "credit-card":
+//           return (<EnAnnanComponent />)
+//         default
+//         return ((<EnSkitComponent />))
+
+//    }}
+
+// }

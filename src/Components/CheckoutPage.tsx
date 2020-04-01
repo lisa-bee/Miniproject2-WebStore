@@ -6,6 +6,8 @@ import ShippingBox from "./ShippingBox";
 import PaymentBox from "./PaymentBox";
 import { Product } from "./AllProducts";
 
+
+
 interface Props {
   product: Product;
   // history: any
@@ -55,7 +57,10 @@ export default class CheckoutPage extends React.Component<Props, State> {
         <ShippingBox />
         <PaymentBox phoneNumber={this.state.tel} />
         {/* <PaymentBox deliveryData={this.state.deliveryData} /> */}
+
+        }
       </Main>
     );
+    
   }
 }
