@@ -1,4 +1,4 @@
-import React, { CSSProperties } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import {
   Box,
@@ -11,33 +11,39 @@ import {
 } from "grommet";
 import { Money, Edit } from "grommet-icons";
 import { CartConsumer } from "../contexts/CartContext";
-import OrderPopup from "./OrderPopup";
+import OrderPlacedPage from "./OrderPlacedPage";
 
 interface Props {
   // handlePaymentChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   // defaultValue: string
+  // history: any;
 }
 
-interface State {
-  //isOpen: boolean;
-}
+interface State {}
 class PaymentBox extends React.Component<Props, State> {
-  /* constructor(props: Props) {
-    super(props);
-
-    this.state = {
-      isOpen: false
-    }
-  }
-
-  openPopup = () => {
-    this.setState({ isOpen: !this.state.isOpen });
-  };
-
-  closePopup = () => {
-    this.setState({ isOpen: false });
+ /*  delay = (event: any) => {
+    event.preventDefault();
+    setTimeout(() => {
+      this.props.history.push("/orderplacedpage/");
+    }, 2000);
   }; */
 
+  /* delayPromiseSvar = (ms: number) => {
+    function delay(ms: number) {
+      // your code
+    }
+    delay(3000).then(() => alert('runs after 3 seconds'));
+  } */
+     
+  kopetGickIgenom = () => {
+    console.log("hej");
+  /* return <OrderPlacedPage /> */
+  
+  }
+/*   const promise = this.delayPromiseSvar() 
+  promise.then(this.köpetGickIgenom) */
+     
+  
   render() {
     return (
       <CartConsumer>
@@ -180,33 +186,22 @@ class PaymentBox extends React.Component<Props, State> {
               included
             </Text>
             <Box alignSelf="center">
-              <Link to="/orderplacedpage/">
+              <Link to="/orderplacedpage/" /* onClick={this.delay} */>
                 <Button
                   type="submit"
                   alignSelf="center"
                   color="dark-1"
                   primary
                   label="COMPLETE PURCHASE"
-                  //onClick={this.openPopup}
+                  /* onClick={() => this.delayPromiseSvar} */
                 />
               </Link>
             </Box>
-            {/* {this.state.isOpen && (<div style={popup()}><OrderPopup closePopup={this.closePopup} /></div>)} */}
           </Box>
         )}
       </CartConsumer>
     );
   }
 }
-
-const popup = (): CSSProperties => ({
-  height: "100%",
-  width: "100%",
-  display: "flex",
-  justifyContent: "center",
-  alignItems: "center",
-  position: "fixed",
-  top: 0
-});
 
 export default PaymentBox;
