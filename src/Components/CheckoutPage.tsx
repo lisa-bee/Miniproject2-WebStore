@@ -8,6 +8,7 @@ import { Product } from "./AllProducts";
 
 interface Props {
   product: Product;
+ // history: any
 }
 
 interface State {
@@ -27,7 +28,7 @@ export default class CheckoutPage extends React.Component<Props, State> {
         <CartBox product={this.props.product}/>
         <DeliveryBox />
         <ShippingBox />
-        <PaymentBox />
+        <PaymentBox /* history={this.props.history} *//>
       </Main>
         
     );
