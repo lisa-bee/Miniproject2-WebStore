@@ -8,6 +8,7 @@ import Header1 from "./Components/Header";
 import StartPage from "./Components/StartPage";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import { CartProvider } from "./contexts/CartContext";
+import OrderPlacedPage from "./Components/OrderPlacedPage";
 
 function App() {
   return (
@@ -21,6 +22,8 @@ function App() {
                 {/* <ProductPage component={/> */}
               </Route>
               <Route path="/checkoutpage/" component={CheckoutPage}>
+              </Route>
+              <Route path="/orderplacedpage/" component={OrderPlacedPage}>
               </Route>
               <Route path="/">
                 <StartPage />

@@ -1,4 +1,5 @@
-import React from "react";
+import React, { CSSProperties } from "react";
+import { Link } from "react-router-dom";
 import {
   Box,
   Text,
@@ -10,17 +11,32 @@ import {
 } from "grommet";
 import { Money, Edit } from "grommet-icons";
 import { CartConsumer } from "../contexts/CartContext";
+import OrderPopup from "./OrderPopup";
 
 interface Props {
   // handlePaymentChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   // defaultValue: string
 }
 
-interface State {}
+interface State {
+  //isOpen: boolean;
+}
 class PaymentBox extends React.Component<Props, State> {
-  constructor(props: Props) {
+  /* constructor(props: Props) {
     super(props);
+
+    this.state = {
+      isOpen: false
+    }
   }
+
+  openPopup = () => {
+    this.setState({ isOpen: !this.state.isOpen });
+  };
+
+  closePopup = () => {
+    this.setState({ isOpen: false });
+  }; */
 
   render() {
     return (
@@ -165,18 +181,33 @@ class PaymentBox extends React.Component<Props, State> {
           >
             Total <strong>{getTotalPrice()} SEK</strong> VAT & shipping included
           </Text>
+          <Link to="/orderplacedpage/">
           <Button
             type="submit"
             alignSelf="center"
             color="dark-1"
             primary
             label="COMPLETE PURCHASE"
-          />
+            //onClick={this.openPopup}
+            />
+            {/* {this.state.isOpen && (<div style={popup()}><OrderPopup closePopup={this.closePopup} /></div>)} */}
+            </Link>
         </Box>
         )}
         </CartConsumer>
     );
   }
 }
+
+const popup = (): CSSProperties => ({
+  height: "100%",
+  width: "100%",
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  position: "fixed",
+  top: 0
+});
+
 
 export default PaymentBox;
