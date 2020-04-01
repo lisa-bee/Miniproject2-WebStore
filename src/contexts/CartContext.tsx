@@ -6,7 +6,8 @@ const defaultState: State = {
   addProductToCart: () => {},
   deleteProductFromCart: () => {},
   getTotalPrice: () => 0,
-  getTotalQuantity: () => 0
+  getTotalQuantity: () => 0,
+  removeOneProduct: () => {}
 };
 
 const CartContext = createContext<State>(defaultState);
@@ -20,9 +21,10 @@ interface Props {}
 interface State {
   items: CartItem[];
   addProductToCart: (product: Product) => void;
-  deleteProductFromCart: (product: Product) => void;
+  deleteProductFromCart: (event: any) => void;
   getTotalPrice: () => number;
   getTotalQuantity: () => number;
+  removeOneProduct: (product: Product) => void;
 }
 
 export class CartProvider extends React.Component<Props, State> {
@@ -34,50 +36,71 @@ export class CartProvider extends React.Component<Props, State> {
       addProductToCart: this.addProductToCart,
       deleteProductFromCart: this.deleteProductFromCart,
       getTotalPrice: this.getTotalPrice,
-      getTotalQuantity: this.getTotalQuantity
+      getTotalQuantity: this.getTotalQuantity,
+      removeOneProduct: this.removeOneProduct
     };
   }
 
   addProductToCart = (product: Product) => {
     // console.log(product);
-    const clonedItems: CartItem[] = Object.assign([], this.state.items)
+    const clonedItems: CartItem[] = Object.assign([], this.state.items);
     for (const item of clonedItems) {
       if (item.product.index == product.index) {
-        item.quantity += 1
+        item.quantity += 1;
         this.setState({ items: clonedItems });
-        return 
+        return;
       }
     }
     // Finns produkten i items, inkrementera quantity med +1, annars lägg till produkten.
-    clonedItems.push({ quantity: 1, product: product })
+    clonedItems.push({ quantity: 1, product: product });
     this.setState({ items: clonedItems });
 
     /* save to state */
     // Add a new cartItem or just update the quantity (finns product.id i this.state.items[].id)
   };
 
-  deleteProductFromCart = (product: Product) => {
-    /* save to state */
-    // delete the cartItem or just update the quantity
+  removeOneProduct = (product: Product) => {
+    // console.log(product);
+    const clonedItems: CartItem[] = Object.assign([], this.state.items);
+    for (const item of clonedItems) {
+      if (item.product.index == product.index) {
+        item.quantity -= 1;
+        this.setState({ items: clonedItems });
+        return;
+      }
+    }
+    clonedItems.push({ quantity: 1, product: product });
+    this.setState({ items: clonedItems });
   };
 
-  getTotalPrice = ():number => {
-    let sum = 0
-    for (const item of this.state.items) {
-      sum += item.product.price * item.quantity
-    }
-    return sum
-  }
+  deleteProductFromCart = (product: Product) => {
+    const clonedItems: CartItem[] = Object.assign([], this.state.items);
 
-  getTotalQuantity = ():number => {
-    let totalQuantity = 0
-    for (const item of this.state.items) {
-      totalQuantity += item.quantity
+    for (var i = 0; i < clonedItems.length; i++) {
+      if (clonedItems[i].product.index == product.index) {
+        clonedItems.splice(i, 1);
+      }
     }
-    return totalQuantity
-  }
-  
-  
+
+    this.setState({ items: clonedItems });
+  };
+
+  getTotalPrice = (): number => {
+    let sum = 0;
+    for (const item of this.state.items) {
+      sum += item.product.price * item.quantity;
+    }
+    return sum;
+  };
+
+  getTotalQuantity = (): number => {
+    let totalQuantity = 0;
+    for (const item of this.state.items) {
+      totalQuantity += item.quantity;
+    }
+    return totalQuantity;
+  };
+
   render() {
     // console.log(this.state.items[4].product);
     return (
