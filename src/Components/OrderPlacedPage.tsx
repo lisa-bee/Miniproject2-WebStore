@@ -7,7 +7,7 @@ export default class OrderPlacedPage extends React.Component<{}, {}> {
 
     render() {
         return(
-            <Box>
+            <Box align="center">
                 <h1>Your order has been placed!</h1>
             </Box>
         )
