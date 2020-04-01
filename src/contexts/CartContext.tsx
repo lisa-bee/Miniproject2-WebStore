@@ -62,6 +62,11 @@ export class CartProvider extends React.Component<Props, State> {
   removeOneProduct = (product: Product) => {
     // console.log(product);
     const clonedItems: CartItem[] = Object.assign([], this.state.items);
+    for (var i = 0; i < clonedItems.length; i++) {
+      if (clonedItems[i].quantity <= 1) {
+        clonedItems.splice(i, 1);
+      }
+    }
     for (const item of clonedItems) {
       if (item.product.index == product.index) {
         item.quantity -= 1;
@@ -69,7 +74,6 @@ export class CartProvider extends React.Component<Props, State> {
         return;
       }
     }
-    clonedItems.push({ quantity: 1, product: product });
     this.setState({ items: clonedItems });
   };
 
