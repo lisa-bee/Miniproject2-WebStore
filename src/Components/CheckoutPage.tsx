@@ -17,6 +17,7 @@ import { Product } from "./AllProducts";
 // }
 interface Props {
   product: Product;
+ // history: any
 }
 
 interface State {
@@ -60,7 +61,7 @@ export default class CheckoutPage extends React.Component<Props, State> {
         <DeliveryBox handleChange={this.handleChange} />
         {/* <DeliveryBox onChange={(deliveryData) => this.setState({ deliveryData })}/> */}
         <ShippingBox />
-        <PaymentBox phoneNumber={this.state.tel} />
+        <PaymentBox phoneNumber={this.state.tel} /* history={this.props.history} */ />
         {/* <PaymentBox deliveryData={this.state.deliveryData} /> */}
       </Main>
         
