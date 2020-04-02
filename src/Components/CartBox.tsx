@@ -123,5 +123,5 @@ export default class CartBox extends React.Component<Props, State> {
 }
 
 const cartboxContainer = (size: string): CSSProperties => ({
-  fontSize: size == "small" ? "8pt" : size == "medium" ? "10pt" : "12pt"
+  fontSize: size == "small" ? "8pt" : size == "medium" ? "12pt" : "16pt"
 });

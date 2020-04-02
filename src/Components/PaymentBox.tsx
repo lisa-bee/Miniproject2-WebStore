@@ -48,7 +48,7 @@ class PaymentBox extends React.Component<Props, State> {
     return (
       <CartConsumer>
         {({ getTotalPrice }) => (
-          <Box pad="xlarge" gap="large" width="large" background="light-1">
+          <Box pad="large" gap="large" width="large" background="light-1">
             <Box direction="row" justify="between" width="large">
               <Text size="large" alignSelf="start" weight="bold">
                 Payment

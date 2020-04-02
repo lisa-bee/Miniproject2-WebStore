@@ -12,7 +12,7 @@ export default class DeliveryBox extends React.Component<Props, State> {
 
   render() {
     return (
-      <Box pad="xlarge" gap="large" width="large" background="light-1">
+      <Box pad="large" gap="large" width="large" background="light-1">
         <Box direction="row" width="large" justify="between">
           <Text size="large" weight="bold">
             Delivery
@@ -84,14 +84,6 @@ export default class DeliveryBox extends React.Component<Props, State> {
             validate={{ message: "only letters" }}
             // value=""
           />
-          {/* <Button
-            type="submit"
-            color="dark-1"
-            alignSelf="center"
-            primary
-            label="CONFIRM & CONTINUE"
-            // onClick={() => validateInput}
-          /> */}
         </Form>
       </Box>
     );
