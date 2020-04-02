@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ReactComponentElement } from "react";
 import { Link } from "react-router-dom";
 import {
   Box,
@@ -11,19 +11,18 @@ import {
 } from "grommet";
 import { Money, Edit } from "grommet-icons";
 import { CartConsumer } from "../contexts/CartContext";
-import OrderPlacedPage from "./OrderPlacedPage";
+import ClipLoader from "react-spinners/ClipLoader";
 
 type PaymentOption = "swish" | "credit-card" | "invoice";
 
 interface Props {
-  // handlePaymentChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  // defaultValue: string
+  isOrderBeingProcessed: boolean;
+  onSubmitOrder: () => void;
   phoneNumber: string;
 }
 
 interface State {
   paymentSelection: PaymentOption;
-  // history: any;
 }
 
 class PaymentBox extends React.Component<Props, State> {
@@ -31,26 +30,6 @@ class PaymentBox extends React.Component<Props, State> {
     super(props);
     this.state = { paymentSelection: "swish" };
   }
-  /*  delay = (event: any) => {
-    event.preventDefault();
-    setTimeout(() => {
-      this.props.history.push("/orderplacedpage/");
-    }, 2000);
-  }; */
-
-  /* delayPromiseSvar = (ms: number) => {
-    function delay(ms: number) {
-      // your code
-    }
-    delay(3000).then(() => alert('runs after 3 seconds'));
-  } */
-
-  kopetGickIgenom = () => {
-    console.log("hej");
-    /* return <OrderPlacedPage /> */
-  };
-  /*   const promise = this.delayPromiseSvar() 
-  promise.then(this.köpetGickIgenom) */
 
   render() {
     return (
@@ -149,17 +128,27 @@ class PaymentBox extends React.Component<Props, State> {
               Total <strong>{getTotalPrice()} SEK</strong> VAT & shipping
               included
             </Text>
-            <Box alignSelf="center">
-              <Link to="/orderplacedpage/" /* onClick={this.delay} */>
+            <Box alignSelf="center" align="center">
+              {!this.props.isOrderBeingProcessed && (
                 <Button
                   type="submit"
                   alignSelf="center"
                   color="dark-1"
                   primary
                   label="COMPLETE PURCHASE"
-                  /* onClick={() => this.delayPromiseSvar} */
+                  onClick={this.props.onSubmitOrder}
                 />
-              </Link>
+              )}
+              {this.props.isOrderBeingProcessed && (
+                <>
+                  <p>Please wait, your order is being placed..</p>
+                  <ClipLoader
+                    size={15}
+                    color={"#123abc"}
+                    loading={this.props.isOrderBeingProcessed}
+                  />
+                </>
+              )}
             </Box>
           </Box>
         )}
