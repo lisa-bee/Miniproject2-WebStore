@@ -4,7 +4,7 @@ import { Deliver } from "grommet-icons";
 import { shippingAlternatives, ShippingOption } from "../mockedShipping";
 
 interface Props {
-  setRadioButton: (shipping: ShippingOption) => void;
+  getDeliveryOption: (shipping: ShippingOption) => void;
   selectedshipping: ShippingOption;
 }
 
@@ -15,10 +15,10 @@ export default class ShippingBox extends React.Component<Props, State> {
   getDeliveryDate = () => {
     const date = new Date();
 
-    const postNord = new Date(date);
-    postNord.setDate(postNord.getDate() + this.props.selectedshipping.deliveryTime);
+    const delivery = new Date(date);
+    delivery.setDate(delivery.getDate() + this.props.selectedshipping.deliveryTime);
 
-    return postNord.toDateString();
+    return delivery.toDateString();
   };
 
 
@@ -43,7 +43,7 @@ export default class ShippingBox extends React.Component<Props, State> {
                 label={shipping.label}
                 name={shipping.label}
                 checked={shipping.id == this.props.selectedshipping.id}
-                onChange={() => this.props.setRadioButton(shipping)}
+                onChange={() => this.props.getDeliveryOption(shipping)}
               ></RadioButton>
               {shipping.id == this.props.selectedshipping.id && (
                 <Text style={{ fontSize: "11pt", marginLeft: "2.35rem"}}>Delivery on <strong>{this.getDeliveryDate()}</strong></Text>

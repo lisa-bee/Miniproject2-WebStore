@@ -49,7 +49,7 @@ export default class CheckoutPage extends React.Component<Props, State> {
     this.setState({ ...this.state, [name]: value });
   };
 
-  setRadioButton = (shipping: ShippingOption) => {
+  getDeliveryOption = (shipping: ShippingOption) => {
     this.setState({ selectedshipping: shipping });
   };
 
@@ -91,7 +91,7 @@ export default class CheckoutPage extends React.Component<Props, State> {
           <DeliveryBox handleChange={this.handleChange} />
           <ShippingBox
             selectedshipping={this.state.selectedshipping}
-            setRadioButton={this.setRadioButton}
+            getDeliveryOption={this.getDeliveryOption}
           />
           <PaymentBox
             isOrderBeingProcessed={this.state.isOrderBeingProcessed}
