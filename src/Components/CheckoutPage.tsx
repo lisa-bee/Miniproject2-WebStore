@@ -56,9 +56,10 @@ export default class CheckoutPage extends React.Component<Props, State> {
   createOrder = async () => {
     this.setState({ isOrderBeingProcessed: true });
     // gather all orde info...
-    const allOrderInfo = {};
+    const allOrderInfo = this.state;
     await createOrder(allOrderInfo);
     this.setState({ isOrderBeingProcessed: false, orderHasBeenPlaced: true });
+    console.log(allOrderInfo);
   };
 
   render() {
@@ -85,21 +86,21 @@ export default class CheckoutPage extends React.Component<Props, State> {
         flex="grow"
       >
         <Box>
-        <Form autoComplete="on" validate="submit" onSubmit={this.createOrder}>
-          <Heading size="small">CHECKOUT</Heading>
-          <CartBox product={this.props.product} />
-          <DeliveryBox handleChange={this.handleChange} />
-          <ShippingBox
-            selectedshipping={this.state.selectedshipping}
-            getDeliveryOption={this.getDeliveryOption}
-          />
-          <PaymentBox
-            isOrderBeingProcessed={this.state.isOrderBeingProcessed}
-            onSubmitOrder={this.createOrder}
-            phoneNumber={this.state.tel}
-            selectedshipping={this.state.selectedshipping}
-          />
-        </Form>
+          <Form autoComplete="on" validate="submit" onSubmit={this.createOrder}>
+            <Heading size="small">CHECKOUT</Heading>
+            <CartBox product={this.props.product} />
+            <DeliveryBox handleChange={this.handleChange} />
+            <ShippingBox
+              selectedshipping={this.state.selectedshipping}
+              getDeliveryOption={this.getDeliveryOption}
+            />
+            <PaymentBox
+              isOrderBeingProcessed={this.state.isOrderBeingProcessed}
+              onSubmitOrder={this.createOrder}
+              phoneNumber={this.state.tel}
+              selectedshipping={this.state.selectedshipping}
+            />
+          </Form>
         </Box>
       </Main>
     );

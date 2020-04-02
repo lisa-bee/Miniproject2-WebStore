@@ -12,7 +12,7 @@ import OrderPlacedPage from "./Components/OrderPlacedPage";
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/">
       <CartProvider>
         <div className="App">
           <Grommet theme={grommet}>
@@ -21,10 +21,11 @@ function App() {
               <Route path="/productpage/:productIndex" component={ProductPage}>
                 {/* <ProductPage component={/> */}
               </Route>
-              <Route path="/checkoutpage/" component={CheckoutPage}>
-              </Route>
-              <Route path="/orderplacedpage/" component={OrderPlacedPage}>
-              </Route>
+              <Route path="/checkoutpage/" component={CheckoutPage}></Route>
+              <Route
+                path="/orderplacedpage/"
+                component={OrderPlacedPage}
+              ></Route>
               <Route path="/">
                 <StartPage />
               </Route>
