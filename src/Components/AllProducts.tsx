@@ -75,10 +75,12 @@ export default class AllProducts extends React.Component<Props, State> {
 
 const popup = (): CSSProperties => ({
   height: "100%",
-  width: "100%",
   display: "flex",
+  zIndex: 2,
   justifyContent: "center",
   alignItems: "center",
   position: "fixed",
-  top: 0
+  top: 0,
+  right: 1,
+  left: 1
 });
