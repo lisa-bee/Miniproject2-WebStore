@@ -5,9 +5,6 @@ import DeliveryBox from "./DeliveryBox";
 import ShippingBox from "./ShippingBox";
 import PaymentBox from "./PaymentComponents/PaymentBox";
 import { Product } from "./AllProducts";
-import SwishBox from "./PaymentComponents/SwishBox";
-import CreditCardBox from "./PaymentComponents/CreditCardBox";
-import InvoiceBox from "./PaymentComponents/InvoiceBox";
 import { createOrder } from "../MockedApi";
 import OrderPlacedPage from "./OrderPlacedPage";
 
@@ -78,8 +75,6 @@ export default class CheckoutPage extends React.Component<Props, State> {
           phoneNumber={this.state.tel}
         />
       </Main>
-        
     );
-    
   }
 }
