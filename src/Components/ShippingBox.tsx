@@ -1,26 +1,13 @@
 import React from "react";
 import { Box, Text, RadioButtonGroup, RadioButton } from "grommet";
-import { Deliver, Target } from "grommet-icons";
+import { Deliver } from "grommet-icons";
 
-interface Props {}
-
-interface State {
-  /*   postNord: number
-  DHL: number
-  Schenker: number */
+interface Props {
+  setRadioButton: (id: string, value: string) => void;
 }
 
+interface State {}
 export default class ShippingBox extends React.Component<Props, State> {
-  constructor(props: Props) {
-    super(props);
-
-    /* this.state = {
-      postNord: 49,
-      DHL: 29,
-      Schenker: 0
-    } */
-  }
-
   postNord = () => {
     const date = new Date();
 
@@ -48,76 +35,55 @@ export default class ShippingBox extends React.Component<Props, State> {
     return Schenker.toDateString();
   };
 
-  setRadioButton = (value: string) => {
-    this.setState({ ...this.state, value });
-    if (value === "1") {
-      return console.log(this.postNord());
-    } else if (value === "2") {
-      return console.log(this.DHL());
-    } else if (value === "3") {
-      return console.log(this.Schenker());
-    }
-  };
-
   render() {
     return (
-      <Box pad="large" gap="large" width="large" background="light-1">
+      <Box pad="large" gap="large" width="large" background="light-1" style={{fontSize: "10pt"}}>
         <Box width="large" direction="row" justify="between">
           <Text size="large" alignSelf="start" weight="bold">
             Shipping
           </Text>
           <Deliver color="brand"></Deliver>
         </Box>
-        {/* <Box gap="medium">
-          <RadioButton
-            name="portNord"
-            value="postNord"
-            label="PostNord (1 day) + 49 SEK"
-            onChange={event => this.setRadioButton(event.target.value)}
-          />
-          <Text style={{ fontSize: "12pt", paddingLeft: "1.9rem" }}>
-            Receive your order on <strong>{this.postNord()}</strong>
-          </Text>
-          <RadioButton
-            name="DHL"
-            label="DHL (3 days) + 29 SEK"
-          />
-          <Text style={{ fontSize: "12pt", paddingLeft: "1.9rem" }}>
-            Receive your order on <strong>{this.DHL()}</strong>
-          </Text>
-          <RadioButton
-            name="Schenker"
-            label="Schenker (5 days) + 0 SEK"
-          />
-          <Text style={{ fontSize: "12pt", paddingLeft: "1.9rem" }}>
-            Receive your order on <strong>{this.Schenker()}</strong>
-          </Text>
-        </Box> */}
-        <RadioButtonGroup
-          name="deliveryOptions"
-          // onChange= "target": { value } }) => {...}
-          options={[
-            {
-              disabled: false,
-              id: "one",
-              value: "1",
-              label: "PostNord (1 day) + 49 SEK"
-            },
-            {
-              disabled: false,
-              id: "two",
-              value: "2",
-              label: "DHL (3 days) + 29 SEK"
-            },
-            {
-              disabled: false,
-              id: "three",
-              value: "3",
-              label: "Schenker (5 days) + 0 SEK"
+        <Box direction="row">
+          <RadioButtonGroup gap="xlarge"
+            name="deliveryOptions"
+            options={[
+              {
+                disabled: false,
+                id: "1",
+                value: "49",
+                label: "PostNord (1 day) + 49 SEK"
+              },
+              {
+                disabled: false,
+                id: "2",
+                value: "29",
+                label: "DHL (3 days) + 29 SEK"
+              },
+              {
+                disabled: false,
+                id: "3",
+                value: "0",
+                label: "Schenker (5 days) + 0 SEK"
+              }
+            ]}
+            onChange={event =>
+              this.props.setRadioButton(event.target.id, event.target.value)
             }
-          ]}
-          onChange={event => this.setRadioButton(event.target.value)}
-        />
+          />
+
+          <Box style={{position: "absolute", top: "74.5rem", left: "5rem"}}>
+            <Text style={{ fontSize: "9pt", lineHeight: "4rem"}}>
+              Delivery on <strong>{this.postNord()}</strong>
+            </Text>
+            <Text style={{ fontSize: "9pt", lineHeight: "4rem"}}>
+              Delivery on <strong>{this.DHL()}</strong>
+            </Text>
+            <Text style={{ fontSize: "9pt", lineHeight: "4rem" }}>
+              Delivery on <strong>{this.Schenker()}</strong>
+            </Text>
+          </Box>
+        </Box>
       </Box>
     );
   }

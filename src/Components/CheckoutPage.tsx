@@ -22,6 +22,7 @@ interface State {
   city: string;
   isOrderBeingProcessed: boolean;
   orderHasBeenPlaced: boolean;
+  deliveryPrice: string
 }
 
 export default class CheckoutPage extends React.Component<Props, State> {
@@ -37,12 +38,25 @@ export default class CheckoutPage extends React.Component<Props, State> {
       postalCode: "",
       city: "",
       isOrderBeingProcessed: false,
-      orderHasBeenPlaced: false
+      orderHasBeenPlaced: false,
+      deliveryPrice: ""
     };
   }
 
   handleChange = (name: string, value: string) => {
     this.setState({ ...this.state, [name]: value });
+  };
+
+  setRadioButton = (id: string, value: string) => {
+    if (id === "1") {
+      this.setState({ deliveryPrice: value });
+    }
+    if (id === "2") {
+      this.setState({ deliveryPrice: value });
+    }
+    if (id === "3") {
+      this.setState({ deliveryPrice: value });
+    }
   };
 
   createOrder = async () => {
@@ -53,7 +67,7 @@ export default class CheckoutPage extends React.Component<Props, State> {
     this.setState({ isOrderBeingProcessed: false, orderHasBeenPlaced: true });
   };
 
-  render() {
+  render() {    
     if (this.state.orderHasBeenPlaced) {
       return <OrderPlacedPage />;
     }
@@ -68,11 +82,12 @@ export default class CheckoutPage extends React.Component<Props, State> {
         <Heading size="small">CHECKOUT</Heading>
         <CartBox product={this.props.product} />
         <DeliveryBox handleChange={this.handleChange} />
-        <ShippingBox />
+        <ShippingBox setRadioButton={this.setRadioButton}/>
         <PaymentBox
           isOrderBeingProcessed={this.state.isOrderBeingProcessed}
           onSubmitOrder={this.createOrder}
           phoneNumber={this.state.tel}
+          deliveryPrice={this.state.deliveryPrice}
         />
       </Main>
     );

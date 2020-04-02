@@ -19,6 +19,7 @@ interface Props {
   isOrderBeingProcessed: boolean;
   onSubmitOrder: () => void;
   phoneNumber: string;
+  deliveryPrice: string;
 }
 
 interface State {
@@ -125,7 +126,7 @@ class PaymentBox extends React.Component<Props, State> {
               />
             </Form>
             <Text alignSelf="center" textAlign="center" size="large">
-              Total <strong>{getTotalPrice()} SEK</strong> VAT & shipping
+              Total <strong>{getTotalPrice() + Number(this.props.deliveryPrice)} SEK</strong> VAT & shipping
               included
             </Text>
             <Box alignSelf="center" align="center">
