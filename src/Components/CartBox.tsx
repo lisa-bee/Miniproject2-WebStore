@@ -50,7 +50,7 @@ export default class CartBox extends React.Component<Props, State> {
                     <TableCell scope="col" border="bottom">
                       <strong>Items</strong>
                     </TableCell>
-                    <TableCell scope="col" border="bottom">
+                    <TableCell size="xsmall" scope="col" border="bottom">
                       <strong></strong>
                     </TableCell>
                     <TableCell scope="col" border="bottom">
@@ -71,7 +71,9 @@ export default class CartBox extends React.Component<Props, State> {
                             style={{ width: "1.9rem", height: "2.65rem" }}
                           />
                         </TableCell>
-                        <TableCell>{product.product.title}</TableCell>
+                        <TableCell size="small">
+                          {product.product.title}
+                        </TableCell>
                         <TableCell>{product.quantity}</TableCell>
                         <TableCell>
                           {product.product.price * product.quantity} SEK

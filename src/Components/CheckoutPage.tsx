@@ -8,16 +8,40 @@ import { Product } from "./AllProducts";
 
 interface Props {
   product: Product;
- // history: any
+  // history: any
 }
 
 interface State {
+  givenName: string;
+  familyName: string;
+  email: string;
+  tel: string;
+  streetAddress: string;
+  postalCode: string;
+  city: string;
 }
 
 export default class CheckoutPage extends React.Component<Props, State> {
+  state = {
+    givenName: "",
+    familyName: "",
+    email: "",
+    tel: "",
+    streetAddress: "",
+    postalCode: "",
+    city: ""
+  };
+
+  handleChange = (name: string, value: string) => {
+    this.setState({ ...this.state, [name]: value });
+  };
+
+  // handlePaymentChange =>
+
   render() {
+    console.log("checkout state", this.state);
     return (
-          <Main
+      <Main
         direction="column"
         align="center"
         pad="small"
@@ -25,12 +49,13 @@ export default class CheckoutPage extends React.Component<Props, State> {
         flex="grow"
       >
         <Heading size="small">CHECKOUT</Heading>
-        <CartBox product={this.props.product}/>
-        <DeliveryBox />
+        <CartBox product={this.props.product} />
+        <DeliveryBox handleChange={this.handleChange} />
+        {/* <DeliveryBox onChange={(deliveryData) => this.setState({ deliveryData })}/> */}
         <ShippingBox />
-        <PaymentBox /* history={this.props.history} *//>
+        <PaymentBox phoneNumber={this.state.tel} />
+        {/* <PaymentBox deliveryData={this.state.deliveryData} /> */}
       </Main>
-        
     );
   }
 }
