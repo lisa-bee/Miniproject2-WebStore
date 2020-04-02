@@ -25,7 +25,6 @@ interface State {
   isOrderBeingProcessed: boolean;
   orderHasBeenPlaced: boolean;
   selectedshipping: ShippingOption;
-
 }
 
 export default class CheckoutPage extends React.Component<Props, State> {
@@ -51,8 +50,7 @@ export default class CheckoutPage extends React.Component<Props, State> {
   };
 
   setRadioButton = (shipping: ShippingOption) => {
-      this.setState({ selectedshipping: shipping });
-    
+    this.setState({ selectedshipping: shipping });
   };
 
   createOrder = async () => {
@@ -63,7 +61,7 @@ export default class CheckoutPage extends React.Component<Props, State> {
     this.setState({ isOrderBeingProcessed: false, orderHasBeenPlaced: true });
   };
 
-  render() {    
+  render() {
     if (this.state.orderHasBeenPlaced) {
       return (
         <Box>
@@ -86,19 +84,20 @@ export default class CheckoutPage extends React.Component<Props, State> {
         gap="small"
         flex="grow"
       >
-       <Form validate="submit"
-        onSubmit={this.createOrder
-        }>
-        <Heading size="small">CHECKOUT</Heading>
-        <CartBox product={this.props.product} />
-        <DeliveryBox handleChange={this.handleChange} />
-        <ShippingBox selectedshipping={this.state.selectedshipping} setRadioButton={this.setRadioButton}/>
-        <PaymentBox
-          isOrderBeingProcessed={this.state.isOrderBeingProcessed}
-          onSubmitOrder={this.createOrder}
-          phoneNumber={this.state.tel}
-          selectedshipping={this.state.selectedshipping}
-        />
+        <Form validate="submit" onSubmit={this.createOrder}>
+          <Heading size="small">CHECKOUT</Heading>
+          <CartBox product={this.props.product} />
+          <DeliveryBox handleChange={this.handleChange} />
+          <ShippingBox
+            selectedshipping={this.state.selectedshipping}
+            setRadioButton={this.setRadioButton}
+          />
+          <PaymentBox
+            isOrderBeingProcessed={this.state.isOrderBeingProcessed}
+            onSubmitOrder={this.createOrder}
+            phoneNumber={this.state.tel}
+            selectedshipping={this.state.selectedshipping}
+          />
         </Form>
       </Main>
     );

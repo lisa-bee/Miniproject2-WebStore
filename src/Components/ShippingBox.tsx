@@ -56,15 +56,3 @@ export default class ShippingBox extends React.Component<Props, State> {
     );
   }
 }
-
-{/* <Box style={{ position: "absolute", top: "74.5rem", left: "5rem" }}>
-  <Text style={{ fontSize: "9pt", lineHeight: "4rem" }}>
-    Delivery on <strong>{this.postNord()}</strong>
-  </Text>
-  <Text style={{ fontSize: "9pt", lineHeight: "4rem" }}>
-    Delivery on <strong>{this.DHL()}</strong>
-  </Text>
-  <Text style={{ fontSize: "9pt", lineHeight: "4rem" }}>
-    Delivery on <strong>{this.Schenker()}</strong>
-  </Text> */}
-{/* </Box> */}
