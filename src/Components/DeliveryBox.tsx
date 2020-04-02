@@ -2,14 +2,12 @@ import React from "react";
 import { Box, Text, Form, FormField } from "grommet";
 import { Home } from "grommet-icons";
 
-interface Props {}
+interface Props {
+  handleChange: (name: string, value: string) => void;
+}
 
 interface State {}
 export default class DeliveryBox extends React.Component<Props, State> {
-  constructor(props: Props) {
-    super(props);
-  }
-
   render() {
     return (
       <Box pad="xlarge" gap="large" width="large" background="light-1">
@@ -23,75 +21,81 @@ export default class DeliveryBox extends React.Component<Props, State> {
         <Form validate="blur" autoComplete="on">
           <FormField
             name="given-name"
+            autoComplete="given-name"
             label="First Name"
-            // placeholder="First Name"
             type="text"
             required
             validate={{ message: "only letters" }}
-            // value=""
+            onChange={event =>
+              this.props.handleChange("givenName", event.target.value)
+            }
           />
           <FormField
             name="family-name"
+            autoComplete="family-name"
             label="Last Name"
-            // placeholder="Last Name"
             type="text"
             required
             validate={{ message: "only letters" }}
-            // value=""
+            onChange={event =>
+              this.props.handleChange("familyName", event.target.value)
+            }
           />
           <FormField
             name="email"
+            autoComplete="email"
             label="Email"
-            // placeholder="Type your email here"
             type="email"
             required
             validate={{ message: "@" }}
-            // value=""
+            onChange={event =>
+              this.props.handleChange("email", event.target.value)
+            }
           />
           <FormField
             name="tel"
+            autoComplete="tel"
             label="Phone Number"
-            // placeholder="Type your phone number here"
             type="tel"
             required
             validate={{ regexp: /^[0-9]{10}$/, message: "10 digits" }}
-            // value=""
+            onChange={event =>
+              this.props.handleChange("tel", event.target.value)
+            }
           />
           <FormField
             name="street-address"
+            autoComplete="street-address"
             label="Address"
-            // placeholder="Type your address here"
             type="text"
             validate={{ message: "Ex: Storgatan 1" }}
             required
-            // value=""
+            onChange={event =>
+              this.props.handleChange("streetAddress", event.target.value)
+            }
           />
-            <FormField
-              name="postal-code"
-              label="Postal Code"
-              // placeholder="Type your postal code here"
-              type=""
-              required
-              validate={{ regexp: /^[0-9]{5}$/, message: "5 digits" }}
-              // value=""
-            />
+          <FormField
+            name="postal-code"
+            autoComplete="postal-code"
+            label="Postal Code"
+            type=""
+            required
+            validate={{ regexp: /^[0-9]{5}$/, message: "5 digits" }}
+            onChange={event =>
+              this.props.handleChange("postalCode", event.target.value)
+            }
+          />
           <FormField
             name="address-level2"
+            autoComplete="address-level2"
             label="City"
-            // placeholder="Type your city here"
             type="text"
             required
             validate={{ message: "only letters" }}
-            // value=""
+            onChange={event =>
+              this.props.handleChange("city", event.target.value)
+            }
           />
-          {/* <Button
-            type="submit"
-            color="dark-1"
-            alignSelf="center"
-            primary
-            label="CONFIRM & CONTINUE"
-            // onClick={() => validateInput}
-          /> */}
         </Form>
       </Box>
     );
