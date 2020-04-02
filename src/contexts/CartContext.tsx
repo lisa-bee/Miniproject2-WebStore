@@ -7,7 +7,8 @@ const defaultState: State = {
   deleteProductFromCart: () => {},
   getTotalPrice: () => 0,
   getTotalQuantity: () => 0,
-  removeOneProduct: () => {}
+  removeOneProduct: () => {},
+  deleteAllProductsFromCart: () => {}
 };
 
 const CartContext = createContext<State>(defaultState);
@@ -25,6 +26,7 @@ interface State {
   getTotalPrice: () => number;
   getTotalQuantity: () => number;
   removeOneProduct: (product: Product) => void;
+  deleteAllProductsFromCart: (product: Product) => void;
 }
 
 export class CartProvider extends React.Component<Props, State> {
@@ -37,7 +39,8 @@ export class CartProvider extends React.Component<Props, State> {
       deleteProductFromCart: this.deleteProductFromCart,
       getTotalPrice: this.getTotalPrice,
       getTotalQuantity: this.getTotalQuantity,
-      removeOneProduct: this.removeOneProduct
+      removeOneProduct: this.removeOneProduct,
+      deleteAllProductsFromCart: this.deleteProductFromCart
     };
   }
 
@@ -77,6 +80,17 @@ export class CartProvider extends React.Component<Props, State> {
     this.setState({ items: clonedItems });
   };
 
+  deleteAllProductsFromCart = (product: Product) => {
+    const clonedItems: CartItem[] = Object.assign([], this.state.items);
+    for (const item of clonedItems) {
+      if (item.product.index == product.index) {
+        item.quantity = 0;
+        this.setState({ items: clonedItems });
+        return;
+      }
+    }
+  };
+
   deleteProductFromCart = (product: Product) => {
     const clonedItems: CartItem[] = Object.assign([], this.state.items);
 
@@ -85,7 +99,6 @@ export class CartProvider extends React.Component<Props, State> {
         clonedItems.splice(i, 1);
       }
     }
-
     this.setState({ items: clonedItems });
   };
 
