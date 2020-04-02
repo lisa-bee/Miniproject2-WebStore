@@ -181,7 +181,7 @@ class PaymentBox extends React.Component<Props, State> {
                 // value=""
               />
             </Form>
-            <Text alignSelf="center" size="large">
+            <Text alignSelf="center" size="large" textAlign="center">
               Total <strong>{getTotalPrice()} SEK</strong> VAT & shipping
               included
             </Text>

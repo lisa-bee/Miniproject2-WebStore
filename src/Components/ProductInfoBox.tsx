@@ -32,7 +32,7 @@ export default class ProductInfoBox extends React.Component<Props, State> {
       <CartConsumer>
         {({ addProductToCart }) => (
           <div>
-            <Box pad="medium" gap="medium" width="medium" background="light-1">
+            <Box pad="medium" gap="medium" width="medium" background="light-2">
               <Box direction="row" justify="between">
                 <Text>{this.props.product.title} </Text>
                 <Link to="/">
@@ -41,10 +41,6 @@ export default class ProductInfoBox extends React.Component<Props, State> {
               </Box>
               <Text size={"20pt"}>{this.props.product.price} SEK</Text>
               <Text>Size: 70x100 </Text>
-              <Menu
-                label="Quantity"
-                items={[{ label: "1", onClick: () => {} }]}
-              />
               <Button
                 primary
                 color="dark-1"
