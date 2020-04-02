@@ -13,30 +13,29 @@ import { Money, Edit } from "grommet-icons";
 import { CartConsumer } from "../contexts/CartContext";
 import ClipLoader from "react-spinners/ClipLoader";
 
+type PaymentOption = "swish" | "credit-card" | "invoice";
+
 interface Props {
-  // handlePaymentChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  // defaultValue: string
-  // history: any;
   isOrderBeingProcessed: boolean;
   onSubmitOrder: () => void;
+  phoneNumber: string;
 }
 
-interface State {}
+interface State {
+  paymentSelection: PaymentOption;
+}
 
 class PaymentBox extends React.Component<Props, State> {
-  // constructor(props: Props) {
-  //   super(props);
-
-  //   this.state = {
-  //     isOrderBeingProcessed: false
-  //   };
-  // }
+  constructor(props: Props) {
+    super(props);
+    this.state = { paymentSelection: "swish" };
+  }
 
   render() {
     return (
       <CartConsumer>
         {({ getTotalPrice }) => (
-          <Box pad="xlarge" gap="large" width="large" background="light-1">
+          <Box pad="large" gap="large" width="large" background="light-1">
             <Box direction="row" justify="between" width="large">
               <Text size="large" alignSelf="start" weight="bold">
                 Payment
@@ -45,120 +44,76 @@ class PaymentBox extends React.Component<Props, State> {
             </Box>
             <RadioButtonGroup
               name="paymentOptions"
-              value="1"
+              value={this.state.paymentSelection}
+              onChange={event =>
+                this.setState({
+                  paymentSelection: event.target.value as PaymentOption
+                })
+              }
               options={[
                 {
                   disabled: false,
-                  id: "pay1",
-                  value: "1",
+                  id: "swish",
+                  value: "swish",
                   label: "Swish"
                 },
                 {
                   disabled: false,
-                  id: "pay2",
-                  value: "2",
+                  id: "credit-card",
+                  value: "credit-card",
                   label: "Mastercard/VISA"
                 },
                 {
                   disabled: false,
-                  id: "pay3",
-                  value: "3",
+                  id: "invoice",
+                  value: "invoice",
                   label: "Klarna Invoice"
                 }
               ]}
             />
+            <Text>Swish number: {this.props.phoneNumber}</Text>
+            {/* <input type="tel" placeholder="PhoneNumber" value={this.props.phoneNumber} /> */}
 
             <Form autoComplete="on" validate="blur">
               <FormField
-                name="tel"
-                label="Phone Number"
-                type="tel"
-                required
-                validate={{ regexp: /^[0-9]{10}$/, message: "10 digits" }}
-                // value=""
-              />
-              <Button
-                icon={<Edit />}
-                label="Edit"
-                // onClick={() => {}}
-              />
-              {/* <Button
-                type="submit"
-                alignSelf="center"
-                color="dark-1"
-                primary
-                label="COMPLETE PURCHASE"
-              /> */}
-            </Form>
-            <Form autoComplete="on" validate="blur">
-              <FormField
-                name="cc-number"
+                name="cardnumber"
+                autoComplete="cc-number"
                 label="Card Number"
                 type="tel"
                 required
                 validate={{ regexp: /^[0-9]{16}$/, message: "16 digits" }}
-                // value=""
-              />
-              <Select
-                placeholder="Month"
-                name="cc-exp-month"
-                options={[
-                  "01",
-                  "02",
-                  "03",
-                  "04",
-                  "05",
-                  "06",
-                  "07",
-                  "08",
-                  "09",
-                  "10",
-                  "11",
-                  "12"
-                ]}
-                // value={value}
-                // onChange={({ option }) => setValue(option)}
-              />
-              <Select
-                placeholder="Year"
-                name="cc-exp-year"
-                options={[
-                  "2020",
-                  "2021",
-                  "2022",
-                  "2023",
-                  "2024",
-                  "2025",
-                  "2026",
-                  "2027",
-                  "2028"
-                ]}
-                // value={value}
-                // onChange={({ option }) => setValue(option)}
               />
               <FormField
-                name="cc-csc"
+                name="ccmonth"
+                autoComplete="cc-exp-month"
+                label="Expiry Month"
+                type="tel"
+                required
+                validate={{ regexp: /^[0-9]{2}$/, message: "2 digits" }}
+              />
+              <FormField
+                name="ccyear"
+                autoComplete="cc-exp-year"
+                label="Expiry Year"
+                type="tel"
+                required
+                validate={{ regexp: /^[0-9]{2}$/, message: "2 digits" }}
+              />
+              <FormField
+                name="cvc"
+                autoComplete="cc-csc"
                 label="CVC2"
                 type="tel"
                 required
                 validate={{ regexp: /^[0-9]{3}$/, message: "3 digits" }}
-                // value=""
               />
               <FormField
-                name="cc-name"
+                name="ccname"
+                autoComplete="cc-name"
                 label="Cardholder Name"
                 type="text"
                 required
-                // validate={{ message: 'only letters' }}
-                // value=""
               />
-              {/* <Button
-                type="submit"
-                alignSelf="center"
-                color="dark-1"
-                primary
-                label="COMPLETE PURCHASE"
-              /> */}
             </Form>
             <Form autoComplete="on" validate="blur">
               <FormField
@@ -166,10 +121,10 @@ class PaymentBox extends React.Component<Props, State> {
                 label="Email"
                 type="text"
                 required
-                // value=""
+                autoComplete="email"
               />
             </Form>
-            <Text alignSelf="center" size="large">
+            <Text alignSelf="center" textAlign="center" size="large">
               Total <strong>{getTotalPrice()} SEK</strong> VAT & shipping
               included
             </Text>

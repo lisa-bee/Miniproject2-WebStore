@@ -1,4 +1,4 @@
-import React from "react";
+import React, { CSSProperties } from "react";
 import {
   Box,
   Text,
@@ -6,7 +6,8 @@ import {
   TableHeader,
   TableRow,
   TableCell,
-  TableBody
+  TableBody,
+  ResponsiveContext
 } from "grommet";
 import { Cart, FormAdd, FormSubtract, FormTrash } from "grommet-icons";
 import { CartConsumer } from "../contexts/CartContext";
@@ -33,25 +34,27 @@ export default class CartBox extends React.Component<Props, State> {
           addProductToCart,
           deleteProductFromCart
         }) => (
-          <Box pad="xlarge" gap="large" width="large" background="light-1">
+          <ResponsiveContext.Consumer>
+            {size => (
+          <Box pad="large" gap="large" width="large" background="light-1">
             <Box direction="row" width="large" justify="between">
               <Text size="large" weight="bold">
                 Cart
               </Text>
               <Cart color="brand"></Cart>
             </Box>
-            <Box>
+            <Box style={cartboxContainer(size)}>
               <Table>
                 <TableHeader>
                   <TableRow>
                     <TableCell scope="col" border="bottom">
                       <strong>Items</strong>
                     </TableCell>
-                    <TableCell scope="col" border="bottom">
+                    <TableCell size="xsmall" scope="col" border="bottom">
                       <strong></strong>
                     </TableCell>
                     <TableCell scope="col" border="bottom">
-                      <strong>Quantity</strong>
+                      <strong>Qty</strong>
                     </TableCell>
                     <TableCell scope="col" border="bottom">
                       <strong>Price</strong>
@@ -68,7 +71,9 @@ export default class CartBox extends React.Component<Props, State> {
                             style={{ width: "1.9rem", height: "2.65rem" }}
                           />
                         </TableCell>
-                        <TableCell>{product.product.title}</TableCell>
+                        <TableCell size="small">
+                          {product.product.title}
+                        </TableCell>
                         <TableCell>{product.quantity}</TableCell>
                         <TableCell>
                           {product.product.price * product.quantity} SEK
@@ -110,16 +115,15 @@ export default class CartBox extends React.Component<Props, State> {
                 </TableBody>
               </Table>
             </Box>
-            {/* <Button
-              type="submit"
-              alignSelf="center"
-              primary
-              label="CONFIRM & CONTINUE"
-              color="dark-1"
-            /> */}
           </Box>
+           )}
+           </ResponsiveContext.Consumer>
         )}
       </CartConsumer>
     );
   }
 }
+
+const cartboxContainer = (size: string): CSSProperties => ({
+  fontSize: size == "small" ? "8pt" : size == "medium" ? "12pt" : "16pt"
+});

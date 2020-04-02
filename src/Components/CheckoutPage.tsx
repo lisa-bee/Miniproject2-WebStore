@@ -13,6 +13,13 @@ interface Props {
 }
 
 interface State {
+  givenName: string;
+  familyName: string;
+  email: string;
+  tel: string;
+  streetAddress: string;
+  postalCode: string;
+  city: string;
   isOrderBeingProcessed: boolean;
   orderHasBeenPlaced: boolean;
 }
@@ -22,10 +29,21 @@ export default class CheckoutPage extends React.Component<Props, State> {
     super(props);
 
     this.state = {
+      givenName: "",
+      familyName: "",
+      email: "",
+      tel: "",
+      streetAddress: "",
+      postalCode: "",
+      city: "",
       isOrderBeingProcessed: false,
       orderHasBeenPlaced: false
     };
   }
+
+  handleChange = (name: string, value: string) => {
+    this.setState({ ...this.state, [name]: value });
+  };
 
   createOrder = async () => {
     this.setState({ isOrderBeingProcessed: true });
@@ -39,7 +57,6 @@ export default class CheckoutPage extends React.Component<Props, State> {
     if (this.state.orderHasBeenPlaced) {
       return <OrderPlacedPage />;
     }
-
     return (
       <Main
         direction="column"
@@ -50,11 +67,12 @@ export default class CheckoutPage extends React.Component<Props, State> {
       >
         <Heading size="small">CHECKOUT</Heading>
         <CartBox product={this.props.product} />
-        <DeliveryBox />
+        <DeliveryBox handleChange={this.handleChange} />
         <ShippingBox />
         <PaymentBox
           isOrderBeingProcessed={this.state.isOrderBeingProcessed}
           onSubmitOrder={this.createOrder}
+          phoneNumber={this.state.tel}
         />
       </Main>
     );
