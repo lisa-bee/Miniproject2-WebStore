@@ -3,7 +3,7 @@ import { Main, Heading, Box, Form } from "grommet";
 import CartBox from "./CartBox";
 import DeliveryBox from "./DeliveryBox";
 import ShippingBox from "./ShippingBox";
-import PaymentBox from "./PaymentBox";
+import PaymentBox from "./PaymentComponents/PaymentBox";
 import { Product } from "./AllProducts";
 import { createOrder } from "../MockedApi";
 import OrderPlacedPage from "./OrderPlacedPage";
@@ -85,21 +85,21 @@ export default class CheckoutPage extends React.Component<Props, State> {
         flex="grow"
       >
         <Box>
-        <Form autoComplete="on" validate="submit" onSubmit={this.createOrder}>
-          <Heading size="small">CHECKOUT</Heading>
-          <CartBox product={this.props.product} />
-          <DeliveryBox handleChange={this.handleChange} />
-          <ShippingBox
-            selectedshipping={this.state.selectedshipping}
-            getDeliveryOption={this.getDeliveryOption}
-          />
-          <PaymentBox
-            isOrderBeingProcessed={this.state.isOrderBeingProcessed}
-            onSubmitOrder={this.createOrder}
-            phoneNumber={this.state.tel}
-            selectedshipping={this.state.selectedshipping}
-          />
-        </Form>
+          <Form autoComplete="on" validate="submit" onSubmit={this.createOrder}>
+            <Heading size="small">CHECKOUT</Heading>
+            <CartBox product={this.props.product} />
+            <DeliveryBox handleChange={this.handleChange} />
+            <ShippingBox
+              selectedshipping={this.state.selectedshipping}
+              getDeliveryOption={this.getDeliveryOption}
+            />
+            <PaymentBox
+              isOrderBeingProcessed={this.state.isOrderBeingProcessed}
+              onSubmitOrder={this.createOrder}
+              phoneNumber={this.state.tel}
+              selectedshipping={this.state.selectedshipping}
+            />
+          </Form>
         </Box>
       </Main>
     );
