@@ -6,6 +6,7 @@ import ProductPage from "./Components/ProductPage";
 import CheckoutPage from "./Components/CheckoutPage";
 import Header1 from "./Components/Header";
 import StartPage from "./Components/StartPage";
+import ScrollToTop from "./Components/ScrollToTop";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import { CartProvider } from "./contexts/CartContext";
 import OrderPlacedPage from "./Components/OrderPlacedPage";
@@ -16,6 +17,7 @@ function App() {
       <CartProvider>
         <div className="App">
           <Grommet theme={grommet}>
+            <ScrollToTop />
             <Header1 />
             <Switch>
               <Route path="/productpage/:productIndex" component={ProductPage}>
