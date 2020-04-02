@@ -1,5 +1,5 @@
 import React from "react";
-import { Main, Heading } from "grommet";
+import { Main, Heading, Box } from "grommet";
 import CartBox from "./CartBox";
 import DeliveryBox from "./DeliveryBox";
 import ShippingBox from "./ShippingBox";
@@ -7,6 +7,7 @@ import PaymentBox from "./PaymentComponents/PaymentBox";
 import { Product } from "./AllProducts";
 import { createOrder } from "../MockedApi";
 import OrderPlacedPage from "./OrderPlacedPage";
+import { CartConsumer } from "../contexts/CartContext";
 
 interface Props {
   product: Product;
@@ -55,7 +56,18 @@ export default class CheckoutPage extends React.Component<Props, State> {
 
   render() {
     if (this.state.orderHasBeenPlaced) {
-      return <OrderPlacedPage />;
+      return (
+        <Box>
+          <CartConsumer>
+            {({ items, deleteAllProductsFromCart }) =>
+              items.map(product => {
+                return deleteAllProductsFromCart(product.product);
+              })
+            }
+          </CartConsumer>
+          <OrderPlacedPage />;
+        </Box>
+      );
     }
     return (
       <Main
