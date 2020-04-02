@@ -3,7 +3,7 @@ import { Main, Heading, Box, Form } from "grommet";
 import CartBox from "./CartBox";
 import DeliveryBox from "./DeliveryBox";
 import ShippingBox from "./ShippingBox";
-import PaymentBox from "./PaymentBox";
+import PaymentBox from "./PaymentComponents/PaymentBox";
 import { Product } from "./AllProducts";
 import { createOrder } from "../MockedApi";
 import OrderPlacedPage from "./OrderPlacedPage";
