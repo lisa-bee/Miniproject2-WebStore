@@ -3,8 +3,11 @@ import { Main, Heading } from "grommet";
 import CartBox from "./CartBox";
 import DeliveryBox from "./DeliveryBox";
 import ShippingBox from "./ShippingBox";
-import PaymentBox from "./PaymentBox";
+import PaymentBox from "./PaymentComponents/PaymentBox";
 import { Product } from "./AllProducts";
+import SwishBox from "./PaymentComponents/SwishBox";
+import CreditCardBox from "./PaymentComponents/CreditCardBox";
+import InvoiceBox from "./PaymentComponents/InvoiceBox";
 
 
 
@@ -21,6 +24,8 @@ interface State {
   streetAddress: string;
   postalCode: string;
   city: string;
+  id: string;
+  value: string;
 }
 
 export default class CheckoutPage extends React.Component<Props, State> {
@@ -31,14 +36,18 @@ export default class CheckoutPage extends React.Component<Props, State> {
     tel: "",
     streetAddress: "",
     postalCode: "",
-    city: ""
+    city: "",
+    id: "",
+    value: ""
   };
 
   handleChange = (name: string, value: string) => {
     this.setState({ ...this.state, [name]: value });
   };
 
-  // handlePaymentChange =>
+  // handlePaymentChange = (id: string, value: string) => {
+  //   this.setState({...this.state, [id]: value})
+  
 
   render() {
     console.log("checkout state", this.state);
@@ -56,10 +65,12 @@ export default class CheckoutPage extends React.Component<Props, State> {
         {/* <DeliveryBox onChange={(deliveryData) => this.setState({ deliveryData })}/> */}
         <ShippingBox />
         <PaymentBox phoneNumber={this.state.tel} />
+        
+        {/* <SwishBox phoneNumber={this.state.tel} /> */}
         {/* <PaymentBox deliveryData={this.state.deliveryData} /> */}
 
-        }
       </Main>
+        
     );
     
   }

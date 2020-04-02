@@ -10,8 +10,11 @@ import {
   Select
 } from "grommet";
 import { Money, Edit } from "grommet-icons";
-import { CartConsumer } from "../contexts/CartContext";
-import OrderPlacedPage from "./OrderPlacedPage";
+import { CartConsumer } from "../../contexts/CartContext";
+import OrderPlacedPage from "../OrderPlacedPage";
+import SwishBox from "./SwishBox";
+import CreditCardBox from "./CreditCardBox";
+import InvoiceBox from "./InvoiceBox";
 
 type PaymentOption = "swish" | "credit-card" | "invoice";
 
@@ -19,6 +22,7 @@ interface Props {
   // handlePaymentChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   // defaultValue: string
   phoneNumber: string;
+  // handlePaymentChange: (id: string, value: string) => void;
 }
 
 interface State {
@@ -51,8 +55,8 @@ class PaymentBox extends React.Component<Props, State> {
   };
   /*   const promise = this.delayPromiseSvar() 
   promise.then(this.köpetGickIgenom) */
-
-
+  
+  
   render() {
     return (
       <CartConsumer>
@@ -77,7 +81,7 @@ class PaymentBox extends React.Component<Props, State> {
                   disabled: false,
                   id: "swish",
                   value: "swish",
-                  label: "Swish"
+                  label: "Swish",
                 },
                 {
                   disabled: false,
@@ -92,10 +96,44 @@ class PaymentBox extends React.Component<Props, State> {
                   label: "Klarna Invoice"
                 }
               ]}
-            />
+              />
+
+              {/* {this.renderPaymentform}
+
+                                      {
+                                        { switch() {this.renderPaymentForm} {
+                                          case "invoice":
+                                            return (<InvoiceBox />)
+                                          case "credit-card":
+                                            return (<CreditCardBox />)
+                                          default
+                                          return ((<SwishBox phoneNumber={this.state.tel} />))
+                                  
+                                    }}
+                                  
+                                    } */}
+
+                                                    {/* () {
+                                if(this.state.paymentSelection === "credit-card") {
+                                  return (
+                                     <CreditCardBox />
+                                  );
+                                } else {
+                                  return (
+                                      <button onClick={this.handleSave}>
+                                        Save
+                                      </button>
+                                  );
+    }
+  } */}
+             
+            {/* <SwishBox />
+            <CreditCardBox />
+            <InvoiceBox /> */}
+
             {/* <input type="tel" placeholder="PhoneNumber" value={this.props.phoneNumber} /> */}
-            {this.state.paymentSelection === "swish" ? (
-              <Text>Swish number: {this.props.phoneNumber}</Text>
+            {/* {this.state.paymentSelection === "swish" ? (
+              <Text>Swish number: <strong>{this.props.phoneNumber}</strong></Text>
             ) : (
               <Form autoComplete="on" validate="blur">
                 <FormField
@@ -148,7 +186,7 @@ class PaymentBox extends React.Component<Props, State> {
                 required
                 autoComplete="email"
               />
-            </Form>
+            </Form> */}
             <Text alignSelf="center" textAlign="center" size="large">
               Total <strong>{getTotalPrice()} SEK</strong> VAT & shipping
               included
@@ -177,16 +215,3 @@ export default PaymentBox;
 
 
 
-
-// render() {
-//       { switch(nånting) {
-//         case "invoice":
-//           return (<EnComponent />)
-//         case "credit-card":
-//           return (<EnAnnanComponent />)
-//         default
-//         return ((<EnSkitComponent />))
-
-//    }}
-
-// }
