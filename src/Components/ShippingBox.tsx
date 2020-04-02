@@ -1,102 +1,57 @@
 import React from "react";
-import { Box, Text, RadioButtonGroup, RadioButton } from "grommet";
-import { Deliver, Target } from "grommet-icons";
+import { Box, Text, RadioButton } from "grommet";
+import { Deliver } from "grommet-icons";
+import { shippingAlternatives, ShippingOption } from "../mockedShipping";
 
-interface Props {}
+interface Props {
+  getDeliveryOption: (shipping: ShippingOption) => void;
+  selectedshipping: ShippingOption;
+}
 
 interface State {}
-
 export default class ShippingBox extends React.Component<Props, State> {
-  postNord() {
+
+
+  getDeliveryDate = () => {
     const date = new Date();
 
-    const postNord = new Date(date);
-    postNord.setDate(postNord.getDate() + 1);
+    const delivery = new Date(date);
+    delivery.setDate(delivery.getDate() + this.props.selectedshipping.deliveryTime);
 
-    return postNord.toDateString();
-  }
+    return delivery.toDateString();
+  };
 
-  DHL() {
-    const date = new Date();
-
-    const DHL = new Date(date);
-    DHL.setDate(DHL.getDate() + 3);
-
-    return DHL.toDateString();
-  }
-
-  Schenker() {
-    const date = new Date();
-
-    const Schenker = new Date(date);
-    Schenker.setDate(Schenker.getDate() + 5);
-
-    return Schenker.toDateString();
-  }
 
   render() {
     return (
-      <Box pad="large" gap="large" width="large" background="light-1">
+      <Box
+        pad="large"
+        gap="large"
+        width="large"
+        background="light-1"
+      >
         <Box width="large" direction="row" justify="between">
           <Text size="large" alignSelf="start" weight="bold">
             Shipping
           </Text>
           <Deliver color="brand"></Deliver>
         </Box>
-        <Box gap="medium">
-          <RadioButton
-            name="portNord"
-            label="PostNord (1 day) + 49 SEK"
-          />
-          <Text style={{ fontSize: "12pt", paddingLeft: "1.9rem" }}>
-            Receive your order on <strong>{this.postNord()}</strong>
-          </Text>
-          <RadioButton
-            name="DHL"
-            label="DHL (3 days) + 29 SEK"
-          />
-          <Text style={{ fontSize: "12pt", paddingLeft: "1.9rem" }}>
-            Receive your order on <strong>{this.DHL()}</strong>
-          </Text>
-          <RadioButton
-            name="Schenker"
-            label="Schenker (5 days) + 0 SEK"
-          />
-          <Text style={{ fontSize: "12pt", paddingLeft: "1.9rem" }}>
-            Receive your order on <strong>{this.Schenker()}</strong>
-          </Text>
+        <Box gap="small" direction="column">
+          {shippingAlternatives.map(shipping => (
+            <>
+              <RadioButton
+                label={shipping.label}
+                name={shipping.label}
+                checked={shipping.id == this.props.selectedshipping.id}
+                onChange={() => this.props.getDeliveryOption(shipping)}
+              ></RadioButton>
+              {shipping.id == this.props.selectedshipping.id && (
+                <Text style={{ fontSize: "11pt", marginLeft: "2.35rem"}}>Delivery on <strong>{this.getDeliveryDate()}</strong></Text>
+              )}
+            </>
+          ))}
+
         </Box>
-        {/*  <RadioButtonGroup
-          name="deliveryOptions"
-          // onChange= "target": { value } }) => {...}
-          options={[
-            {
-              disabled: false,
-              id: "one",
-              value: "1",
-              label: "PostNord (1 day) + 0 SEK"
-            },
-            {
-              disabled: false,
-              id: "two",
-              value: "2",
-              label: "DHL (2 days) + 49 SEK"
-            },
-            {
-              disabled: false,
-              id: "three",
-              value: "3",
-              label: "Schenker (3 days) + 29 SEK"
-            }
-          ]}
-        /> */}
-        {/* <Button
-            type="submit"
-            alignSelf="center"
-            primary
-            color="dark-1"
-            label="CONFIRM & CONTINUE"
-          /> */}
       </Box>
     );
   }

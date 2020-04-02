@@ -1,5 +1,5 @@
 import React from "react";
-import { Main, Heading, Box } from "grommet";
+import { Main, Heading, Box, Form } from "grommet";
 import CartBox from "./CartBox";
 import DeliveryBox from "./DeliveryBox";
 import ShippingBox from "./ShippingBox";
@@ -8,6 +8,7 @@ import { Product } from "./AllProducts";
 import { createOrder } from "../MockedApi";
 import OrderPlacedPage from "./OrderPlacedPage";
 import { CartConsumer } from "../contexts/CartContext";
+import { ShippingOption, shippingAlternatives } from "../mockedShipping";
 
 interface Props {
   product: Product;
@@ -23,6 +24,7 @@ interface State {
   city: string;
   isOrderBeingProcessed: boolean;
   orderHasBeenPlaced: boolean;
+  selectedshipping: ShippingOption;
 }
 
 export default class CheckoutPage extends React.Component<Props, State> {
@@ -38,12 +40,17 @@ export default class CheckoutPage extends React.Component<Props, State> {
       postalCode: "",
       city: "",
       isOrderBeingProcessed: false,
-      orderHasBeenPlaced: false
+      orderHasBeenPlaced: false,
+      selectedshipping: shippingAlternatives[0]
     };
   }
 
   handleChange = (name: string, value: string) => {
     this.setState({ ...this.state, [name]: value });
+  };
+
+  getDeliveryOption = (shipping: ShippingOption) => {
+    this.setState({ selectedshipping: shipping });
   };
 
   createOrder = async () => {
@@ -77,15 +84,23 @@ export default class CheckoutPage extends React.Component<Props, State> {
         gap="small"
         flex="grow"
       >
-        <Heading size="small">CHECKOUT</Heading>
-        <CartBox product={this.props.product} />
-        <DeliveryBox handleChange={this.handleChange} />
-        <ShippingBox />
-        <PaymentBox
-          isOrderBeingProcessed={this.state.isOrderBeingProcessed}
-          onSubmitOrder={this.createOrder}
-          phoneNumber={this.state.tel}
-        />
+        <Box>
+        <Form autoComplete="on" validate="submit" onSubmit={this.createOrder}>
+          <Heading size="small">CHECKOUT</Heading>
+          <CartBox product={this.props.product} />
+          <DeliveryBox handleChange={this.handleChange} />
+          <ShippingBox
+            selectedshipping={this.state.selectedshipping}
+            getDeliveryOption={this.getDeliveryOption}
+          />
+          <PaymentBox
+            isOrderBeingProcessed={this.state.isOrderBeingProcessed}
+            onSubmitOrder={this.createOrder}
+            phoneNumber={this.state.tel}
+            selectedshipping={this.state.selectedshipping}
+          />
+        </Form>
+        </Box>
       </Main>
     );
   }

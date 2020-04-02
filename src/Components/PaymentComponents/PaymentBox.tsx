@@ -1,5 +1,4 @@
-import React, { ReactComponentElement } from "react";
-import { Link } from "react-router-dom";
+import React from "react";
 import { Box, Text, RadioButtonGroup, Button } from "grommet";
 import { Money } from "grommet-icons";
 import { CartConsumer } from "../../contexts/CartContext";
@@ -7,6 +6,7 @@ import SwishBox from "./SwishBox";
 import CreditCardBox from "./CreditCardBox";
 import InvoiceBox from "./InvoiceBox";
 import ClipLoader from "react-spinners/ClipLoader";
+import { ShippingOption } from "../../mockedShipping";
 
 type PaymentOption = "swish" | "credit-card" | "invoice";
 
@@ -14,6 +14,7 @@ interface Props {
   isOrderBeingProcessed: boolean;
   onSubmitOrder: () => void;
   phoneNumber: string;
+  selectedshipping: ShippingOption;
 }
 
 interface State {
@@ -78,8 +79,12 @@ class PaymentBox extends React.Component<Props, State> {
             <Box />
 
             <Text alignSelf="center" textAlign="center" size="large">
-              Total <strong>{getTotalPrice()} SEK</strong> VAT & shipping
-              included
+              Total{" "}
+              <strong>
+                {getTotalPrice() + Number(this.props.selectedshipping.price)}{" "}
+                SEK
+              </strong>{" "}
+              VAT & shipping included
             </Text>
             <Box alignSelf="center" align="center">
               {!this.props.isOrderBeingProcessed && (
@@ -89,7 +94,6 @@ class PaymentBox extends React.Component<Props, State> {
                   color="dark-1"
                   primary
                   label="COMPLETE PURCHASE"
-                  onClick={this.props.onSubmitOrder}
                 />
               )}
               {this.props.isOrderBeingProcessed && (
