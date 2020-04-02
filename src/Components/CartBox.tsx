@@ -1,4 +1,4 @@
-import React from "react";
+import React, { CSSProperties } from "react";
 import {
   Box,
   Text,
@@ -6,7 +6,8 @@ import {
   TableHeader,
   TableRow,
   TableCell,
-  TableBody
+  TableBody,
+  ResponsiveContext
 } from "grommet";
 import { Cart, FormAdd, FormSubtract, FormTrash } from "grommet-icons";
 import { CartConsumer } from "../contexts/CartContext";
@@ -33,14 +34,16 @@ export default class CartBox extends React.Component<Props, State> {
           addProductToCart,
           deleteProductFromCart
         }) => (
-          <Box pad="xlarge" gap="large" width="large" background="light-1">
+          <ResponsiveContext.Consumer>
+            {size => (
+          <Box pad="large" gap="large" width="large" background="light-1">
             <Box direction="row" width="large" justify="between">
               <Text size="large" weight="bold">
                 Cart
               </Text>
               <Cart color="brand"></Cart>
             </Box>
-            <Box>
+            <Box style={cartboxContainer(size)}>
               <Table>
                 <TableHeader>
                   <TableRow>
@@ -51,7 +54,7 @@ export default class CartBox extends React.Component<Props, State> {
                       <strong></strong>
                     </TableCell>
                     <TableCell scope="col" border="bottom">
-                      <strong>Quantity</strong>
+                      <strong>Qty</strong>
                     </TableCell>
                     <TableCell scope="col" border="bottom">
                       <strong>Price</strong>
@@ -113,8 +116,14 @@ export default class CartBox extends React.Component<Props, State> {
               </Table>
             </Box>
           </Box>
+           )}
+           </ResponsiveContext.Consumer>
         )}
       </CartConsumer>
     );
   }
 }
+
+const cartboxContainer = (size: string): CSSProperties => ({
+  fontSize: size == "small" ? "8pt" : size == "medium" ? "12pt" : "16pt"
+});

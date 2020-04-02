@@ -8,12 +8,11 @@ import { Product } from "./AllProducts";
 import SwishBox from "./PaymentComponents/SwishBox";
 import CreditCardBox from "./PaymentComponents/CreditCardBox";
 import InvoiceBox from "./PaymentComponents/InvoiceBox";
-
-
+import { createOrder } from "../MockedApi";
+import OrderPlacedPage from "./OrderPlacedPage";
 
 interface Props {
   product: Product;
-  // history: any
 }
 
 interface State {
@@ -24,33 +23,43 @@ interface State {
   streetAddress: string;
   postalCode: string;
   city: string;
-  id: string;
-  value: string;
+  isOrderBeingProcessed: boolean;
+  orderHasBeenPlaced: boolean;
 }
 
 export default class CheckoutPage extends React.Component<Props, State> {
-  state = {
-    givenName: "",
-    familyName: "",
-    email: "",
-    tel: "",
-    streetAddress: "",
-    postalCode: "",
-    city: "",
-    id: "",
-    value: ""
-  };
+  constructor(props: Props) {
+    super(props);
+
+    this.state = {
+      givenName: "",
+      familyName: "",
+      email: "",
+      tel: "",
+      streetAddress: "",
+      postalCode: "",
+      city: "",
+      isOrderBeingProcessed: false,
+      orderHasBeenPlaced: false
+    };
+  }
 
   handleChange = (name: string, value: string) => {
     this.setState({ ...this.state, [name]: value });
   };
 
-  // handlePaymentChange = (id: string, value: string) => {
-  //   this.setState({...this.state, [id]: value})
-  
+  createOrder = async () => {
+    this.setState({ isOrderBeingProcessed: true });
+    // gather all orde info...
+    const allOrderInfo = {};
+    await createOrder(allOrderInfo);
+    this.setState({ isOrderBeingProcessed: false, orderHasBeenPlaced: true });
+  };
 
   render() {
-    console.log("checkout state", this.state);
+    if (this.state.orderHasBeenPlaced) {
+      return <OrderPlacedPage />;
+    }
     return (
       <Main
         direction="column"
@@ -62,13 +71,12 @@ export default class CheckoutPage extends React.Component<Props, State> {
         <Heading size="small">CHECKOUT</Heading>
         <CartBox product={this.props.product} />
         <DeliveryBox handleChange={this.handleChange} />
-        {/* <DeliveryBox onChange={(deliveryData) => this.setState({ deliveryData })}/> */}
         <ShippingBox />
-        <PaymentBox phoneNumber={this.state.tel} />
-        
-        {/* <SwishBox phoneNumber={this.state.tel} /> */}
-        {/* <PaymentBox deliveryData={this.state.deliveryData} /> */}
-
+        <PaymentBox
+          isOrderBeingProcessed={this.state.isOrderBeingProcessed}
+          onSubmitOrder={this.createOrder}
+          phoneNumber={this.state.tel}
+        />
       </Main>
         
     );

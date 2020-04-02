@@ -36,7 +36,7 @@ export default class ShippingBox extends React.Component<Props, State> {
 
   render() {
     return (
-      <Box pad="xlarge" gap="large" width="large" background="light-1">
+      <Box pad="large" gap="large" width="large" background="light-1">
         <Box width="large" direction="row" justify="between">
           <Text size="large" alignSelf="start" weight="bold">
             Shipping
@@ -60,7 +60,7 @@ export default class ShippingBox extends React.Component<Props, State> {
           </Text>
           <RadioButton
             name="Schenker"
-            label="Schenker(5 days) + 0 SEK"
+            label="Schenker (5 days) + 0 SEK"
           />
           <Text style={{ fontSize: "12pt", paddingLeft: "1.9rem" }}>
             Receive your order on <strong>{this.Schenker()}</strong>

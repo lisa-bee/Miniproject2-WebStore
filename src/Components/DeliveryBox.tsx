@@ -10,7 +10,7 @@ interface State {}
 export default class DeliveryBox extends React.Component<Props, State> {
   render() {
     return (
-      <Box pad="xlarge" gap="large" width="large" background="light-1">
+      <Box pad="large" gap="large" width="large" background="light-1">
         <Box direction="row" width="large" justify="between">
           <Text size="large" weight="bold">
             Delivery
