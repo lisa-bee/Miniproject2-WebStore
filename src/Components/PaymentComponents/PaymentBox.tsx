@@ -28,7 +28,9 @@ class PaymentBox extends React.Component<Props, State> {
       paymentSelection: "swish"
     };
   }
+
   render() {
+    console.log(this.state.paymentSelection);
     return (
       <CartConsumer>
         {({ getTotalPrice }) => (

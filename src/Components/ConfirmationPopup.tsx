@@ -16,7 +16,7 @@ export default class ConfirmationPopup extends React.Component<Props, State> {
             background="light-4"
             height="medium"
             className="cartMessage"
-            style={cartMessage}
+            style={cartMessage(size)}
           >
             <Box pad="small">
               <h1>One item added to cart!</h1>
@@ -30,6 +30,7 @@ export default class ConfirmationPopup extends React.Component<Props, State> {
                   label="Continue"
                   primary
                   color="dark-1"
+                  style={buttonStyle(size)}
                 ></Button>
                 <Link to="/checkoutpage/">
                   <Button
@@ -38,6 +39,7 @@ export default class ConfirmationPopup extends React.Component<Props, State> {
                     label="Go to cart"
                     primary
                     color="dark-1"
+                    style={buttonStyle(size)}
                   ></Button>
                 </Link>
               </Box>
@@ -49,13 +51,17 @@ export default class ConfirmationPopup extends React.Component<Props, State> {
   }
 }
 
-const cartMessage: CSSProperties = {
+const cartMessage = (size: string): CSSProperties => ({
   display: "flex",
   flexDirection: "column",
   textAlign: "center",
   lineHeight: "normal",
   position: "absolute",
-  width: "100%",
+  width: size == "small" ? "83%" : "100%",
   justifyContent: "center",
   alignItems: "center"
-};
+});
+
+const buttonStyle = (size: string): CSSProperties => ({
+  fontSize: size == "small" ? "13px" : "18px"
+});
