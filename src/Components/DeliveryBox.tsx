@@ -17,7 +17,6 @@ export default class DeliveryBox extends React.Component<Props, State> {
           </Text>
           <Home color="brand"></Home>
         </Box>
-
         <FormField
           name="given-name"
           autoComplete="given-name"

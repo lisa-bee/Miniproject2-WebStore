@@ -84,7 +84,8 @@ export default class CheckoutPage extends React.Component<Props, State> {
         gap="small"
         flex="grow"
       >
-        <Form validate="submit" onSubmit={this.createOrder}>
+        <Box>
+        <Form autoComplete="on" validate="submit" onSubmit={this.createOrder}>
           <Heading size="small">CHECKOUT</Heading>
           <CartBox product={this.props.product} />
           <DeliveryBox handleChange={this.handleChange} />
@@ -99,6 +100,7 @@ export default class CheckoutPage extends React.Component<Props, State> {
             selectedshipping={this.state.selectedshipping}
           />
         </Form>
+        </Box>
       </Main>
     );
   }

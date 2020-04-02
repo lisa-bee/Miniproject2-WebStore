@@ -46,7 +46,7 @@ export default class ShippingBox extends React.Component<Props, State> {
                 onChange={() => this.props.setRadioButton(shipping)}
               ></RadioButton>
               {shipping.id == this.props.selectedshipping.id && (
-                <Text style={{ fontSize: "10pt", marginLeft: "2.35rem"}}>Delivery on <strong>{this.getDeliveryDate()}</strong></Text>
+                <Text style={{ fontSize: "11pt", marginLeft: "2.35rem"}}>Delivery on <strong>{this.getDeliveryDate()}</strong></Text>
               )}
             </>
           ))}
