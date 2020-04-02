@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 export default class OrderPlacedPage extends React.Component<{}, {}> {
   render() {
     return (
-      <Box align="center" pad="large" gap="large" width="large">
+      <Box align="center" pad="large" gap="large" width="large" style={{textAlign: "center"}}>
         <Box align="center">
           <h1>Your order has been placed!</h1>
           <Text>Your order number is:</Text>
