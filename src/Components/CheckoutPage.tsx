@@ -1,5 +1,5 @@
 import React from "react";
-import { Main, Heading, Box } from "grommet";
+import { Main, Heading, Box, Form } from "grommet";
 import CartBox from "./CartBox";
 import DeliveryBox from "./DeliveryBox";
 import ShippingBox from "./ShippingBox";
@@ -8,6 +8,7 @@ import { Product } from "./AllProducts";
 import { createOrder } from "../MockedApi";
 import OrderPlacedPage from "./OrderPlacedPage";
 import { CartConsumer } from "../contexts/CartContext";
+import { ShippingOption, shippingAlternatives } from "../mockedShipping";
 
 interface Props {
   product: Product;
@@ -23,7 +24,8 @@ interface State {
   city: string;
   isOrderBeingProcessed: boolean;
   orderHasBeenPlaced: boolean;
-  deliveryPrice: string
+  selectedshipping: ShippingOption;
+
 }
 
 export default class CheckoutPage extends React.Component<Props, State> {
@@ -40,7 +42,7 @@ export default class CheckoutPage extends React.Component<Props, State> {
       city: "",
       isOrderBeingProcessed: false,
       orderHasBeenPlaced: false,
-      deliveryPrice: ""
+      selectedshipping: shippingAlternatives[0]
     };
   }
 
@@ -48,16 +50,9 @@ export default class CheckoutPage extends React.Component<Props, State> {
     this.setState({ ...this.state, [name]: value });
   };
 
-  setRadioButton = (id: string, value: string) => {
-    if (id === "1") {
-      this.setState({ deliveryPrice: value });
-    }
-    if (id === "2") {
-      this.setState({ deliveryPrice: value });
-    }
-    if (id === "3") {
-      this.setState({ deliveryPrice: value });
-    }
+  setRadioButton = (shipping: ShippingOption) => {
+      this.setState({ selectedshipping: shipping });
+    
   };
 
   createOrder = async () => {
@@ -91,16 +86,20 @@ export default class CheckoutPage extends React.Component<Props, State> {
         gap="small"
         flex="grow"
       >
+       <Form validate="submit"
+        onSubmit={this.createOrder
+        }>
         <Heading size="small">CHECKOUT</Heading>
         <CartBox product={this.props.product} />
         <DeliveryBox handleChange={this.handleChange} />
-        <ShippingBox setRadioButton={this.setRadioButton}/>
+        <ShippingBox selectedshipping={this.state.selectedshipping} setRadioButton={this.setRadioButton}/>
         <PaymentBox
           isOrderBeingProcessed={this.state.isOrderBeingProcessed}
           onSubmitOrder={this.createOrder}
           phoneNumber={this.state.tel}
-          deliveryPrice={this.state.deliveryPrice}
+          selectedshipping={this.state.selectedshipping}
         />
+        </Form>
       </Main>
     );
   }

@@ -12,6 +12,7 @@ import {
 import { Money, Edit } from "grommet-icons";
 import { CartConsumer } from "../contexts/CartContext";
 import ClipLoader from "react-spinners/ClipLoader";
+import { ShippingOption } from "../mockedShipping";
 
 type PaymentOption = "swish" | "credit-card" | "invoice";
 
@@ -19,7 +20,7 @@ interface Props {
   isOrderBeingProcessed: boolean;
   onSubmitOrder: () => void;
   phoneNumber: string;
-  deliveryPrice: string;
+  selectedshipping: ShippingOption;
 }
 
 interface State {
@@ -75,7 +76,7 @@ class PaymentBox extends React.Component<Props, State> {
             <Text>Swish number: {this.props.phoneNumber}</Text>
             {/* <input type="tel" placeholder="PhoneNumber" value={this.props.phoneNumber} /> */}
 
-            <Form autoComplete="on" validate="blur">
+
               <FormField
                 name="cardnumber"
                 autoComplete="cc-number"
@@ -115,8 +116,8 @@ class PaymentBox extends React.Component<Props, State> {
                 type="text"
                 required
               />
-            </Form>
-            <Form autoComplete="on" validate="blur">
+         
+  
               <FormField
                 name="email"
                 label="Email"
@@ -124,9 +125,9 @@ class PaymentBox extends React.Component<Props, State> {
                 required
                 autoComplete="email"
               />
-            </Form>
+           
             <Text alignSelf="center" textAlign="center" size="large">
-              Total <strong>{getTotalPrice() + Number(this.props.deliveryPrice)} SEK</strong> VAT & shipping
+              Total <strong>{getTotalPrice() + Number(this.props.selectedshipping.price)} SEK</strong> VAT & shipping
               included
             </Text>
             <Box alignSelf="center" align="center">
@@ -137,7 +138,6 @@ class PaymentBox extends React.Component<Props, State> {
                   color="dark-1"
                   primary
                   label="COMPLETE PURCHASE"
-                  onClick={this.props.onSubmitOrder}
                 />
               )}
               {this.props.isOrderBeingProcessed && (

@@ -18,7 +18,6 @@ export default class DeliveryBox extends React.Component<Props, State> {
           <Home color="brand"></Home>
         </Box>
 
-        <Form validate="blur" autoComplete="on">
           <FormField
             name="given-name"
             autoComplete="given-name"
@@ -96,7 +95,6 @@ export default class DeliveryBox extends React.Component<Props, State> {
               this.props.handleChange("city", event.target.value)
             }
           />
-        </Form>
       </Box>
     );
   }
