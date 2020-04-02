@@ -36,7 +36,7 @@ const heading = (size: string): CSSProperties => ({
   height: "100%",
   justifyContent: "center",
   alignItems: "center",
-  zIndex: 2,
+  zIndex: 1,
   width: "100%",
   color: "#3d138d",
   fontSize: size == "small" ? "3rem" : size == "medium" ? "6rem" : "7rem",

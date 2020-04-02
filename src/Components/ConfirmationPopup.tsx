@@ -12,15 +12,17 @@ export default class ConfirmationPopup extends React.Component<Props, State> {
     return (
       <>
         <Box
-          background="dark-5"
+          background="light-4"
           height="medium"
-          width="large"
           className="cartMessage"
           style={cartMessage}
         >
-          <h1>Item added to cart!</h1>
+          <Box pad="small">
+          <h1>One item added to cart!</h1>
           <p>Continue shopping or go to cart?</p>
-          <Box style={{ display: "flex", flexDirection: "row" }}>
+          </Box>
+          <Box direction="row-responsive">
+            <Box direction="row">
             <Button
               onClick={this.props.closeDiv}
               margin="small"
@@ -37,6 +39,7 @@ export default class ConfirmationPopup extends React.Component<Props, State> {
                 color="dark-1"
               ></Button>
             </Link>
+            </Box>
           </Box>
         </Box>
       </>
@@ -47,8 +50,10 @@ export default class ConfirmationPopup extends React.Component<Props, State> {
 const cartMessage: CSSProperties = {
   display: "flex",
   flexDirection: "column",
-  zIndex: 1,
+  textAlign: "center",
+  lineHeight: "normal",
   position: "absolute",
+  width: "100%",
   justifyContent: "center",
   alignItems: "center"
 };
