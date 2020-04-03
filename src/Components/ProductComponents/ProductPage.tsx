@@ -3,10 +3,10 @@ import { Box } from "grommet";
 import ImageBox from "./ImageBox";
 import ProductInfoBox from "./ProductInfoBox";
 import { RouteComponentProps } from "react-router-dom";
-import ConfirmationPopup from "./ConfirmationPopup";
+import ConfirmationPopup from "../ConfirmationPopup";
 import { Product } from "./AllProducts";
 import { StaticContext } from "react-router";
-import { data } from "../products";
+import { data } from "../../products";
 
 interface Props extends RouteComponentProps<{}, StaticContext, Product> {}
 

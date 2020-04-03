@@ -9,7 +9,9 @@ When the order is placed a mocked API runs and after 3 seconds you get redirecte
 
 Since there's a bug in Grommets typing, you need to ctr-click (Windows) or cmd-click (Mac) on the Video component in Hero.tsx so that the file "index.d.ts" opens. On line number 16 you need to change to: "declare const Video: React.ComponentClass<VideoProps>;
 
-You also need to run "npm install --save react-spinners" to install the loading spinner in the check out page.
+You need to run "npm install --save react-spinners" to install the loading spinner in the check out page.
+
+At last you need to run "npm install grommet grommet-icons styled-components --save" to install Grommet.
 
 ## Available Scripts
 

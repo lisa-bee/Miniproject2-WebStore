@@ -1,5 +1,5 @@
 import React, { createContext } from "react";
-import { Product } from "../Components/AllProducts";
+import { Product } from "../Components/ProductComponents/AllProducts";
 
 const defaultState: State = {
   items: [],

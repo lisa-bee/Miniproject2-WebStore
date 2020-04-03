@@ -1,6 +1,6 @@
 import React from "react";
 import Hero from "./Hero";
-import AllProducts from "./AllProducts";
+import AllProducts from "./ProductComponents/AllProducts";
 import { Box } from "grommet";
 
 export default class StartPage extends React.Component {
