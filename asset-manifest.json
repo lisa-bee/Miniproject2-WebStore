@@ -1,0 +1,33 @@
+{
+  "files": {
+    "main.css": "/Miniproject2-WebStore/static/css/main.ec1e4351.chunk.css",
+    "main.js": "/Miniproject2-WebStore/static/js/main.0a7cbc99.chunk.js",
+    "main.js.map": "/Miniproject2-WebStore/static/js/main.0a7cbc99.chunk.js.map",
+    "runtime-main.js": "/Miniproject2-WebStore/static/js/runtime-main.35bd99fa.js",
+    "runtime-main.js.map": "/Miniproject2-WebStore/static/js/runtime-main.35bd99fa.js.map",
+    "static/js/2.3bf7cfae.chunk.js": "/Miniproject2-WebStore/static/js/2.3bf7cfae.chunk.js",
+    "static/js/2.3bf7cfae.chunk.js.map": "/Miniproject2-WebStore/static/js/2.3bf7cfae.chunk.js.map",
+    "index.html": "/Miniproject2-WebStore/index.html",
+    "precache-manifest.135fb72015b438c74068353f092550ed.js": "/Miniproject2-WebStore/precache-manifest.135fb72015b438c74068353f092550ed.js",
+    "service-worker.js": "/Miniproject2-WebStore/service-worker.js",
+    "static/css/main.ec1e4351.chunk.css.map": "/Miniproject2-WebStore/static/css/main.ec1e4351.chunk.css.map",
+    "static/js/2.3bf7cfae.chunk.js.LICENSE.txt": "/Miniproject2-WebStore/static/js/2.3bf7cfae.chunk.js.LICENSE.txt",
+    "static/media/ape.jpg": "/Miniproject2-WebStore/static/media/ape.57d7985b.jpg",
+    "static/media/brownie.jpg": "/Miniproject2-WebStore/static/media/brownie.ba73ca67.jpg",
+    "static/media/cactus.jpg": "/Miniproject2-WebStore/static/media/cactus.38cee52a.jpg",
+    "static/media/coffe1.jpg": "/Miniproject2-WebStore/static/media/coffe1.0c5eb4c3.jpg",
+    "static/media/gold1.jpg": "/Miniproject2-WebStore/static/media/gold1.82160599.jpg",
+    "static/media/gold2.jpg": "/Miniproject2-WebStore/static/media/gold2.cbf50a73.jpg",
+    "static/media/gold3.jpg": "/Miniproject2-WebStore/static/media/gold3.f9995754.jpg",
+    "static/media/livingroom.mp4": "/Miniproject2-WebStore/static/media/livingroom.faa0e5b3.mp4",
+    "static/media/marra.jpg": "/Miniproject2-WebStore/static/media/marra.d4e2166a.jpg",
+    "static/media/marra1.jpg": "/Miniproject2-WebStore/static/media/marra1.17473160.jpg",
+    "static/media/wood.jpg": "/Miniproject2-WebStore/static/media/wood.96649812.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.35bd99fa.js",
+    "static/js/2.3bf7cfae.chunk.js",
+    "static/css/main.ec1e4351.chunk.css",
+    "static/js/main.0a7cbc99.chunk.js"
+  ]
+}
