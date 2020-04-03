@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "6948f45998295a67952e8e0af20c1e87",
+    "revision": "b2ad3c5e059cc490ac06527e6ff4af18",
     "url": "/Miniproject2-WebStore/index.html"
   },
   {
-    "revision": "5cf61c50279d0992531c",
+    "revision": "1d745f72ecdf04917db9",
     "url": "/Miniproject2-WebStore/static/css/main.ec1e4351.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/Miniproject2-WebStore/static/js/2.3bf7cfae.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "5cf61c50279d0992531c",
-    "url": "/Miniproject2-WebStore/static/js/main.0a7cbc99.chunk.js"
+    "revision": "1d745f72ecdf04917db9",
+    "url": "/Miniproject2-WebStore/static/js/main.1b978399.chunk.js"
   },
   {
     "revision": "ef9ab9ae9508f5a6c183",
