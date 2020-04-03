@@ -1,7 +1,7 @@
 import React from "react";
 import { Box, Text, RadioButton } from "grommet";
 import { Deliver } from "grommet-icons";
-import { shippingAlternatives, ShippingOption } from "../mockedShipping";
+import { shippingAlternatives, ShippingOption } from "../../mockedShipping";
 
 interface Props {
   getDeliveryOption: (shipping: ShippingOption) => void;

@@ -3,7 +3,7 @@ import { Box, Image, ResponsiveContext } from "grommet";
 import { Cart } from "grommet-icons";
 import { Link } from "react-router-dom";
 import { Product } from "./AllProducts";
-import { CartConsumer } from "../contexts/CartContext";
+import { CartConsumer } from "../../contexts/CartContext";
 
 interface Props {
   product: Product;

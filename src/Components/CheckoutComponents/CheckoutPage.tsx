@@ -3,12 +3,12 @@ import { Main, Heading, Box, Form } from "grommet";
 import CartBox from "./CartBox";
 import DeliveryBox from "./DeliveryBox";
 import ShippingBox from "./ShippingBox";
-import PaymentBox from "./PaymentComponents/PaymentBox";
-import { Product } from "./AllProducts";
-import { createOrder } from "../MockedApi";
+import PaymentBox from "../PaymentComponents/PaymentBox";
+import { Product } from "../ProductComponents/AllProducts";
+import { createOrder } from "../../MockedApi";
 import OrderPlacedPage from "./OrderPlacedPage";
-import { CartConsumer } from "../contexts/CartContext";
-import { ShippingOption, shippingAlternatives } from "../mockedShipping";
+import { CartConsumer } from "../../contexts/CartContext";
+import { ShippingOption, shippingAlternatives } from "../../mockedShipping";
 
 interface Props {
   product: Product;

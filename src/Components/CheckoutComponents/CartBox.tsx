@@ -10,8 +10,8 @@ import {
   ResponsiveContext
 } from "grommet";
 import { Cart, FormAdd, FormSubtract, FormTrash } from "grommet-icons";
-import { CartConsumer } from "../contexts/CartContext";
-import { Product } from "./AllProducts";
+import { CartConsumer } from "../../contexts/CartContext";
+import { Product } from "../ProductComponents/AllProducts";
 
 interface Props {
   product: Product;

@@ -1,8 +1,8 @@
 import React, { CSSProperties } from "react";
 import { Box } from "grommet";
 import ProductContainer from "./ProductContainer";
-import { data } from "../products";
-import ConfirmationPopup from "./ConfirmationPopup";
+import { data } from "../../products";
+import ConfirmationPopup from "../ConfirmationPopup";
 
 export type Product = {
   index: number;

@@ -2,7 +2,7 @@ import React from "react";
 import { Box, Button, Text } from "grommet";
 import { Close } from "grommet-icons";
 import { Link } from "react-router-dom";
-import { CartConsumer } from "../contexts/CartContext";
+import { CartConsumer } from "../../contexts/CartContext";
 import { Product } from "./AllProducts";
 
 interface Props {
