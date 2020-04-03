@@ -13,7 +13,7 @@ import OrderPlacedPage from "./Components/CheckoutComponents/OrderPlacedPage";
 
 function App() {
   return (
-    <BrowserRouter basename="/">
+    <BrowserRouter basename="/Miniproject2-WebStore">
       <CartProvider>
         <div className="App">
           <Grommet theme={grommet}>
