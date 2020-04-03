@@ -3,81 +3,81 @@ import { Product } from "./Components/AllProducts";
 export const data: Product[] = [
   {
     index: 1,
-    title: "Girl in Paris Window Poster",
+    title: "Wood pattern Poster",
     price: 149,
-    image: require("./assets/Products/Girl-in-window.jpg"),
+    image: require("./assets/Products/wood.jpg"),
     description:
-      "A black and white photo motif depicting and young woman looking out at the city through a window. The poster gives a sense of courage and curiosity and it is hard to imagine other than to wonder who the woman in the picture is and who she will become."
+      "Abstract poster with a nature motif of wooden pattern in close-up. The motif shows how beautiful nature can be in its simplest form. The poster has a built-in passport layout that frames the subject in a stylish way."
   },
   {
     index: 2,
-    title: "Dreamer",
+    title: "Shore of Gold Poster",
     price: 199,
-    image: require("./assets/Products/Dreamer.jpg"),
+    image: require("./assets/Products/gold2.jpg"),
     description:
-      "Beautiful photo art poster with an inspiring motif of birds flying high in the sky inside the silhouette of a woman's face."
+      "Abstract poster in trendy beige and white tones. It looks like a beach from above in a mysterious dry area created by white sand, dried moss or algae. Abstract art creates an image for the viewer's imagination. Everyone can see different things in the same image, which makes abstract art unique in its own way."
   },
   {
     index: 3,
-    title: "Dissolve Me Poster",
+    title: "Espresso Poster",
     price: 189,
-    image: require("./assets/Products/Dissolve-me.jpeg"),
+    image: require("./assets/Products/coffe1.jpg"),
     description:
-      "Elegant black and white poster with motifs of a female profile in the form of black smoke clouds. The black clouds of smoke disperse beautifully, forming a mysterious fog. The motif was created by the Hungarian artist and graphic designer Dániel Taylor."
+      "Tasteful poster with a photographic motif of freshly brewed espresso that drops gently into an espresso cup. The creamy espresso drops give such an inviting impression that you can almost feel the sweet coffee scent just by looking at the poster."
   },
   {
     index: 4,
-    title: "Feather Poster",
+    title: "Marrakech Poster",
     price: 159,
-    image: require("./assets/Products/Feather.jpg"),
+    image: require("./assets/Products/marra.jpg"),
     description:
-      "Stylish poster with picture of a beautiful black and white feather, feather. The feather board does well alone or in combination with any of our other posters."
+      "Stylish poster with a colorful motif of a pool in front of a large stone arch in classic Moroccan style. The Moroccan architecture evokes an exotic and colorful atmosphere that suits most homes and interior styles."
   },
   {
     index: 5,
-    title: "Dandelion Poster",
+    title: "Cactus Poster",
     price: 149,
-    image: require("./assets/Products/Dandelion.jpg"),
+    image: require("./assets/Products/cactus.jpg"),
     description:
-      "Beautiful and dreamy poster with dandelions, in black and white."
+      "Summery poster of a beautiful cactus against a pink background. No matter how clumsy it sounds, the cactus on the poster is called the Cowboy Cactus. The Latin name is Cactus Euphorbia Ingens."
   },
   {
     index: 6,
-    title: "Treetops Poster",
+    title: "Brownies Poster",
     price: 129,
-    image: require("./assets/Products/Treetops.jpg"),
-    description: "Beautiful poster with motifs of treetops, in black and white."
+    image: require("./assets/Products/brownie.jpg"),
+    description: "Appetizing items with motifs of tasty brownies that lie aesthetically lined up on a sturdy wooden tray. The poster is perfect as a kitchen counter, for example, for a modern retro look."
   },
   {
     index: 7,
-    title: "Birch Forest Poster",
+    title: "Woman Sunbathing Poster",
     price: 149,
-    image: require("./assets/Products/Birch-forest.jpg"),
+    image: require("./assets/Products/ape.jpg"),
     description:
-      "Beautiful poster with birch forest motif, in black and white. The poster has a built-in passport layout that frames the subject in a beautiful way."
+      "Iconic photo art black and white poster with a photographic motif of a blonde woman sitting and sunning in the company of a chimpanzee. with retro sunglasses. The poster has a built-in passport layout that frames the subject in a stylish way."
   },
   {
     index: 8,
-    title: "Owl Poster",
+    title: "Gold Lining Poster",
     price: 129,
-    image: require("./assets/Products/Owl.jpg"),
+    image: require("./assets/Products/gold1.jpg"),
     description:
-      "Beautiful blackboard with picture on a black and white snow owl, snow owl. The poster suits all home and interior styles."
+      "Abstract poster of lines in a trendy color scale. It looks like a foiled rock. Foliation refers to repetitive layering in some rocks caused by shear forces or differential pressure on the rock."
   },
   {
     index: 9,
-    title: "Majestic Lion Poster",
+    title: "Mosaic Archway Poster",
     price: 179,
-    image: require("./assets/Products/Lion.jpg"),
+    image: require("./assets/Products/marra1.jpg"),
     description:
-      "A black and white photo art poster with a portrait of a majestic lion. The man is swaying in the wind and his gaze is focused on something far away in the distance. A beautiful and strong image that includes fits well with our other animals and nature posters."
+      "Magnificent architecture poster on a stone arch just outside the Hassan II Mosque in Casablanca, Morocco. The mosque is the largest in Africa and the seventh largest mosque in the world."
   },
   {
     index: 10,
-    title: "Elephant Poster",
+    title: "Gold Vein Poster",
     price: 199,
-    image: require("./assets/Products/Elephant.jpg"),
+    image: require("./assets/Products/gold3.jpg"),
     description:
-      "A photo art poster with motifs of a beautiful and stately elephant. The picture goes in black and white tones with incredible detail, giving you the feeling that you are almost there yourself and meet the magnificent animal."
+      "Abstract poster in a trendy color range that leaves the imagination to the viewer. What do you see in it? It may be a shell covered in sand and some foamy water in the sea."
   }
 ];
