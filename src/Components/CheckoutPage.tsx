@@ -59,7 +59,6 @@ export default class CheckoutPage extends React.Component<Props, State> {
     const allOrderInfo = this.state;
     await createOrder(allOrderInfo);
     this.setState({ isOrderBeingProcessed: false, orderHasBeenPlaced: true });
-    console.log(allOrderInfo);
   };
 
   render() {

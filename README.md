@@ -1,8 +1,15 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
 # Mini project-Web store
 
+This is web store bootstrapped with [Create React App](https://github.com/facebook/create-react-app) and designed with the [Grommet design system](https://v2.grommet.io/).
+The store sells posters. On the start page you can see all the available posters and directly add them to your cart. You can also click on on a poster to get more information about it and add it to your cart from that page. When you add a product to your cart a confirmation pop up appears to clearify that the product was added.
+If you go to the cart you'll see all your products with a title, quantity and price together with the total price. To place a order you need to fill in your shipping information, payment method and shipping option.
+When the order is placed a mocked API runs and after 3 seconds you get redirected to the confrimation page.
+
+# In order to build the project
+
 Since there's a bug in Grommets typing, you need to ctr-click (Windows) or cmd-click (Mac) on the Video component in Hero.tsx so that the file "index.d.ts" opens. On line number 16 you need to change to: "declare const Video: React.ComponentClass<VideoProps>;
+
+You also need to run "npm install --save react-spinners" to install the loading spinner in the check out page.
 
 ## Available Scripts
 
@@ -16,33 +23,6 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.<br />
 You will also see any lint errors in the console.
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+[Grommet Design System](https://v2.grommet.io/)
+[Github Repo](https://github.com/lisa-bee/Miniproject2-WebStore)
+[Github pages](https://lisa-bee.github.io/Miniproject2-WebStore)

@@ -30,7 +30,6 @@ class PaymentBox extends React.Component<Props, State> {
   }
 
   render() {
-    console.log(this.state.paymentSelection);
     return (
       <CartConsumer>
         {({ getTotalPrice }) => (
