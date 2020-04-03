@@ -1,9 +1,9 @@
 # Mini project-Web store
 
-This is web store bootstrapped with [Create React App](https://github.com/facebook/create-react-app) and designed with the [Grommet design system](https://v2.grommet.io/).
-The store sells posters. On the start page you can see all the available posters and directly add them to your cart. You can also click on on a poster to get more information about it and add it to your cart from that page. When you add a product to your cart a confirmation pop up appears to clearify that the product was added.
-If you go to the cart you'll see all your products with a title, quantity and price together with the total price. To place a order you need to fill in your shipping information, payment method and shipping option.
-When the order is placed a mocked API runs and after 3 seconds you get redirected to the confrimation page.
+This is a web store bootstrapped with [Create React App](https://github.com/facebook/create-react-app) and designed with the [Grommet design system](https://v2.grommet.io/).
+The store sells posters. On the start page you can see all the available posters and directly add them to your cart. You can also click on a poster to get more information about it and add it to your cart from that page. When you add a product to your cart a confirmation pop up appears to clearify that the product was added.
+If you go to the cart you'll see all your products with a title, quantity and price together with the total price. To place an order you need to fill in your shipping information, payment method and shipping option.
+When the order is placed a mocked API runs and after 3 seconds you are redirected to the confrimation page.
 
 # In order to build the project
 
