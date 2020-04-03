@@ -45,7 +45,6 @@ export class CartProvider extends React.Component<Props, State> {
   }
 
   addProductToCart = (product: Product) => {
-    // console.log(product);
     const clonedItems: CartItem[] = Object.assign([], this.state.items);
     for (const item of clonedItems) {
       if (item.product.index == product.index) {
@@ -54,16 +53,11 @@ export class CartProvider extends React.Component<Props, State> {
         return;
       }
     }
-    // Finns produkten i items, inkrementera quantity med +1, annars lägg till produkten.
     clonedItems.push({ quantity: 1, product: product });
     this.setState({ items: clonedItems });
-
-    /* save to state */
-    // Add a new cartItem or just update the quantity (finns product.id i this.state.items[].id)
   };
 
   removeOneProduct = (product: Product) => {
-    // console.log(product);
     const clonedItems: CartItem[] = Object.assign([], this.state.items);
     for (var i = 0; i < clonedItems.length; i++) {
       if (clonedItems[i].quantity <= 1) {
@@ -119,7 +113,6 @@ export class CartProvider extends React.Component<Props, State> {
   };
 
   render() {
-    // console.log(this.state.items[4].product);
     return (
       <CartContext.Provider value={this.state}>
         {this.props.children}
