@@ -71,7 +71,7 @@ export default class CartBox extends React.Component<Props, State> {
                             style={{ width: "1.9rem", height: "2.65rem" }}
                           />
                         </TableCell>
-                        <TableCell size="small">
+                        <TableCell>
                           {product.product.title}
                         </TableCell>
                         <TableCell>{product.quantity}</TableCell>

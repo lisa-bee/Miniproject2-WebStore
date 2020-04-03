@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Button, Text, Menu } from "grommet";
+import { Box, Button, Text } from "grommet";
 import { Close } from "grommet-icons";
 import { Link } from "react-router-dom";
 import { CartConsumer } from "../contexts/CartContext";
@@ -32,7 +32,7 @@ export default class ProductInfoBox extends React.Component<Props, State> {
       <CartConsumer>
         {({ addProductToCart }) => (
           <div>
-            <Box pad="medium" gap="medium" width="medium" background="light-2">
+            <Box pad="medium" gap="medium" width="medium">
               <Box direction="row" justify="between">
                 <Text>{this.props.product.title} </Text>
                 <Link to="/">

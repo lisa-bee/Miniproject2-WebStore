@@ -10,7 +10,7 @@ interface State {}
 export default class ImageBox extends React.Component<Props, State> {
   render() {
     return (
-      <Box background="light-5" pad="medium" width="medium" height="medium">
+      <Box pad="small" width="medium" height="medium">
         <Image fit="contain" src={this.props.image} />
       </Box>
     );
