@@ -32,7 +32,7 @@ export default class ProductInfoBox extends React.Component<Props, State> {
       <CartConsumer>
         {({ addProductToCart }) => (
           <div>
-            <Box pad="medium" gap="medium" width="medium" background="light-2">
+            <Box pad="medium" gap="medium" width="medium">
               <Box direction="row" justify="between">
                 <Text>{this.props.product.title} </Text>
                 <Link to="/">

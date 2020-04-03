@@ -59,15 +59,16 @@ export default class ProductPage extends React.Component<Props, State> {
   render() {
     return (
       <Box
-        direction="row-responsive"
         justify="center"
         align="center"
         pad="large"
         background="light"
       >
         {this.state.isOpen && <ConfirmationPopup closeDiv={this.closeDiv} />}
+        <Box background="light-2" direction="row-responsive" pad="small">
         <ImageBox image={this.state.selectedProduct!.image} />
         {this.productInfo}
+        </Box>
       </Box>
     );
   }
