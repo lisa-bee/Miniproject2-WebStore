@@ -9,7 +9,7 @@ export default class Header1 extends React.Component {
     let image = require("../assets/logo.png");
     return (
       <CartConsumer>
-        {({ items, getTotalQuantity }) => (
+        {({ getTotalQuantity }) => (
           <ResponsiveContext.Consumer>
             {size => (
               <Header justify="between" background="light-1" pad="small">
