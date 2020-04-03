@@ -64,7 +64,7 @@ export default class CheckoutPage extends React.Component<Props, State> {
   render() {
     if (this.state.orderHasBeenPlaced) {
       return (
-        <Box>
+        <Box align="center">
           <CartConsumer>
             {({ items, deleteAllProductsFromCart }) =>
               items.map(product => {
@@ -72,7 +72,7 @@ export default class CheckoutPage extends React.Component<Props, State> {
               })
             }
           </CartConsumer>
-          <OrderPlacedPage />;
+          <OrderPlacedPage />
         </Box>
       );
     }
