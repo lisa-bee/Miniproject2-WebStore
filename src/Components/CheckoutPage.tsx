@@ -86,7 +86,9 @@ export default class CheckoutPage extends React.Component<Props, State> {
       >
         <Box>
           <Form autoComplete="on" validate="submit" onSubmit={this.createOrder}>
-            <Heading textAlign="center" size="small">CHECKOUT</Heading>
+            <Heading textAlign="center" size="small">
+              CHECKOUT
+            </Heading>
             <CartBox product={this.props.product} />
             <DeliveryBox handleChange={this.handleChange} />
             <ShippingBox

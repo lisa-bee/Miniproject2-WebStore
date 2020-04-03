@@ -1,21 +1,14 @@
-import React, { CSSProperties } from "react";
-import { Box, Button } from "grommet";
+import React from "react";
+import { Box } from "grommet";
 import ImageBox from "./ImageBox";
 import ProductInfoBox from "./ProductInfoBox";
-import {
-  Link,
-  withRouter,
-  RouteComponentProps,
-  useParams
-} from "react-router-dom";
+import { RouteComponentProps } from "react-router-dom";
 import ConfirmationPopup from "./ConfirmationPopup";
 import { Product } from "./AllProducts";
 import { StaticContext } from "react-router";
 import { data } from "../products";
 
-interface Props extends RouteComponentProps<{}, StaticContext, Product> {
-  // location: any;
-}
+interface Props extends RouteComponentProps<{}, StaticContext, Product> {}
 
 interface State {
   selectedProduct: Product | undefined;

@@ -1,8 +1,7 @@
 import React from "react";
 import Hero from "./Hero";
 import AllProducts from "./AllProducts";
-import { Box, Button } from "grommet";
-import { Link } from "react-router-dom";
+import { Box } from "grommet";
 
 export default class StartPage extends React.Component {
   render() {
